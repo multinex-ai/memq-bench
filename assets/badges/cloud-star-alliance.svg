@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="216" height="28" role="img" aria-label="Cloud Star Alliance">
+  <rect rx="14" width="216" height="28" fill="#0f172a"/>
+  <rect rx="14" x="92" width="124" height="28" fill="#4c1d95"/>
+  <path d="M18 14l3.5 1.2-1.4 3.4 3.2-2 2.7 2.5-.8-3.6 3.4-1.4-3.7-.6.2-3.7-2.2 3-3.2-1.1 1.9 3.1z" fill="#e9d5ff"/>
+  <text x="57" y="19" fill="#e5e7eb" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11" text-anchor="middle">STANDARDS</text>
+  <text x="153" y="19" fill="#f3e8ff" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11" text-anchor="middle">CLOUD STAR ALLIANCE</text>
+</svg>

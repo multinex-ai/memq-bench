@@ -1,0 +1,22 @@
+{
+  "id": "cross-session-release-image",
+  "family": "cross_session_recall",
+  "title": "Release image recall",
+  "description": "Verify that the agent recalls the official MemQ image tag and the current backend stack without reintroducing Neo4j.",
+  "query": "memq official image release tag neo4j active backends",
+  "prompt": "You are updating the MemQ deployment guide. State the official gateway image tag, confirm whether Neo4j is part of the runtime, and name the active storage backends.",
+  "workspaceDir": "fixtures/workspaces/cross-session-release-image",
+  "naiveTranscriptPath": "tasks/cross-session-release-image/naive-transcript.md",
+  "verifier": {
+    "requiredFacts": [
+      "ghcr.io/multinex-ai/multinex/munx-memorystack/gateway-deno:v2.1.0",
+      "Neo4j is not part of the current MemQ runtime.",
+      "The active backends are Qdrant and FalkorDB."
+    ],
+    "forbiddenFacts": [
+      "Neo4j is part of the active MemQ stack.",
+      "The active backends are Neo4j and Qdrant."
+    ]
+  },
+  "tags": ["memq", "release", "docker", "runtime"]
+}

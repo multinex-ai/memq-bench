@@ -1,0 +1,55 @@
+{
+  "runName": "memq-smoke",
+  "taskId": "cross-session-release-image",
+  "track": "fixture",
+  "condition": "naive_memory",
+  "repetition": 1,
+  "model": {
+    "name": "fixture-evaluator",
+    "provider": "internal",
+    "temperature": 0
+  },
+  "status": "failed",
+  "reason": "",
+  "startedAt": "2026-03-12T04:20:57.936Z",
+  "finishedAt": "2026-03-12T04:20:57.937Z",
+  "durationMs": 0,
+  "promptTokens": 36,
+  "packedTokens": 62,
+  "verifier": {
+    "matchedFacts": [],
+    "missingFacts": [
+      "ghcr.io/multinex-ai/multinex/munx-memorystack/gateway-deno:v2.1.0",
+      "Neo4j is not part of the current MemQ runtime.",
+      "The active backends are Qdrant and FalkorDB."
+    ],
+    "forbiddenFacts": []
+  },
+  "retrieval": {
+    "liveMemQ": false,
+    "liveGraphiti": false,
+    "liveQdrant": false,
+    "langChainRerankUsed": false,
+    "sliceCount": 2,
+    "packedSliceCount": 2,
+    "promptTokens": 36,
+    "packedTokens": 62,
+    "sourceCounts": {
+      "prompt": 1,
+      "naive_transcript": 1
+    },
+    "notes": []
+  },
+  "payload": {
+    "answer": "No high-confidence recall available from the provided context.",
+    "artifacts": [],
+    "toolCalls": [
+      "prompt:prompt-5333f6099eb075bf",
+      "naive_transcript:naive_transcript-beae08582420f071"
+    ],
+    "metadata": {
+      "fixture": true,
+      "matchedFacts": []
+    }
+  }
+}

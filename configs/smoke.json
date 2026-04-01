@@ -1,0 +1,37 @@
+{
+  "name": "memq-smoke",
+  "description": "Deterministic smoke slice validating all benchmark conditions.",
+  "tasks": [
+    "cross-session-release-image",
+    "manual-copy-regression",
+    "protocol-tool-discipline"
+  ],
+  "repetitions": 1,
+  "matrix": {
+    "tracks": ["fixture"],
+    "conditions": [
+      "stateless",
+      "naive_memory",
+      "memq_core",
+      "memq_accelerated"
+    ]
+  },
+  "model": {
+    "name": "fixture-evaluator",
+    "provider": "internal",
+    "temperature": 0
+  },
+  "memq": {
+    "url": "http://127.0.0.1:8000/mcp/v1",
+    "timeoutMs": 5000
+  },
+  "accelerated": {
+    "enabled": true,
+    "contextBudgetTokens": 4096,
+    "segmentTokens": 2048,
+    "soulJournalPath": "fixtures/soul-journal/memq.jsonl",
+    "graphitiUrl": "http://127.0.0.1:8082/mcp/v1",
+    "qdrantUrl": "http://127.0.0.1:6333"
+  },
+  "outputDir": "artifacts/results"
+}

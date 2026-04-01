@@ -1,0 +1,68 @@
+{
+  "runName": "memq-smoke",
+  "taskId": "manual-copy-regression",
+  "track": "fixture",
+  "condition": "memq_accelerated",
+  "repetition": 1,
+  "model": {
+    "name": "fixture-evaluator",
+    "provider": "internal",
+    "temperature": 0
+  },
+  "status": "passed",
+  "reason": "",
+  "startedAt": "2026-03-12T04:20:58.141Z",
+  "finishedAt": "2026-03-12T04:20:58.160Z",
+  "durationMs": 19,
+  "promptTokens": 32,
+  "packedTokens": 146,
+  "verifier": {
+    "matchedFacts": [
+      "infra/docker/Dockerfile.munx copies docs/MANUAL.md.",
+      "docs/MANUAL.md must exist after munx-cli init.",
+      "The missing MANUAL.md caused munx up to fail during image build."
+    ],
+    "missingFacts": [],
+    "forbiddenFacts": []
+  },
+  "retrieval": {
+    "liveMemQ": true,
+    "liveGraphiti": false,
+    "liveQdrant": true,
+    "langChainRerankUsed": true,
+    "sliceCount": 8,
+    "packedSliceCount": 8,
+    "promptTokens": 32,
+    "packedTokens": 146,
+    "sourceCounts": {
+      "langchain_rerank": 5,
+      "qdrant": 3
+    },
+    "notes": [
+      "MemQ MCP live memory_status probe succeeded.",
+      "Graphiti unavailable: TypeError: fetch failed"
+    ]
+  },
+  "payload": {
+    "answer": "- infra/docker/Dockerfile.munx copies docs/MANUAL.md.\n- docs/MANUAL.md must exist after munx-cli init.\n- The missing MANUAL.md caused munx up to fail during image build.",
+    "artifacts": [],
+    "toolCalls": [
+      "langchain_rerank:qdrant-7a4c29801452d750",
+      "langchain_rerank:qdrant-5636e155527204aa",
+      "langchain_rerank:qdrant-b63ac7b320acc553",
+      "langchain_rerank:qdrant-2798919ee6429401",
+      "qdrant:qdrant-d95b8401a4435e36",
+      "langchain_rerank:qdrant-c7be5538d859dfff",
+      "qdrant:qdrant-f114433778b4af04",
+      "qdrant:qdrant-9f88d1c7a3479fb7"
+    ],
+    "metadata": {
+      "fixture": true,
+      "matchedFacts": [
+        "infra/docker/Dockerfile.munx copies docs/MANUAL.md.",
+        "docs/MANUAL.md must exist after munx-cli init.",
+        "The missing MANUAL.md caused munx up to fail during image build."
+      ]
+    }
+  }
+}

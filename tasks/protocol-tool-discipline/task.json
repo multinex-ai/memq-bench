@@ -1,0 +1,22 @@
+{
+  "id": "protocol-tool-discipline",
+  "family": "procedural_memory",
+  "title": "Protocol tool discipline",
+  "description": "Verify that the agent recalls the constitutional MemQ usage loop and the semantic vs HOT split between the search tools.",
+  "query": "memq agent protocol memory_status search_memory recent_memory add_memory reflect_memory",
+  "prompt": "State the required MemQ execution loop for an agent handling non-trivial work. Include when to call memory_status, when to use search_memory versus recent_memory, and when add_memory and reflect_memory should fire.",
+  "workspaceDir": "fixtures/workspaces/protocol-tool-discipline",
+  "naiveTranscriptPath": "tasks/protocol-tool-discipline/naive-transcript.md",
+  "verifier": {
+    "requiredFacts": [
+      "Agents should call memory_status before non-trivial work.",
+      "Agents should use search_memory for semantic recall and recent_memory for HOT continuity.",
+      "Agents should call add_memory after execution and reflect_memory at task or session close."
+    ],
+    "forbiddenFacts": [
+      "Agents should skip memory_status and write memory first.",
+      "recent_memory replaces add_memory."
+    ]
+  },
+  "tags": ["protocol", "agent", "memory", "mcp"]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "memq-debug",
+  "description": "Single-task debug run using the deterministic fixture adapter.",
+  "tasks": ["cross-session-release-image"],
+  "repetitions": 1,
+  "matrix": {
+    "tracks": ["fixture"],
+    "conditions": ["memq_accelerated"]
+  },
+  "model": {
+    "name": "fixture-evaluator",
+    "provider": "internal",
+    "temperature": 0
+  },
+  "memq": {
+    "url": "http://127.0.0.1:8000/mcp/v1",
+    "timeoutMs": 5000
+  },
+  "accelerated": {
+    "enabled": true,
+    "contextBudgetTokens": 4096,
+    "segmentTokens": 2048,
+    "soulJournalPath": "fixtures/soul-journal/memq.jsonl",
+    "graphitiUrl": "http://127.0.0.1:8082/mcp/v1",
+    "qdrantUrl": "http://127.0.0.1:6333"
+  },
+  "outputDir": "artifacts/results"
+}

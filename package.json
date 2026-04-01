@@ -1,0 +1,28 @@
+{
+  "name": "@multinex/memq-bench",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Reproducible MemQ benchmark harness for agent-memory evaluation.",
+  "scripts": {
+    "debug": "tsx src/cli.ts debug --run configs/debug.json",
+    "smoke": "tsx src/cli.ts smoke --run configs/smoke.json",
+    "nightly": "tsx src/cli.ts nightly --run configs/nightly.json",
+    "publish": "tsx src/cli.ts publish --results artifacts/results --out artifacts/snapshot.json",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@langchain/core": "^0.3.79",
+    "gpt-tokenizer": "^3.4.0",
+    "langchain": "^0.3.34",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^24.4.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.9.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

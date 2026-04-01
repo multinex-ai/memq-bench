@@ -1,0 +1,46 @@
+services:
+  memq:
+    image: ghcr.io/multinex-ai/multinex/munx-memorystack/gateway-deno:v2.1.0
+    pull_policy: missing
+    ports:
+      - "8000:8000"
+    environment:
+      PORT: "8000"
+      QDRANT_URL: http://qdrant:6333
+      QDRANT_COLLECTION: soul_journal
+      FALKOR_REDIS_URL: redis://falkordb:6379
+      FALKOR_GRAPH: memq
+      INTERNAL_BUS_TOKEN: secret_bus_token
+      SOUL_JOURNAL_PATH: /var/lib/memq/soul_journal.jsonl
+      AUTO_REFLECT_EVERY: "25"
+      VECTOR_DIM: "256"
+      TOP_K_DEFAULT: "5"
+      SIMILARITY_DEDUP_THRESHOLD: "0.985"
+      REQUIRE_AUTH: "false"
+      DB_RETRY_ATTEMPTS: "3"
+      DB_RETRY_BASE_DELAY_SECONDS: "0.25"
+    volumes:
+      - memq_data:/var/lib/memq
+    depends_on:
+      - qdrant
+      - falkordb
+
+  qdrant:
+    image: qdrant/qdrant:v1.13.4
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+  falkordb:
+    image: falkordb/falkordb-server:v4.14.9
+    ports:
+      - "6380:6379"
+    volumes:
+      - falkordb_data:/data
+
+volumes:
+  memq_data:
+  qdrant_data:
+  falkordb_data:

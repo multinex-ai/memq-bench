@@ -1,0 +1,67 @@
+{
+  "benchmark": "memq-bench",
+  "generatedAt": "2026-03-12T02:23:54.231Z",
+  "artifacts": [
+    "artifacts/results/memq-smoke-fixture-memq_accelerated-cross-session-release-image-r1.json",
+    "artifacts/results/memq-smoke-fixture-memq_accelerated-manual-copy-regression-r1.json",
+    "artifacts/results/memq-smoke-fixture-memq_accelerated-protocol-tool-discipline-r1.json",
+    "artifacts/results/memq-smoke-fixture-memq_core-cross-session-release-image-r1.json",
+    "artifacts/results/memq-smoke-fixture-memq_core-manual-copy-regression-r1.json",
+    "artifacts/results/memq-smoke-fixture-memq_core-protocol-tool-discipline-r1.json",
+    "artifacts/results/memq-smoke-fixture-naive_memory-cross-session-release-image-r1.json",
+    "artifacts/results/memq-smoke-fixture-naive_memory-manual-copy-regression-r1.json",
+    "artifacts/results/memq-smoke-fixture-naive_memory-protocol-tool-discipline-r1.json",
+    "artifacts/results/memq-smoke-fixture-stateless-cross-session-release-image-r1.json",
+    "artifacts/results/memq-smoke-fixture-stateless-manual-copy-regression-r1.json",
+    "artifacts/results/memq-smoke-fixture-stateless-protocol-tool-discipline-r1.json"
+  ],
+  "summary": {
+    "fixture:memq_accelerated": {
+      "runs": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "avgDurationMs": 72,
+      "avgPackedTokens": 150
+    },
+    "fixture:memq_core": {
+      "runs": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "avgDurationMs": 132,
+      "avgPackedTokens": 150
+    },
+    "fixture:naive_memory": {
+      "runs": 3,
+      "passed": 0,
+      "failed": 3,
+      "skipped": 0,
+      "avgDurationMs": 0,
+      "avgPackedTokens": 61
+    },
+    "fixture:stateless": {
+      "runs": 3,
+      "passed": 0,
+      "failed": 3,
+      "skipped": 0,
+      "avgDurationMs": 1,
+      "avgPackedTokens": 37
+    }
+  },
+  "reproducibility": {
+    "resultCount": 12,
+    "tracks": [
+      "fixture"
+    ],
+    "conditions": [
+      "memq_accelerated",
+      "memq_core",
+      "naive_memory",
+      "stateless"
+    ],
+    "models": [
+      "internal:fixture-evaluator"
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "runName": "memq-smoke",
+  "taskId": "cross-session-release-image",
+  "track": "fixture",
+  "condition": "memq_accelerated",
+  "repetition": 1,
+  "model": {
+    "name": "fixture-evaluator",
+    "provider": "internal",
+    "temperature": 0
+  },
+  "status": "passed",
+  "reason": "",
+  "startedAt": "2026-03-12T04:20:58.006Z",
+  "finishedAt": "2026-03-12T04:20:58.140Z",
+  "durationMs": 134,
+  "promptTokens": 36,
+  "packedTokens": 149,
+  "verifier": {
+    "matchedFacts": [
+      "ghcr.io/multinex-ai/multinex/munx-memorystack/gateway-deno:v2.1.0",
+      "Neo4j is not part of the current MemQ runtime.",
+      "The active backends are Qdrant and FalkorDB."
+    ],
+    "missingFacts": [],
+    "forbiddenFacts": []
+  },
+  "retrieval": {
+    "liveMemQ": true,
+    "liveGraphiti": false,
+    "liveQdrant": true,
+    "langChainRerankUsed": true,
+    "sliceCount": 8,
+    "packedSliceCount": 8,
+    "promptTokens": 36,
+    "packedTokens": 149,
+    "sourceCounts": {
+      "langchain_rerank": 5,
+      "qdrant": 3
+    },
+    "notes": [
+      "MemQ MCP live memory_status probe succeeded.",
+      "Graphiti unavailable: TypeError: fetch failed"
+    ]
+  },
+  "payload": {
+    "answer": "- ghcr.io/multinex-ai/multinex/munx-memorystack/gateway-deno:v2.1.0\n- Neo4j is not part of the current MemQ runtime.\n- The active backends are Qdrant and FalkorDB.",
+    "artifacts": [],
+    "toolCalls": [
+      "langchain_rerank:qdrant-5333f6099eb075bf",
+      "langchain_rerank:qdrant-2ce49c3697e911b0",
+      "langchain_rerank:qdrant-c0813f608b4ddb67",
+      "langchain_rerank:qdrant-b63ac7b320acc553",
+      "qdrant:qdrant-d95b8401a4435e36",
+      "langchain_rerank:qdrant-f114433778b4af04",
+      "qdrant:qdrant-c7be5538d859dfff",
+      "qdrant:qdrant-9f88d1c7a3479fb7"
+    ],
+    "metadata": {
+      "fixture": true,
+      "matchedFacts": [
+        "ghcr.io/multinex-ai/multinex/munx-memorystack/gateway-deno:v2.1.0",
+        "Neo4j is not part of the current MemQ runtime.",
+        "The active backends are Qdrant and FalkorDB."
+      ]
+    }
+  }
+}

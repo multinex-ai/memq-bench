@@ -1,0 +1,22 @@
+{
+  "id": "manual-copy-regression",
+  "family": "failure_avoidance",
+  "title": "Manual copy regression",
+  "description": "Verify that the agent remembers the MANUAL.md build regression introduced during munx up and names the exact copy path.",
+  "query": "manual md munx up docker build copy regression",
+  "prompt": "Explain the MANUAL.md regression that caused munx up to fail after munx-cli init, and name the file path that performs the copy during image build.",
+  "workspaceDir": "fixtures/workspaces/manual-copy-regression",
+  "naiveTranscriptPath": "tasks/manual-copy-regression/naive-transcript.md",
+  "verifier": {
+    "requiredFacts": [
+      "infra/docker/Dockerfile.munx copies docs/MANUAL.md.",
+      "docs/MANUAL.md must exist after munx-cli init.",
+      "The missing MANUAL.md caused munx up to fail during image build."
+    ],
+    "forbiddenFacts": [
+      "MANUAL.md is optional during munx up.",
+      "The failure was caused by Neo4j."
+    ]
+  },
+  "tags": ["munx-cli", "manual", "docker", "regression"]
+}
