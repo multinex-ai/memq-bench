@@ -1,0 +1,41 @@
+name: memq-bench
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Type check
+        run: npm run type-check
+
+      - name: Smoke run
+        run: npm run clean:results && npm run smoke
+
+      - name: Publish snapshot
+        run: npm run publish
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: memq-bench-results
+          path: |
+            artifacts/snapshot.json
+            artifacts/summary.md
+            artifacts/results

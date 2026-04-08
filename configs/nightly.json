@@ -2,7 +2,9 @@
   "name": "memq-nightly",
   "description": "Full nightly matrix with public tracks when adapter commands are configured.",
   "tasks": [
-    "cross-session-release-image",
+    "embedding-translation-fabric",
+    "byzantine-generals-consensus",
+    "dining-philosophers-leases",
     "manual-copy-regression",
     "protocol-tool-discipline"
   ],

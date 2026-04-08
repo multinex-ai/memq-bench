@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="184" height="28" role="img" aria-label="Workflow Ready">
+  <rect rx="14" width="184" height="28" fill="#0f172a"/>
+  <rect rx="14" x="86" width="98" height="28" fill="#153a28"/>
+  <path d="M18 11h8v6h-8z" fill="none" stroke="#86efac" stroke-width="1.6"/>
+  <path d="M28 14h7M31 11l4 3-4 3" fill="none" stroke="#86efac" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="56" y="19" fill="#e5e7eb" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11" text-anchor="middle">ACTIONS</text>
+  <text x="135" y="19" fill="#dcfce7" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11" text-anchor="middle">WORKFLOW READY</text>
+</svg>

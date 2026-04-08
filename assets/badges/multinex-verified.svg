@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="180" height="28" role="img" aria-label="Multinex Verified">
+<svg xmlns="http://www.w3.org/2000/svg" width="196" height="28" role="img" aria-label="Verified Snapshot">
   <linearGradient id="a" x2="0" y2="100%">
     <stop offset="0" stop-color="#0b1220" stop-opacity=".9"/>
     <stop offset="1" stop-color="#111827" stop-opacity=".9"/>
   </linearGradient>
-  <rect rx="14" width="180" height="28" fill="url(#a)"/>
-  <rect rx="14" x="94" width="86" height="28" fill="#082f49"/>
+  <rect rx="14" width="196" height="28" fill="url(#a)"/>
+  <rect rx="14" x="94" width="102" height="28" fill="#082f49"/>
   <path d="M18 14l4 4 8-9" fill="none" stroke="#67e8f9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="54" y="19" fill="#e5e7eb" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11" text-anchor="middle">MULTINEX</text>
-  <text x="137" y="19" fill="#a5f3fc" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11" text-anchor="middle">VERIFIED</text>
+  <text x="54" y="19" fill="#e5e7eb" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11" text-anchor="middle">MEMQ BENCH</text>
+  <text x="145" y="19" fill="#a5f3fc" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11" text-anchor="middle">VERIFIED SNAPSHOT</text>
 </svg>

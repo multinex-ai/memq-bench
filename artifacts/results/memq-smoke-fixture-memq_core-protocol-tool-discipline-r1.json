@@ -1,0 +1,65 @@
+{
+  "runName": "memq-smoke",
+  "taskId": "protocol-tool-discipline",
+  "track": "fixture",
+  "condition": "memq_core",
+  "repetition": 1,
+  "model": {
+    "name": "fixture-evaluator",
+    "provider": "internal",
+    "temperature": 0
+  },
+  "status": "passed",
+  "reason": "",
+  "startedAt": "2026-04-08T11:11:56.307Z",
+  "finishedAt": "2026-04-08T11:11:56.310Z",
+  "durationMs": 4,
+  "promptTokens": 42,
+  "packedTokens": 145,
+  "verifier": {
+    "matchedFacts": [
+      "Agents should call memory_status before non-trivial work.",
+      "Agents should use search_memory for semantic recall and recent_memory for HOT continuity.",
+      "Agents should call add_memory after execution and reflect_memory at task or session close."
+    ],
+    "missingFacts": [],
+    "forbiddenFacts": []
+  },
+  "retrieval": {
+    "liveMemQ": false,
+    "liveGraphiti": false,
+    "liveQdrant": false,
+    "langChainRerankUsed": false,
+    "sliceCount": 8,
+    "packedSliceCount": 8,
+    "promptTokens": 42,
+    "packedTokens": 145,
+    "sourceCounts": {
+      "prompt": 1,
+      "memq_core": 7
+    },
+    "notes": []
+  },
+  "payload": {
+    "answer": "- Agents should call memory_status before non-trivial work.\n- Agents should use search_memory for semantic recall and recent_memory for HOT continuity.\n- Agents should call add_memory after execution and reflect_memory at task or session close.",
+    "artifacts": [],
+    "toolCalls": [
+      "prompt:prompt-0575f26630d55f1d",
+      "memq_core:memq_core-f114433778b4af04",
+      "memq_core:memq_core-c7be5538d859dfff",
+      "memq_core:memq_core-9f88d1c7a3479fb7",
+      "memq_core:memq_core-c5034b92ba0cb462",
+      "memq_core:memq_core-c28cc7cc9e897ba8",
+      "memq_core:memq_core-2cb7fecf256257c0",
+      "memq_core:memq_core-b63ac7b320acc553"
+    ],
+    "metadata": {
+      "fixture": true,
+      "matchedFacts": [
+        "Agents should call memory_status before non-trivial work.",
+        "Agents should use search_memory for semantic recall and recent_memory for HOT continuity.",
+        "Agents should call add_memory after execution and reflect_memory at task or session close."
+      ]
+    }
+  }
+}

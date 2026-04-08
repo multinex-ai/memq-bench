@@ -1,0 +1,68 @@
+{
+  "runName": "memq-smoke",
+  "taskId": "dining-philosophers-leases",
+  "track": "fixture",
+  "condition": "memq_core",
+  "repetition": 1,
+  "model": {
+    "name": "fixture-evaluator",
+    "provider": "internal",
+    "temperature": 0
+  },
+  "status": "passed",
+  "reason": "",
+  "startedAt": "2026-04-08T11:11:56.297Z",
+  "finishedAt": "2026-04-08T11:11:56.301Z",
+  "durationMs": 4,
+  "promptTokens": 36,
+  "packedTokens": 191,
+  "verifier": {
+    "matchedFacts": [
+      "Each philosopher requests fork access through namespace-scoped leases in MemQ.",
+      "Odd philosophers acquire left-then-right while even philosophers acquire right-then-left to break deadlock.",
+      "Resolved contention summaries are written to _commons as resolved_issue intelligence by default."
+    ],
+    "missingFacts": [],
+    "forbiddenFacts": []
+  },
+  "retrieval": {
+    "liveMemQ": false,
+    "liveGraphiti": false,
+    "liveQdrant": false,
+    "langChainRerankUsed": false,
+    "sliceCount": 11,
+    "packedSliceCount": 11,
+    "promptTokens": 36,
+    "packedTokens": 191,
+    "sourceCounts": {
+      "prompt": 1,
+      "memq_core": 10
+    },
+    "notes": []
+  },
+  "payload": {
+    "answer": "- Each philosopher requests fork access through namespace-scoped leases in MemQ.\n- Odd philosophers acquire left-then-right while even philosophers acquire right-then-left to break deadlock.\n- Resolved contention summaries are written to _commons as resolved_issue intelligence by default.",
+    "artifacts": [],
+    "toolCalls": [
+      "prompt:prompt-ba732051928c8b3e",
+      "memq_core:memq_core-2cb7fecf256257c0",
+      "memq_core:memq_core-f5c89b5c7d278747",
+      "memq_core:memq_core-c5034b92ba0cb462",
+      "memq_core:memq_core-c8cdd868a95d5dc0",
+      "memq_core:memq_core-c28cc7cc9e897ba8",
+      "memq_core:memq_core-0460d755dd693c0a",
+      "memq_core:memq_core-f114433778b4af04",
+      "memq_core:memq_core-c7be5538d859dfff",
+      "memq_core:memq_core-9f88d1c7a3479fb7",
+      "memq_core:memq_core-b63ac7b320acc553"
+    ],
+    "metadata": {
+      "fixture": true,
+      "matchedFacts": [
+        "Each philosopher requests fork access through namespace-scoped leases in MemQ.",
+        "Odd philosophers acquire left-then-right while even philosophers acquire right-then-left to break deadlock.",
+        "Resolved contention summaries are written to _commons as resolved_issue intelligence by default."
+      ]
+    }
+  }
+}

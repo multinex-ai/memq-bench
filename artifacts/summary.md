@@ -1,33 +1,42 @@
 # MemQ Benchmark Summary
 
+## Headline
+- best MemQ condition: fixture:memq_accelerated
+- baseline condition: fixture:naive_memory
+- pass-point delta: 100
+
+## Corpus
+- task count: 5
+- task ids: byzantine-generals-consensus, dining-philosophers-leases, embedding-translation-fabric, manual-copy-regression, protocol-tool-discipline
+
 ## fixture:memq_accelerated
-- runs: 3
-- passed: 3
+- runs: 5
+- passed: 5
 - failed: 0
 - skipped: 0
-- avg duration ms: 72
-- avg packed tokens: 150
+- avg duration ms: 115
+- avg packed tokens: 171
 
 ## fixture:memq_core
-- runs: 3
-- passed: 3
+- runs: 5
+- passed: 5
 - failed: 0
 - skipped: 0
-- avg duration ms: 132
-- avg packed tokens: 150
+- avg duration ms: 17
+- avg packed tokens: 171
 
 ## fixture:naive_memory
-- runs: 3
+- runs: 5
 - passed: 0
-- failed: 3
+- failed: 5
 - skipped: 0
-- avg duration ms: 0
+- avg duration ms: 1
 - avg packed tokens: 61
 
 ## fixture:stateless
-- runs: 3
+- runs: 5
 - passed: 0
-- failed: 3
+- failed: 5
 - skipped: 0
-- avg duration ms: 1
-- avg packed tokens: 37
+- avg duration ms: 2
+- avg packed tokens: 34

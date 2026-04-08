@@ -2,7 +2,9 @@
   "name": "memq-smoke",
   "description": "Deterministic smoke slice validating all benchmark conditions.",
   "tasks": [
-    "cross-session-release-image",
+    "embedding-translation-fabric",
+    "byzantine-generals-consensus",
+    "dining-philosophers-leases",
     "manual-copy-regression",
     "protocol-tool-discipline"
   ],

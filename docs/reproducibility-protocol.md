@@ -3,29 +3,27 @@
 This benchmark is reproducible if an independent operator can:
 
 1. install the benchmark dependencies
-2. point the harness at the same MemQ image and storage services
-3. run the same task corpus with the same run manifest
-4. verify the same deterministic task outcomes
-5. inspect the raw result JSON and recompute the published summary
+2. run the deterministic smoke manifest from this repo
+3. inspect the raw result JSON for every task and condition
+4. regenerate `artifacts/snapshot.json` and `artifacts/summary.md`
+5. verify the same task outcomes with the same task corpus and fixture journal
 
-## Verification Rules
+## Verification rules
 
 - task success is determined by deterministic verifiers only
 - required facts must appear in the answer output exactly as declared in the task spec
 - a run artifact is invalid if the model metadata, track, condition, task id, or verifier result is missing
 
-## Runtime Pinning
+## Runtime pinning
 
 Every published run should capture:
 
 - benchmark repo commit SHA
 - task corpus version
 - model config hash
-- MemQ image tag or digest
-- Qdrant version
-- FalkorDB version
-- optional Graphiti URL and availability
-- optional Qdrant URL and availability
+- MemQ benchmark harness version
+- optional graph augmentation availability
+- optional vector augmentation availability
 
 ## Isolation
 
@@ -33,3 +31,9 @@ Every published run should capture:
 - `naive_memory` must not call MemQ
 - `memq_core` may only use the core retrieval loop
 - `memq_accelerated` must log every augmentation source and slicing decision
+
+## Translation proof
+
+The translation showcase is part of the reproducibility surface. If the request
+and response pair changes, the benchmark docs and task corpus must be updated in
+the same commit.

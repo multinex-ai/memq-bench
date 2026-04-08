@@ -1,7 +1,7 @@
 {
   "name": "memq-debug",
   "description": "Single-task debug run using the deterministic fixture adapter.",
-  "tasks": ["cross-session-release-image"],
+  "tasks": ["embedding-translation-fabric"],
   "repetitions": 1,
   "matrix": {
     "tracks": ["fixture"],

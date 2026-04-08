@@ -1,36 +1,66 @@
 # Methodology
 
-MemQ Bench measures task-level uplift, not raw storage latency.
+MemQ Bench measures task-level memory and coordination uplift, not raw storage
+latency.
 
-## Primary Metrics
+## Primary metrics
 
 - task success rate
 - first-pass success rate
-- retries to success
 - wall-clock duration
 - approximate prompt token load
-- repeated-error recurrence rate
+- pass-point delta versus baselines
+- retrieval source coverage
 
-## Secondary Metrics
+## Secondary metrics
 
 - memory retrieval hit rate
 - context slice compression ratio
 - exact lookup usage
 - recent-context usage
-- Graphiti augmentation hit rate
-- Qdrant retrieval hit rate
-- LangChain rerank usage
-- Soul Journal coverage ratio
+- translation proof retention
+- `_commons` publication recall
+- optional graph and vector augmentation availability
 
-## Accelerated Retrieval Stack
+## Conditions
 
-`memq_accelerated` layers the following over the shipped Deno server:
+| Condition | Purpose |
+| --- | --- |
+| `stateless` | No memory system is available. |
+| `naive_memory` | Transcript-style recall only. No structured retrieval or memory tooling. |
+| `memq_core` | Current MemQ loop: `memory_status`, `search_memory`, `recent_memory`, `get_memory`, `add_memory`, `reflect_memory`. |
+| `memq_accelerated` | Benchmark-only retrieval ceiling with bounded slice packing and optional external augmentation. |
 
-- query routing across exact, recent, semantic, and reflection flows
-- context slicing with approximately 2,048-token semantic segments and bounded prompt budgets
-- Soul Journal replay and compaction-aware ranking
-- optional live Graphiti traversal
-- optional live Qdrant retrieval
-- optional LangChain reranking when the package is installed
+## Benchmark families
 
-This track is deliberately benchmark-only. It shows the upside ceiling before product promotion.
+### Translation memory
+
+`embedding-translation-fabric` proves the agent can retrieve the exact
+translation contract, not just a vague paraphrase.
+
+### Multi-agent coordination
+
+`byzantine-generals-consensus` and `dining-philosophers-leases` adapt classic
+distributed-systems problems into MemQ-native benchmark cases:
+
+- translated vectors are normalized before consensus
+- namespace-scoped leases prevent resource contention collapse
+- resolved strategies are written into `_commons`
+
+### Operational memory
+
+`manual-copy-regression` and `protocol-tool-discipline` keep the benchmark tied
+to real operator and agent workflows.
+
+## Accelerated retrieval stack
+
+`memq_accelerated` layers the following over the core loop:
+
+- bounded context slicing
+- Soul Journal replay
+- optional graph augmentation
+- optional vector retrieval probing
+- optional reranking
+
+This track remains benchmark-only. It is published as a ceiling, not as a
+shipped default behavior claim.

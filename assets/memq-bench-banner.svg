@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520" role="img" aria-label="MemQ Bench">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090C11"/>
+      <stop offset="55%" stop-color="#0F1722"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3DF0FF"/>
+      <stop offset="100%" stop-color="#57B6FF"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFD773"/>
+      <stop offset="100%" stop-color="#FFC857"/>
+    </linearGradient>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="36"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="520" rx="28" fill="url(#bg)"/>
+  <circle cx="1240" cy="110" r="120" fill="#1D4ED8" opacity="0.16" filter="url(#blur)"/>
+  <circle cx="320" cy="420" r="140" fill="#14B8A6" opacity="0.14" filter="url(#blur)"/>
+  <circle cx="1340" cy="370" r="150" fill="#F59E0B" opacity="0.12" filter="url(#blur)"/>
+
+  <rect x="78" y="82" width="210" height="36" rx="18" fill="#0F2230" stroke="#21485F"/>
+  <text x="183" y="106" text-anchor="middle" fill="#9FB0BF" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="600">PUBLIC BENCHMARK</text>
+
+  <text x="80" y="196" fill="#E8EEF2" font-family="Sora,Inter,Arial,sans-serif" font-size="74" font-weight="600">MemQ Bench</text>
+  <text x="80" y="254" fill="#9FB0BF" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="400">Verifiable translation, swarm coordination, and memory uplift against strict baselines.</text>
+
+  <g transform="translate(80 314)">
+    <rect width="408" height="118" rx="24" fill="#0D1520" stroke="#1F3445"/>
+    <text x="30" y="40" fill="#3DF0FF" font-family="JetBrains Mono,monospace" font-size="20">TRANSLATION PROOF</text>
+    <text x="30" y="75" fill="#E8EEF2" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="600">1536d → 768d</text>
+    <text x="30" y="102" fill="#9FB0BF" font-family="Inter,Arial,sans-serif" font-size="18">Edge contract + deterministic result published</text>
+  </g>
+
+  <g transform="translate(518 314)">
+    <rect width="408" height="118" rx="24" fill="#0D1520" stroke="#1F3445"/>
+    <text x="30" y="40" fill="#FFC857" font-family="JetBrains Mono,monospace" font-size="20">CLASSIC PROBLEMS</text>
+    <text x="30" y="75" fill="#E8EEF2" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="600">Byzantine + Dining Philosophers</text>
+    <text x="30" y="102" fill="#9FB0BF" font-family="Inter,Arial,sans-serif" font-size="18">Consensus, leases, and commons publication</text>
+  </g>
+
+  <g transform="translate(956 314)">
+    <rect width="564" height="118" rx="24" fill="#0D1520" stroke="#1F3445"/>
+    <text x="30" y="40" fill="#3DF0FF" font-family="JetBrains Mono,monospace" font-size="20">VALIDATED SURFACE</text>
+    <text x="30" y="75" fill="#E8EEF2" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="600">Snapshot + Raw Results + Workflow</text>
+    <text x="30" y="102" fill="#9FB0BF" font-family="Inter,Arial,sans-serif" font-size="18">Everything needed to reproduce the public claim surface</text>
+  </g>
+</svg>

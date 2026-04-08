@@ -1,6 +1,6 @@
 import path from "node:path";
 import { performance } from "node:perf_hooks";
-import { buildContextBundle } from "./memq/retrievalRouter.js";
+import { buildContextBundle } from "./mnemosyne/retrievalRouter.js";
 import { getAdapter } from "./adapters/index.js";
 import { ensureDir, readJsonFile, writeJsonFile } from "./io.js";
 import { ResultSchema, RunManifestSchema, TaskSpecSchema, type ResultRecord } from "./schemas.js";

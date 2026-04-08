@@ -1,0 +1,53 @@
+{
+  "runName": "memq-smoke",
+  "taskId": "protocol-tool-discipline",
+  "track": "fixture",
+  "condition": "stateless",
+  "repetition": 1,
+  "model": {
+    "name": "fixture-evaluator",
+    "provider": "internal",
+    "temperature": 0
+  },
+  "status": "failed",
+  "reason": "",
+  "startedAt": "2026-04-08T11:11:56.211Z",
+  "finishedAt": "2026-04-08T11:11:56.211Z",
+  "durationMs": 0,
+  "promptTokens": 42,
+  "packedTokens": 42,
+  "verifier": {
+    "matchedFacts": [],
+    "missingFacts": [
+      "Agents should call memory_status before non-trivial work.",
+      "Agents should use search_memory for semantic recall and recent_memory for HOT continuity.",
+      "Agents should call add_memory after execution and reflect_memory at task or session close."
+    ],
+    "forbiddenFacts": []
+  },
+  "retrieval": {
+    "liveMemQ": false,
+    "liveGraphiti": false,
+    "liveQdrant": false,
+    "langChainRerankUsed": false,
+    "sliceCount": 1,
+    "packedSliceCount": 1,
+    "promptTokens": 42,
+    "packedTokens": 42,
+    "sourceCounts": {
+      "prompt": 1
+    },
+    "notes": []
+  },
+  "payload": {
+    "answer": "No high-confidence recall available from the provided context.",
+    "artifacts": [],
+    "toolCalls": [
+      "prompt:prompt-0575f26630d55f1d"
+    ],
+    "metadata": {
+      "fixture": true,
+      "matchedFacts": []
+    }
+  }
+}

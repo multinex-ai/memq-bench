@@ -1,0 +1,53 @@
+{
+  "runName": "memq-smoke",
+  "taskId": "dining-philosophers-leases",
+  "track": "fixture",
+  "condition": "stateless",
+  "repetition": 1,
+  "model": {
+    "name": "fixture-evaluator",
+    "provider": "internal",
+    "temperature": 0
+  },
+  "status": "failed",
+  "reason": "",
+  "startedAt": "2026-04-08T11:11:56.207Z",
+  "finishedAt": "2026-04-08T11:11:56.208Z",
+  "durationMs": 0,
+  "promptTokens": 36,
+  "packedTokens": 36,
+  "verifier": {
+    "matchedFacts": [],
+    "missingFacts": [
+      "Each philosopher requests fork access through namespace-scoped leases in MemQ.",
+      "Odd philosophers acquire left-then-right while even philosophers acquire right-then-left to break deadlock.",
+      "Resolved contention summaries are written to _commons as resolved_issue intelligence by default."
+    ],
+    "forbiddenFacts": []
+  },
+  "retrieval": {
+    "liveMemQ": false,
+    "liveGraphiti": false,
+    "liveQdrant": false,
+    "langChainRerankUsed": false,
+    "sliceCount": 1,
+    "packedSliceCount": 1,
+    "promptTokens": 36,
+    "packedTokens": 36,
+    "sourceCounts": {
+      "prompt": 1
+    },
+    "notes": []
+  },
+  "payload": {
+    "answer": "No high-confidence recall available from the provided context.",
+    "artifacts": [],
+    "toolCalls": [
+      "prompt:prompt-ba732051928c8b3e"
+    ],
+    "metadata": {
+      "fixture": true,
+      "matchedFacts": []
+    }
+  }
+}

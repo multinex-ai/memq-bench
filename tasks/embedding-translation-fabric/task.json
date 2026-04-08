@@ -1,0 +1,24 @@
+{
+  "id": "embedding-translation-fabric",
+  "family": "translation_memory",
+  "title": "Embedding translation fabric",
+  "description": "Verify that the agent recalls the public vector translation contract and its canonical payload/result pair.",
+  "query": "memq translation payload result source dimension target dimension retention truncation",
+  "prompt": "Document the MemQ translation benchmark call. State the public route contract, the source and target embedding profiles, the example payload, and the deterministic result summary.",
+  "workspaceDir": "fixtures/workspaces/embedding-translation-fabric",
+  "naiveTranscriptPath": "tasks/embedding-translation-fabric/naive-transcript.md",
+  "verifier": {
+    "requiredFacts": [
+      "POST /mcp/v1/translate accepts a vector plus source_dimension and target_dimension.",
+      "Source profile example: openai text-embedding-3-large 1536d.",
+      "Target profile example: cloudflare bge-base-en-v1.5 768d.",
+      "Example payload uses vector [0.91,0.42,-0.18,0.07] and translates from 4d to 2d.",
+      "Example result returns translated_vector [0.91,0.42] with method truncation and retention 0.5."
+    ],
+    "forbiddenFacts": [
+      "Translation requires re-embedding through an external LLM API.",
+      "The translation route is only available on gateway.multinex.ai."
+    ]
+  },
+  "tags": ["memq", "translation", "edge", "vectors"]
+}

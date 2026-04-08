@@ -3,159 +3,140 @@
 </p>
 
 <p align="center">
-  <a href="./docs/publication.md"><img src="./assets/badges/multinex-verified.svg" alt="Multinex Verified" /></a>
+  <a href="./artifacts/summary.md"><img src="./assets/badges/multinex-verified.svg" alt="Verified snapshot" /></a>
+  <a href="./docs/tutorials/quickstart.md"><img src="./assets/badges/docs-official.svg" alt="Official docs" /></a>
   <a href="./docs/reproducibility-protocol.md"><img src="./assets/badges/reproducible.svg" alt="Reproducible" /></a>
-  <a href="./artifacts/summary.md"><img src="./assets/badges/smoke-validated.svg" alt="Smoke Validated" /></a>
-  <a href="./docs/publication.md"><img src="./assets/badges/cloud-star-alliance.svg" alt="Cloud Star Alliance" /></a>
-  <a href="./docs/publication.md"><img src="./assets/badges/aiuc-aapa-supporter.svg" alt="AIUC and AAPA Supporter" /></a>
+  <a href="./artifacts/translation-showcase.md"><img src="./assets/badges/translation-proof.svg" alt="Translation proof" /></a>
+  <a href="./.github/workflows/benchmark.yml"><img src="./assets/badges/workflow-ready.svg" alt="Workflow ready" /></a>
+  <a href="./artifacts/summary.md"><img src="./assets/badges/smoke-validated.svg" alt="Smoke validated" /></a>
 </p>
 
 <p align="center">
-  Public benchmark harness for measuring how much structured MemQ memory changes agent outcomes against stateless and naive-memory controls, with deterministic fixtures, pinned artifacts, and a benchmark-only accelerated retrieval ceiling.
+  Public MemQ benchmark repo for proving token savings, translation-aware coordination, and multi-agent memory retention against stateless and naive-memory controls.
 </p>
 
-## Navigation
+## Official Docs
 
-- [Why this repo exists](#why-this-repo-exists)
-- [Current validated snapshot](#current-validated-snapshot)
-- [What this benchmarks](#what-this-benchmarks)
-- [Reproduce the run](#reproduce-the-run)
-- [Artifact and doc map](#artifact-and-doc-map)
-- [Public claims discipline](#public-claims-discipline)
+- [MemQ Bench Docs](./docs/README.md)
+- [Quickstart](./docs/tutorials/quickstart.md)
+- [Translation Accelerated Fabric Tutorial](./docs/tutorials/translation-accelerated-fabric.md)
+- [Coordination Benchmarks Tutorial](./docs/tutorials/coordination-benchmarks.md)
+- [Methodology](./docs/methodology.md)
 
-## Why This Repo Exists
+## Why this repo exists
 
-MemQ Bench exists so the memory stack can be evaluated in public without hand-waving.
+MemQ Bench is the public proof surface for MemQ’s memory and translation claims.
 
-It compares four conditions:
+It answers three concrete questions:
+
+1. Can MemQ preserve coordination facts that stateless and naive-memory agents drop?
+2. Can MemQ translate vectors across model spaces without paying a re-embedding tax?
+3. Can MemQ turn resolved coordination patterns into reusable memory that improves future agent runs?
+
+The benchmark compares four conditions:
 
 - `stateless`
 - `naive_memory`
 - `memq_core`
 - `memq_accelerated`
 
-The repo is built around one rule: every benchmark claim must trace back to a generated snapshot, the exact run manifest that produced it, and the raw result files underneath.
+## Current validated snapshot
 
-## Current Validated Snapshot
+The checked-in snapshot is a deterministic fixture smoke run over five tasks:
 
-The currently checked-in public proof is a **deterministic fixture smoke run**. It is valid engineering evidence for the harness and retrieval stack. It is **not** the final public pricing claim surface until external `local_cli` and `antigravity` runs are published.
+- `embedding-translation-fabric`
+- `byzantine-generals-consensus`
+- `dining-philosophers-leases`
+- `manual-copy-regression`
+- `protocol-tool-discipline`
 
-<table>
-  <tr>
-    <td><strong>MemQ Core</strong><br /><code>3 / 3 passed</code></td>
-    <td><strong>Stateless Baseline</strong><br /><code>0 / 3 passed</code></td>
-    <td><strong>Delta</strong><br /><code>+100 pts</code></td>
-    <td><strong>Avg Core Duration</strong><br /><code>29 ms</code></td>
-  </tr>
-</table>
+The current public proof is meant to validate the harness and the memory contract.
+It is strict evidence for the benchmark repo itself, and a safe public surface for
+explaining the architecture before larger external tracks are published.
+
+| Condition | Result | Avg duration | Avg packed tokens |
+| --- | --- | --- | --- |
+| `memq_core` | `5 / 5 passed` | `17 ms` | `171` |
+| `memq_accelerated` | `5 / 5 passed` | `115 ms` | `171` |
+| `naive_memory` | `0 / 5 passed` | `1 ms` | `61` |
+| `stateless` | `0 / 5 passed` | `2 ms` | `34` |
+
+That yields a `+100` pass-point delta from the best MemQ condition over the
+best baseline in the current deterministic smoke run.
 
 Quick proof links:
 
-- [Current snapshot JSON](./artifacts/snapshot.json)
-- [Human-readable summary](./artifacts/summary.md)
-- [Raw smoke result files](./artifacts/results/)
-- [Smoke run manifest](./configs/smoke.json)
+- [Snapshot JSON](./artifacts/snapshot.json)
+- [Summary markdown](./artifacts/summary.md)
+- [Translation payload and result](./artifacts/translation-showcase.md)
+- [Raw result files](./artifacts/results/)
 
-## What This Benchmarks
+## Benchmark cases
 
-### Execution Tracks
-
-- `fixture` — deterministic smoke and CI validation track
-- `local_cli` — external local agent adapter track
-- `antigravity` — external Antigravity adapter track
-
-### Conditions
-
-| Condition | Purpose |
+| Case | What it demonstrates |
 | --- | --- |
-| `stateless` | No memory system is available. |
-| `naive_memory` | Transcript-style recall only. No structured retrieval or memory tooling. |
-| `memq_core` | Current shipped MemQ MCP loop: `memory_status`, `search_memory`, `recent_memory`, `get_memory`, `add_memory`, `reflect_memory`. |
-| `memq_accelerated` | Benchmark-only retrieval ceiling with context slicing, Soul Journal packing, optional Graphiti augmentation, optional Qdrant retrieval, and optional LangChain reranking. |
+| `embedding-translation-fabric` | Exact recall of the public translation contract, payload, and result. |
+| `byzantine-generals-consensus` | Multi-agent consensus after translated command vectors are normalized into one decision space. |
+| `dining-philosophers-leases` | Resource coordination, deadlock avoidance, and `_commons` publication of resolved issues. |
+| `manual-copy-regression` | Regression avoidance from prior build failures. |
+| `protocol-tool-discipline` | Correct MemQ usage loop and search/recent split. |
 
-### Task Families in the Current Corpus
+## Translation spotlight
 
-- cross-session release recall
-- manual regression avoidance
-- protocol and tool-discipline retention
+The benchmark repo ships a canonical example of the MemQ translation contract:
 
-Task specs live under [`./tasks/`](./tasks/), fixtures under [`./fixtures/`](./fixtures/), and harness code under [`./src/`](./src/).
+```json
+{
+  "vector": [0.91, 0.42, -0.18, 0.07],
+  "source_dimension": 4,
+  "target_dimension": 2,
+  "source_profile": {
+    "provider": "openai",
+    "model": "text-embedding-3-large",
+    "dimension": 4
+  },
+  "target_profile": {
+    "provider": "cloudflare",
+    "model": "bge-base-en-v1.5",
+    "dimension": 2
+  }
+}
+```
 
-## Reproduce the Run
+```json
+{
+  "mode": "stateless_translation",
+  "translated_vector": [0.91, 0.42],
+  "dimension": 2,
+  "method": "truncation",
+  "quality": {
+    "retention": 0.5,
+    "lossless": false
+  }
+}
+```
 
-### 1. Install and smoke-test
+This same translation proof is referenced inside the Byzantine Generals benchmark
+to show that cross-model command vectors can be normalized before quorum.
+
+## Quickstart
 
 ```bash
 cd benchmarks/memq-bench
 npm install
-npm run type-check
-npm run smoke
-npm run publish
+npm run bench
 ```
 
-### 2. Boot the pinned MemQ stack
+That sequence runs:
 
-```bash
-docker compose up -d
-```
+- type-check
+- result cleanup
+- deterministic smoke benchmark
+- snapshot publication
 
-### 3. Run external adapters
+## Public claims discipline
 
-```bash
-export MEMQ_BENCH_LOCAL_CLI_CMD='path/to/local-agent-wrapper'
-export MEMQ_BENCH_ANTIGRAVITY_CMD='path/to/antigravity-wrapper'
-```
-
-Each adapter receives these environment variables:
-
-- `MEMQ_BENCH_TASK_FILE`
-- `MEMQ_BENCH_TASK_ID`
-- `MEMQ_BENCH_WORKSPACE`
-- `MEMQ_BENCH_CONTEXT_FILE`
-- `MEMQ_BENCH_OUTPUT_FILE`
-- `MEMQ_BENCH_TRACK`
-- `MEMQ_BENCH_CONDITION`
-
-The adapter must write a JSON result file to `MEMQ_BENCH_OUTPUT_FILE` with at least:
-
-```json
-{
-  "answer": "...",
-  "artifacts": ["optional trace entries"],
-  "toolCalls": ["optional tool trace"]
-}
-```
-
-## Artifact and Doc Map
-
-### Operator references
-
-- [Docs index](./docs/README.md)
-- [Methodology](./docs/methodology.md)
-- [Reproducibility protocol](./docs/reproducibility-protocol.md)
-- [Artifact map](./docs/artifact-map.md)
-- [Publication rules](./docs/publication.md)
-
-### Benchmark outputs
-
-- [Snapshot JSON](./artifacts/snapshot.json)
-- [Summary markdown](./artifacts/summary.md)
-- [Run-level results](./artifacts/results/)
-
-### Run manifests
-
-- [Debug manifest](./configs/debug.json)
-- [Smoke manifest](./configs/smoke.json)
-- [Nightly manifest](./configs/nightly.json)
-
-### Portfolio context
-
-- [Multinex benchmarks index](../README.md)
-
-## Public Claims Discipline
-
-- `fixture` runs validate the harness; they do not justify final commercial uplift claims on their own.
-- Public claims should move to `local_cli` and `antigravity` once those tracks are published with the same discipline.
-- If two tracks run on incompatible model configurations, publish them separately instead of blending them into one headline.
-- Placeholder standards badges in this repo are presentation marks only until their external program references exist.
-- The source of truth is always the checked-in snapshot plus the raw result files that generated it.
+- `fixture` runs validate the harness and deterministic memory logic.
+- `local_cli` and `antigravity` should be published separately once those tracks are pinned.
+- Translation savings claims should always link back to the translation artifact and the snapshot.
+- `_commons` coordination claims should cite the benchmark tasks that exercise `resolved_issue` and consensus promotion behavior.

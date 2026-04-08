@@ -1,0 +1,22 @@
+{
+  "id": "dining-philosophers-leases",
+  "family": "resource_coordination",
+  "title": "Dining philosophers leases",
+  "description": "Verify that the agent recalls the MemQ lease protocol and commons publication rule for the Dining Philosophers adaptation.",
+  "query": "dining philosophers memq lease ordering commons resolved issue",
+  "prompt": "State the MemQ benchmark rule for the Dining Philosophers adaptation. Include the lease model, the anti-deadlock ordering rule, and what is written to _commons after resolution.",
+  "workspaceDir": "fixtures/workspaces/dining-philosophers-leases",
+  "naiveTranscriptPath": "tasks/dining-philosophers-leases/naive-transcript.md",
+  "verifier": {
+    "requiredFacts": [
+      "Each philosopher requests fork access through namespace-scoped leases in MemQ.",
+      "Odd philosophers acquire left-then-right while even philosophers acquire right-then-left to break deadlock.",
+      "Resolved contention summaries are written to _commons as resolved_issue intelligence by default."
+    ],
+    "forbiddenFacts": [
+      "Every philosopher acquires forks in the same order.",
+      "Resolved contention is never stored in _commons."
+    ]
+  },
+  "tags": ["memq", "coordination", "leases", "commons", "resolved_issue"]
+}

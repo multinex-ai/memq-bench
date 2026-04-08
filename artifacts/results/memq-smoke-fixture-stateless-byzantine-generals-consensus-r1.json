@@ -1,0 +1,54 @@
+{
+  "runName": "memq-smoke",
+  "taskId": "byzantine-generals-consensus",
+  "track": "fixture",
+  "condition": "stateless",
+  "repetition": 1,
+  "model": {
+    "name": "fixture-evaluator",
+    "provider": "internal",
+    "temperature": 0
+  },
+  "status": "failed",
+  "reason": "",
+  "startedAt": "2026-04-08T11:11:56.206Z",
+  "finishedAt": "2026-04-08T11:11:56.207Z",
+  "durationMs": 1,
+  "promptTokens": 30,
+  "packedTokens": 30,
+  "verifier": {
+    "matchedFacts": [],
+    "missingFacts": [
+      "MemQ records each general's signed intent in the shared namespace before consensus is declared.",
+      "Consensus requires 2 of 3 translated command vectors to agree within the benchmark tolerance.",
+      "The translation layer normalizes incoming 1536d and 768d command vectors into one benchmark space.",
+      "Only the quorum-approved command is promoted into _commons."
+    ],
+    "forbiddenFacts": []
+  },
+  "retrieval": {
+    "liveMemQ": false,
+    "liveGraphiti": false,
+    "liveQdrant": false,
+    "langChainRerankUsed": false,
+    "sliceCount": 1,
+    "packedSliceCount": 1,
+    "promptTokens": 30,
+    "packedTokens": 30,
+    "sourceCounts": {
+      "prompt": 1
+    },
+    "notes": []
+  },
+  "payload": {
+    "answer": "No high-confidence recall available from the provided context.",
+    "artifacts": [],
+    "toolCalls": [
+      "prompt:prompt-55f5347cf8f15918"
+    ],
+    "metadata": {
+      "fixture": true,
+      "matchedFacts": []
+    }
+  }
+}

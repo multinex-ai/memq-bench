@@ -1,34 +1,46 @@
-# Publication
+# Publication Rules
 
 The publish step generates two primary artifacts:
 
 - `artifacts/summary.md`
 - `artifacts/snapshot.json`
 
-`snapshot.json` is the machine-readable source of truth for public docs, benchmark pages, and pricing analysis.
+The repo also ships a translation-specific proof artifact:
 
-## Snapshot Contract
+- `artifacts/translation-showcase.json`
+- `artifacts/translation-showcase.md`
 
-A snapshot must include:
+## Snapshot contract
+
+A public snapshot must include:
 
 - benchmark name and generated timestamp
 - aggregated metrics by track and condition
-- task counts and skip counts
-- artifact paths used to compute the summary
+- task count and task ids
+- raw artifact paths used to compute the summary
 - reproducibility metadata
 
-## Release Discipline
+## Release discipline
 
 - never publish a snapshot without the underlying raw result files
-- never claim uplift from `fixture` runs as if they were the final external benchmark surface
-- never merge runs with incompatible model configs into one headline metric
-- never describe benchmark-only accelerators as shipped product behavior unless promoted into runtime docs
+- never claim final commercial uplift from `fixture` runs alone
+- never merge incompatible model configs into a single headline metric
+- never describe benchmark-only accelerators as shipped runtime behavior
+- never publish `_commons` effectiveness claims without citing the benchmark task that proves them
 
-## Badge Policy
+## Standalone publication
 
-This repo uses two badge classes:
+This benchmark can be published as a standalone GitHub repo by splitting the
+`benchmarks/memq-bench` subtree. The workflow file is stored inside the benchmark
+directory so it survives the split cleanly.
 
-- **verification badges** for benchmark state, reproducibility, and validated snapshot status
-- **standards badges** for coalition, alliance, or ecosystem signaling
+## Badge policy
 
-`Cloud Star Alliance` and `AIUC / AAPA` currently ship here as presentation badges only. They should not be treated as third-party certification claims until an external program reference is published and linked.
+This repo uses first-party MemQ benchmark badges only:
+
+- verified snapshot
+- official docs
+- reproducible
+- translation proof
+- workflow ready
+- smoke validated

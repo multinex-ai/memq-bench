@@ -1,0 +1,57 @@
+{
+  "runName": "memq-smoke",
+  "taskId": "embedding-translation-fabric",
+  "track": "fixture",
+  "condition": "naive_memory",
+  "repetition": 1,
+  "model": {
+    "name": "fixture-evaluator",
+    "provider": "internal",
+    "temperature": 0
+  },
+  "status": "failed",
+  "reason": "",
+  "startedAt": "2026-04-08T11:11:56.212Z",
+  "finishedAt": "2026-04-08T11:11:56.213Z",
+  "durationMs": 1,
+  "promptTokens": 31,
+  "packedTokens": 56,
+  "verifier": {
+    "matchedFacts": [],
+    "missingFacts": [
+      "POST /mcp/v1/translate accepts a vector plus source_dimension and target_dimension.",
+      "Source profile example: openai text-embedding-3-large 1536d.",
+      "Target profile example: cloudflare bge-base-en-v1.5 768d.",
+      "Example payload uses vector [0.91,0.42,-0.18,0.07] and translates from 4d to 2d.",
+      "Example result returns translated_vector [0.91,0.42] with method truncation and retention 0.5."
+    ],
+    "forbiddenFacts": []
+  },
+  "retrieval": {
+    "liveMemQ": false,
+    "liveGraphiti": false,
+    "liveQdrant": false,
+    "langChainRerankUsed": false,
+    "sliceCount": 2,
+    "packedSliceCount": 2,
+    "promptTokens": 31,
+    "packedTokens": 56,
+    "sourceCounts": {
+      "prompt": 1,
+      "naive_transcript": 1
+    },
+    "notes": []
+  },
+  "payload": {
+    "answer": "No high-confidence recall available from the provided context.",
+    "artifacts": [],
+    "toolCalls": [
+      "prompt:prompt-99bb278854ec0b6c",
+      "naive_transcript:naive_transcript-61ccc32e3ea9a1d5"
+    ],
+    "metadata": {
+      "fixture": true,
+      "matchedFacts": []
+    }
+  }
+}

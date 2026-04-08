@@ -1,0 +1,53 @@
+{
+  "runName": "memq-smoke",
+  "taskId": "manual-copy-regression",
+  "track": "fixture",
+  "condition": "stateless",
+  "repetition": 1,
+  "model": {
+    "name": "fixture-evaluator",
+    "provider": "internal",
+    "temperature": 0
+  },
+  "status": "failed",
+  "reason": "",
+  "startedAt": "2026-04-08T11:11:56.209Z",
+  "finishedAt": "2026-04-08T11:11:56.209Z",
+  "durationMs": 0,
+  "promptTokens": 32,
+  "packedTokens": 32,
+  "verifier": {
+    "matchedFacts": [],
+    "missingFacts": [
+      "infra/docker/Dockerfile.munx copies docs/MANUAL.md.",
+      "docs/MANUAL.md must exist after munx-cli init.",
+      "The missing MANUAL.md caused munx up to fail during image build."
+    ],
+    "forbiddenFacts": []
+  },
+  "retrieval": {
+    "liveMemQ": false,
+    "liveGraphiti": false,
+    "liveQdrant": false,
+    "langChainRerankUsed": false,
+    "sliceCount": 1,
+    "packedSliceCount": 1,
+    "promptTokens": 32,
+    "packedTokens": 32,
+    "sourceCounts": {
+      "prompt": 1
+    },
+    "notes": []
+  },
+  "payload": {
+    "answer": "No high-confidence recall available from the provided context.",
+    "artifacts": [],
+    "toolCalls": [
+      "prompt:prompt-7a4c29801452d750"
+    ],
+    "metadata": {
+      "fixture": true,
+      "matchedFacts": []
+    }
+  }
+}

@@ -1,14 +1,35 @@
 # MemQ Bench Docs
 
-This directory is the operator map for the public benchmark repo.
+MemQ Bench is the official documentation surface for the public MemQ benchmark
+repo.
 
-## Start Here
+## Start here
 
-- [Methodology](./methodology.md) explains what the benchmark measures and what the accelerated track adds.
-- [Reproducibility Protocol](./reproducibility-protocol.md) defines what an independent rerun must preserve.
-- [Artifact Map](./artifact-map.md) points to the exact raw files and summary outputs shipped in this repo.
-- [Publication Rules](./publication.md) defines what can and cannot be claimed publicly from the generated snapshots.
+- [Quickstart](./tutorials/quickstart.md)
+- [Translation Accelerated Fabric Tutorial](./tutorials/translation-accelerated-fabric.md)
+- [Coordination Benchmarks Tutorial](./tutorials/coordination-benchmarks.md)
+- [Methodology](./methodology.md)
+- [Reproducibility Protocol](./reproducibility-protocol.md)
+- [Artifact Map](./artifact-map.md)
+- [Publication Rules](./publication.md)
 
-## Public-Facing Rule
+## What this docs set covers
 
-Everything published from this repo must trace back to `artifacts/snapshot.json` plus the underlying raw result files under `artifacts/results/`.
+- how to run the benchmark locally
+- what each benchmark case proves
+- how vector translation is represented in the corpus
+- how `_commons` publication shows up in the benchmark tasks
+- how to publish verifiable public claims without hand-waving
+
+## Branding and verification
+
+The badges and banner in this repo are first-party MemQ benchmark markers. They
+are meant to reflect the state of this repo only:
+
+- verified snapshot
+- official docs
+- reproducible harness
+- translation proof included
+- workflow-ready publication path
+
+No third-party alliance or certification claims are published here.

@@ -1,0 +1,70 @@
+{
+  "runName": "memq-smoke",
+  "taskId": "byzantine-generals-consensus",
+  "track": "fixture",
+  "condition": "memq_core",
+  "repetition": 1,
+  "model": {
+    "name": "fixture-evaluator",
+    "provider": "internal",
+    "temperature": 0
+  },
+  "status": "passed",
+  "reason": "",
+  "startedAt": "2026-04-08T11:11:56.290Z",
+  "finishedAt": "2026-04-08T11:11:56.295Z",
+  "durationMs": 5,
+  "promptTokens": 30,
+  "packedTokens": 182,
+  "verifier": {
+    "matchedFacts": [
+      "MemQ records each general's signed intent in the shared namespace before consensus is declared.",
+      "Consensus requires 2 of 3 translated command vectors to agree within the benchmark tolerance.",
+      "The translation layer normalizes incoming 1536d and 768d command vectors into one benchmark space.",
+      "Only the quorum-approved command is promoted into _commons."
+    ],
+    "missingFacts": [],
+    "forbiddenFacts": []
+  },
+  "retrieval": {
+    "liveMemQ": false,
+    "liveGraphiti": false,
+    "liveQdrant": false,
+    "langChainRerankUsed": false,
+    "sliceCount": 11,
+    "packedSliceCount": 11,
+    "promptTokens": 30,
+    "packedTokens": 182,
+    "sourceCounts": {
+      "prompt": 1,
+      "memq_core": 10
+    },
+    "notes": []
+  },
+  "payload": {
+    "answer": "- MemQ records each general's signed intent in the shared namespace before consensus is declared.\n- Consensus requires 2 of 3 translated command vectors to agree within the benchmark tolerance.\n- The translation layer normalizes incoming 1536d and 768d command vectors into one benchmark space.\n- Only the quorum-approved command is promoted into _commons.",
+    "artifacts": [],
+    "toolCalls": [
+      "prompt:prompt-55f5347cf8f15918",
+      "memq_core:memq_core-6438466ff7a3afa0",
+      "memq_core:memq_core-c8cdd868a95d5dc0",
+      "memq_core:memq_core-c28cc7cc9e897ba8",
+      "memq_core:memq_core-0460d755dd693c0a",
+      "memq_core:memq_core-2cb7fecf256257c0",
+      "memq_core:memq_core-c5034b92ba0cb462",
+      "memq_core:memq_core-f114433778b4af04",
+      "memq_core:memq_core-c7be5538d859dfff",
+      "memq_core:memq_core-9f88d1c7a3479fb7",
+      "memq_core:memq_core-b63ac7b320acc553"
+    ],
+    "metadata": {
+      "fixture": true,
+      "matchedFacts": [
+        "MemQ records each general's signed intent in the shared namespace before consensus is declared.",
+        "Consensus requires 2 of 3 translated command vectors to agree within the benchmark tolerance.",
+        "The translation layer normalizes incoming 1536d and 768d command vectors into one benchmark space.",
+        "Only the quorum-approved command is promoted into _commons."
+      ]
+    }
+  }
+}

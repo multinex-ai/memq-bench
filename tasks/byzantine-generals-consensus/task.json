@@ -1,0 +1,23 @@
+{
+  "id": "byzantine-generals-consensus",
+  "family": "multi_agent_consensus",
+  "title": "Byzantine generals consensus",
+  "description": "Verify that the agent recalls the MemQ adaptation of Byzantine consensus with translated command embeddings and commons promotion rules.",
+  "query": "byzantine generals memq consensus translated vectors quorum commons",
+  "prompt": "State the MemQ benchmark rule for the Byzantine Generals adaptation. Include where each general writes intent, the quorum rule, and what reaches _commons.",
+  "workspaceDir": "fixtures/workspaces/byzantine-generals-consensus",
+  "naiveTranscriptPath": "tasks/byzantine-generals-consensus/naive-transcript.md",
+  "verifier": {
+    "requiredFacts": [
+      "MemQ records each general's signed intent in the shared namespace before consensus is declared.",
+      "Consensus requires 2 of 3 translated command vectors to agree within the benchmark tolerance.",
+      "The translation layer normalizes incoming 1536d and 768d command vectors into one benchmark space.",
+      "Only the quorum-approved command is promoted into _commons."
+    ],
+    "forbiddenFacts": [
+      "Any single general can publish the final command to _commons.",
+      "Consensus skips translation and compares raw dimensions directly."
+    ]
+  },
+  "tags": ["memq", "consensus", "commons", "translation", "swarm"]
+}

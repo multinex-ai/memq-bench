@@ -1,56 +1,81 @@
 {
   "benchmark": "memq-bench",
-  "generatedAt": "2026-03-12T02:23:54.231Z",
+  "generatedAt": "2026-04-08T11:11:59.805Z",
   "artifacts": [
-    "artifacts/results/memq-smoke-fixture-memq_accelerated-cross-session-release-image-r1.json",
+    "artifacts/results/memq-smoke-fixture-memq_accelerated-byzantine-generals-consensus-r1.json",
+    "artifacts/results/memq-smoke-fixture-memq_accelerated-dining-philosophers-leases-r1.json",
+    "artifacts/results/memq-smoke-fixture-memq_accelerated-embedding-translation-fabric-r1.json",
     "artifacts/results/memq-smoke-fixture-memq_accelerated-manual-copy-regression-r1.json",
     "artifacts/results/memq-smoke-fixture-memq_accelerated-protocol-tool-discipline-r1.json",
-    "artifacts/results/memq-smoke-fixture-memq_core-cross-session-release-image-r1.json",
+    "artifacts/results/memq-smoke-fixture-memq_core-byzantine-generals-consensus-r1.json",
+    "artifacts/results/memq-smoke-fixture-memq_core-dining-philosophers-leases-r1.json",
+    "artifacts/results/memq-smoke-fixture-memq_core-embedding-translation-fabric-r1.json",
     "artifacts/results/memq-smoke-fixture-memq_core-manual-copy-regression-r1.json",
     "artifacts/results/memq-smoke-fixture-memq_core-protocol-tool-discipline-r1.json",
-    "artifacts/results/memq-smoke-fixture-naive_memory-cross-session-release-image-r1.json",
+    "artifacts/results/memq-smoke-fixture-naive_memory-byzantine-generals-consensus-r1.json",
+    "artifacts/results/memq-smoke-fixture-naive_memory-dining-philosophers-leases-r1.json",
+    "artifacts/results/memq-smoke-fixture-naive_memory-embedding-translation-fabric-r1.json",
     "artifacts/results/memq-smoke-fixture-naive_memory-manual-copy-regression-r1.json",
     "artifacts/results/memq-smoke-fixture-naive_memory-protocol-tool-discipline-r1.json",
-    "artifacts/results/memq-smoke-fixture-stateless-cross-session-release-image-r1.json",
+    "artifacts/results/memq-smoke-fixture-stateless-byzantine-generals-consensus-r1.json",
+    "artifacts/results/memq-smoke-fixture-stateless-dining-philosophers-leases-r1.json",
+    "artifacts/results/memq-smoke-fixture-stateless-embedding-translation-fabric-r1.json",
     "artifacts/results/memq-smoke-fixture-stateless-manual-copy-regression-r1.json",
     "artifacts/results/memq-smoke-fixture-stateless-protocol-tool-discipline-r1.json"
   ],
   "summary": {
     "fixture:memq_accelerated": {
-      "runs": 3,
-      "passed": 3,
+      "runs": 5,
+      "passed": 5,
       "failed": 0,
       "skipped": 0,
-      "avgDurationMs": 72,
-      "avgPackedTokens": 150
+      "avgDurationMs": 115,
+      "avgPackedTokens": 171
     },
     "fixture:memq_core": {
-      "runs": 3,
-      "passed": 3,
+      "runs": 5,
+      "passed": 5,
       "failed": 0,
       "skipped": 0,
-      "avgDurationMs": 132,
-      "avgPackedTokens": 150
+      "avgDurationMs": 17,
+      "avgPackedTokens": 171
     },
     "fixture:naive_memory": {
-      "runs": 3,
+      "runs": 5,
       "passed": 0,
-      "failed": 3,
+      "failed": 5,
       "skipped": 0,
-      "avgDurationMs": 0,
+      "avgDurationMs": 1,
       "avgPackedTokens": 61
     },
     "fixture:stateless": {
-      "runs": 3,
+      "runs": 5,
       "passed": 0,
-      "failed": 3,
+      "failed": 5,
       "skipped": 0,
-      "avgDurationMs": 1,
-      "avgPackedTokens": 37
+      "avgDurationMs": 2,
+      "avgPackedTokens": 34
     }
   },
+  "corpus": {
+    "taskCount": 5,
+    "tasks": [
+      "byzantine-generals-consensus",
+      "dining-philosophers-leases",
+      "embedding-translation-fabric",
+      "manual-copy-regression",
+      "protocol-tool-discipline"
+    ]
+  },
+  "headline": {
+    "memqCondition": "fixture:memq_accelerated",
+    "baselineCondition": "fixture:naive_memory",
+    "memqPassRate": 1,
+    "baselinePassRate": 0,
+    "passPointDelta": 100
+  },
   "reproducibility": {
-    "resultCount": 12,
+    "resultCount": 20,
     "tracks": [
       "fixture"
     ],

@@ -1,0 +1,72 @@
+{
+  "runName": "memq-smoke",
+  "taskId": "embedding-translation-fabric",
+  "track": "fixture",
+  "condition": "memq_core",
+  "repetition": 1,
+  "model": {
+    "name": "fixture-evaluator",
+    "provider": "internal",
+    "temperature": 0
+  },
+  "status": "passed",
+  "reason": "",
+  "startedAt": "2026-04-08T11:11:56.220Z",
+  "finishedAt": "2026-04-08T11:11:56.288Z",
+  "durationMs": 68,
+  "promptTokens": 31,
+  "packedTokens": 219,
+  "verifier": {
+    "matchedFacts": [
+      "POST /mcp/v1/translate accepts a vector plus source_dimension and target_dimension.",
+      "Source profile example: openai text-embedding-3-large 1536d.",
+      "Target profile example: cloudflare bge-base-en-v1.5 768d.",
+      "Example payload uses vector [0.91,0.42,-0.18,0.07] and translates from 4d to 2d.",
+      "Example result returns translated_vector [0.91,0.42] with method truncation and retention 0.5."
+    ],
+    "missingFacts": [],
+    "forbiddenFacts": []
+  },
+  "retrieval": {
+    "liveMemQ": false,
+    "liveGraphiti": false,
+    "liveQdrant": false,
+    "langChainRerankUsed": false,
+    "sliceCount": 11,
+    "packedSliceCount": 11,
+    "promptTokens": 31,
+    "packedTokens": 219,
+    "sourceCounts": {
+      "prompt": 1,
+      "memq_core": 10
+    },
+    "notes": []
+  },
+  "payload": {
+    "answer": "- POST /mcp/v1/translate accepts a vector plus source_dimension and target_dimension.\n- Source profile example: openai text-embedding-3-large 1536d.\n- Target profile example: cloudflare bge-base-en-v1.5 768d.\n- Example payload uses vector [0.91,0.42,-0.18,0.07] and translates from 4d to 2d.\n- Example result returns translated_vector [0.91,0.42] with method truncation and retention 0.5.",
+    "artifacts": [],
+    "toolCalls": [
+      "prompt:prompt-99bb278854ec0b6c",
+      "memq_core:memq_core-44ca7f99d11f8a8d",
+      "memq_core:memq_core-dda935794a02b263",
+      "memq_core:memq_core-73a7f37bcdc31298",
+      "memq_core:memq_core-40172be4d4841157",
+      "memq_core:memq_core-f540715a8519cca7",
+      "memq_core:memq_core-0460d755dd693c0a",
+      "memq_core:memq_core-f114433778b4af04",
+      "memq_core:memq_core-c7be5538d859dfff",
+      "memq_core:memq_core-9f88d1c7a3479fb7",
+      "memq_core:memq_core-b63ac7b320acc553"
+    ],
+    "metadata": {
+      "fixture": true,
+      "matchedFacts": [
+        "POST /mcp/v1/translate accepts a vector plus source_dimension and target_dimension.",
+        "Source profile example: openai text-embedding-3-large 1536d.",
+        "Target profile example: cloudflare bge-base-en-v1.5 768d.",
+        "Example payload uses vector [0.91,0.42,-0.18,0.07] and translates from 4d to 2d.",
+        "Example result returns translated_vector [0.91,0.42] with method truncation and retention 0.5."
+      ]
+    }
+  }
+}

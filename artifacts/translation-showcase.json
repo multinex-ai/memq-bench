@@ -1,0 +1,34 @@
+{
+  "name": "memq-translation-showcase",
+  "generatedAt": "2026-04-08T02:30:00Z",
+  "route": "POST https://api.multinex.ai/mcp/v1/translate",
+  "request": {
+    "vector": [0.91, 0.42, -0.18, 0.07],
+    "source_dimension": 4,
+    "target_dimension": 2,
+    "source_profile": {
+      "provider": "openai",
+      "model": "text-embedding-3-large",
+      "dimension": 4
+    },
+    "target_profile": {
+      "provider": "cloudflare",
+      "model": "bge-base-en-v1.5",
+      "dimension": 2
+    }
+  },
+  "response": {
+    "mode": "stateless_translation",
+    "translated_vector": [0.91, 0.42],
+    "dimension": 2,
+    "method": "truncation",
+    "quality": {
+      "retention": 0.5,
+      "lossless": false
+    }
+  },
+  "benchmarkUse": {
+    "case": "byzantine-generals-consensus",
+    "note": "The benchmark demonstrates that translated command vectors can be normalized into one decision space before quorum."
+  }
+}
