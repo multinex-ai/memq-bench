@@ -1,6 +1,6 @@
 {
   "benchmark": "memq-bench",
-  "generatedAt": "2026-04-08T11:11:59.805Z",
+  "generatedAt": "2026-04-08T12:38:17.384Z",
   "artifacts": [
     "artifacts/results/memq-smoke-fixture-memq_accelerated-byzantine-generals-consensus-r1.json",
     "artifacts/results/memq-smoke-fixture-memq_accelerated-dining-philosophers-leases-r1.json",
@@ -29,7 +29,7 @@
       "passed": 5,
       "failed": 0,
       "skipped": 0,
-      "avgDurationMs": 115,
+      "avgDurationMs": 81,
       "avgPackedTokens": 171
     },
     "fixture:memq_core": {
@@ -37,7 +37,7 @@
       "passed": 5,
       "failed": 0,
       "skipped": 0,
-      "avgDurationMs": 17,
+      "avgDurationMs": 32,
       "avgPackedTokens": 171
     },
     "fixture:naive_memory": {

@@ -36,6 +36,7 @@ jobs:
         with:
           name: memq-bench-results
           path: |
+            artifacts/badges.json
             artifacts/snapshot.json
             artifacts/summary.md
             artifacts/results

@@ -11,9 +11,9 @@
   },
   "status": "passed",
   "reason": "",
-  "startedAt": "2026-04-08T11:11:56.864Z",
-  "finishedAt": "2026-04-08T11:11:56.900Z",
-  "durationMs": 37,
+  "startedAt": "2026-04-08T12:38:16.230Z",
+  "finishedAt": "2026-04-08T12:38:16.240Z",
+  "durationMs": 11,
   "promptTokens": 42,
   "packedTokens": 145,
   "verifier": {

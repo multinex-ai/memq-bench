@@ -30,17 +30,25 @@ A public snapshot must include:
 
 ## Standalone publication
 
-This benchmark can be published as a standalone GitHub repo by splitting the
-`benchmarks/memq-bench` subtree. The workflow file is stored inside the benchmark
-directory so it survives the split cleanly.
+This repository is the standalone public GitHub repo for MemQ Bench.
+
+The source benchmark harness may also exist inside broader internal development
+workspaces, but the public proof surface, workflows, artifacts, and badge rules
+are anchored here.
 
 ## Badge policy
 
-This repo uses first-party MemQ benchmark badges only:
+All public badges in this repo must be publicly verifiable from one of these sources:
 
-- verified snapshot
-- official docs
-- reproducible
-- translation proof
-- workflow ready
-- smoke validated
+- a GitHub Actions workflow visible in this repository,
+- a committed artifact file such as `artifacts/snapshot.json` or `artifacts/badges.json`,
+- a first-party documentation page inside this repository.
+
+Do not use presentation-only badge artwork for standards, alliances, or certification claims.
+If a badge implies external verification, it must link to a real external program or public evidence URL.
+
+Current approved badge classes:
+
+- workflow badges,
+- snapshot badges derived from committed artifact JSON,
+- documentation badges that point to publication or reproducibility rules.

@@ -11,6 +11,14 @@ interface Aggregate {
   avgPackedTokens: number;
 }
 
+interface Headline {
+  memqCondition: string;
+  baselineCondition: string;
+  memqPassRate: number;
+  baselinePassRate: number;
+  passPointDelta: number;
+}
+
 function aggregate(results: ResultRecord[]): Record<string, Aggregate> {
   const groups = new Map<string, ResultRecord[]>();
   for (const result of results) {
@@ -33,7 +41,7 @@ function aggregate(results: ResultRecord[]): Record<string, Aggregate> {
   );
 }
 
-function computeHeadline(groups: Record<string, Aggregate>) {
+function computeHeadline(groups: Record<string, Aggregate>): Headline | null {
   const core = groups["fixture:memq_core"];
   const accelerated = groups["fixture:memq_accelerated"];
   const stateless = groups["fixture:stateless"];
@@ -65,15 +73,47 @@ function computeHeadline(groups: Record<string, Aggregate>) {
   };
 }
 
+function formatPassedRuns(value: Aggregate | undefined): string {
+  if (!value) {
+    return "n/a";
+  }
+  return `${value.passed}/${value.runs}`;
+}
+
+function buildBadgeSnapshot(
+  groups: Record<string, Aggregate>,
+  tasks: string[],
+  headline: Headline | null,
+  generatedAt: string,
+) {
+  const memqCore = groups["fixture:memq_core"];
+  const memqAccelerated = groups["fixture:memq_accelerated"];
+  const naiveMemory = groups["fixture:naive_memory"];
+  const stateless = groups["fixture:stateless"];
+  const baseline = headline?.baselineCondition === "fixture:stateless" ? stateless : naiveMemory;
+
+  return {
+    snapshot: {
+      generatedAt,
+      taskCount: tasks.length,
+      passPointDelta: headline?.passPointDelta ?? 0,
+      memqCore: formatPassedRuns(memqCore),
+      memqAccelerated: formatPassedRuns(memqAccelerated),
+      baseline: formatPassedRuns(baseline),
+    },
+  };
+}
+
 export async function publish(resultsDir: string, outFile: string): Promise<void> {
   const files = await listJsonFiles(resultsDir);
   const results = await Promise.all(files.map((file) => readJsonFile(file, ResultSchema)));
   const grouped = aggregate(results);
   const tasks = [...new Set(results.map((result) => result.taskId))].sort();
   const headline = computeHeadline(grouped);
+  const generatedAt = new Date().toISOString();
   const snapshot = {
     benchmark: "memq-bench",
-    generatedAt: new Date().toISOString(),
+    generatedAt,
     artifacts: files.map((file) => path.relative(process.cwd(), file)),
     summary: grouped,
     corpus: {
@@ -88,6 +128,7 @@ export async function publish(resultsDir: string, outFile: string): Promise<void
       models: [...new Set(results.map((result) => `${result.model.provider}:${result.model.name}`))],
     },
   };
+  const badges = buildBadgeSnapshot(grouped, tasks, headline, generatedAt);
 
   const lines = ["# MemQ Benchmark Summary", ""];
   if (headline) {
@@ -113,5 +154,6 @@ export async function publish(resultsDir: string, outFile: string): Promise<void
   }
 
   await writeJsonFile(outFile, snapshot);
+  await writeJsonFile(path.join(path.dirname(outFile), "badges.json"), badges);
   await writeTextFile(path.join(path.dirname(outFile), "summary.md"), lines.join("\n"));
 }

@@ -14,7 +14,7 @@
 - passed: 5
 - failed: 0
 - skipped: 0
-- avg duration ms: 115
+- avg duration ms: 81
 - avg packed tokens: 171
 
 ## fixture:memq_core
@@ -22,7 +22,7 @@
 - passed: 5
 - failed: 0
 - skipped: 0
-- avg duration ms: 17
+- avg duration ms: 32
 - avg packed tokens: 171
 
 ## fixture:naive_memory

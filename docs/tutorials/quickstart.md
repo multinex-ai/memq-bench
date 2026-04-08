@@ -3,7 +3,7 @@
 ## Run the deterministic benchmark
 
 ```bash
-cd benchmarks/memq-bench
+cd memq-bench
 npm install
 npm run bench
 ```
