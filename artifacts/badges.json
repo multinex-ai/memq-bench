@@ -1,11 +1,11 @@
 {
   "snapshot": {
-    "generatedAt": "2026-04-09T02:54:04.412Z",
+    "generatedAt": "2026-04-09T04:03:56.996Z",
     "caseCount": 12,
-    "memqPrimaryAt1Pct": 17,
-    "memqRecallPct": 29,
+    "memqPrimaryAt1Pct": 100,
+    "memqRecallPct": 100,
     "mem0PrimaryAt1Pct": 58,
     "baselinePrimaryAt1Pct": 58,
-    "memqVsMem0PrimaryDeltaPts": -42
+    "memqVsMem0PrimaryDeltaPts": 42
   }
 }

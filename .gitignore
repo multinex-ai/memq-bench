@@ -2,3 +2,6 @@ node_modules/
 dist/
 .venv-mem0/
 artifacts/tmp/
+configs/*.local.json
+artifacts/retrieval-results-mcp-*/
+artifacts/mcp-server-*-snapshot.json
