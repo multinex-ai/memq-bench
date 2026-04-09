@@ -1,0 +1,119 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "memq_mcp",
+  "repetition": 1,
+  "caseId": "apollo-notify-dana",
+  "family": "preference",
+  "namespace": "apollo",
+  "query": "What is Dana Morales's preferred channel for Apollo invoice issues?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:51:06.661Z",
+  "finishedAt": "2026-04-09T02:51:06.664Z",
+  "searchLatencyMs": 4,
+  "prepareDurationMs": 1932,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-notify-dana"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-notify-erin",
+    "zephyr-notify-dana"
+  ],
+  "metrics": {
+    "hitAtK": false,
+    "primaryAt1": false,
+    "precisionAtK": 0,
+    "recallAtK": 0,
+    "mrr": 0,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [],
+    "forbiddenRanks": []
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "apollo-pagerduty-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo incident policy: checkout alerts use PagerDuty escalation path Gamma. Primary on-call is Mira Chen.",
+      "score": 0.31672050000000007,
+      "providerMemoryId": "ef4d1865-5a87-4304-96a7-4571aa90f941",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-pagerduty-v2",
+        "namespace:apollo",
+        "incident",
+        "pagerduty",
+        "checkout",
+        "current"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "apollo-checkout-owner",
+      "namespace": "apollo",
+      "text": "Apollo checkout migration owner is Rina Patel from platform engineering.",
+      "score": 0.31464182000000007,
+      "providerMemoryId": "e11f5b76-ec19-4fdd-be5e-6fbd3c1f6b37",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-checkout-owner",
+        "namespace:apollo",
+        "project",
+        "checkout",
+        "owner"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "apollo-checkout-deadline",
+      "namespace": "apollo",
+      "text": "Apollo checkout migration deadline is April 18, 2026 and the cutover rehearsal is scheduled two days earlier.",
+      "score": 0.30661007000000007,
+      "providerMemoryId": "ac163a3b-81dd-48eb-bfba-ab1508506733",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-checkout-deadline",
+        "namespace:apollo",
+        "project",
+        "checkout",
+        "deadline"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "apollo-pagerduty-v1",
+      "namespace": "apollo",
+      "text": "Deprecated Apollo incident policy from January 2026: use PagerDuty escalation path Beta for checkout pages.",
+      "score": 0.30479847000000004,
+      "providerMemoryId": "c470f234-2add-4846-8bf2-67a67588ee96",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-pagerduty-v1",
+        "namespace:apollo",
+        "incident",
+        "pagerduty",
+        "checkout",
+        "deprecated"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "apollo-alex-billing",
+      "namespace": "apollo",
+      "text": "Apollo billing operations: Alex Kim owns invoice reconciliation and payment exception review.",
+      "score": 0.29167067,
+      "providerMemoryId": "84d9bf00-6bcd-4fed-81bf-75a7ba200c2c",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-alex-billing",
+        "namespace:apollo",
+        "people",
+        "billing",
+        "alex-kim"
+      ]
+    }
+  ]
+}

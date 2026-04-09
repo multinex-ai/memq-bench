@@ -1,0 +1,41 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "memq_context",
+  "repetition": 1,
+  "caseId": "apollo-cfo-email-current",
+  "providerContext": "memq_mcp",
+  "question": "Where should board-level Apollo finance questions go now?",
+  "expectedTerms": [
+    "cfo-office@apollo.example"
+  ],
+  "forbiddenTerms": [
+    "finance@apollo.example",
+    "treasury@zephyr.example",
+    "finance-ops@orion.example"
+  ],
+  "relevantSourceIds": [
+    "apollo-cfo-email-v2"
+  ],
+  "primarySourceId": "apollo-cfo-email-v2",
+  "contextSourceIds": [
+    "apollo-cfo-email-v1",
+    "apollo-cfo-email-v2",
+    "apollo-incident-redis-distractor",
+    "apollo-incident-root-cause",
+    "apollo-postgres-fix"
+  ],
+  "answer": "Current Apollo CFO contact email is cfo-office@apollo.example.",
+  "citations": [
+    "apollo-cfo-email-v2"
+  ],
+  "metrics": {
+    "answerPass": true,
+    "citationHit": true,
+    "citationRecall": 1,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

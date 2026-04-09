@@ -1,0 +1,109 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "mem0_oss",
+  "repetition": 2,
+  "caseId": "apollo-api-rotation-current",
+  "family": "freshness",
+  "namespace": "apollo",
+  "query": "What is the current credential rollover cadence for Apollo fulfillment partner access?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:52:18.091Z",
+  "finishedAt": "2026-04-09T02:52:20.969Z",
+  "searchLatencyMs": 2878,
+  "prepareDurationMs": 9326,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-api-rotation-v2"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-api-rotation-v1",
+    "zephyr-api-rotation-v1",
+    "orion-api-rotation-v1"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": false,
+    "precisionAtK": 0.2,
+    "recallAtK": 1,
+    "mrr": 0.5,
+    "leakageCount": 1,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      2
+    ],
+    "forbiddenRanks": [
+      1
+    ]
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "apollo-api-rotation-v1",
+      "namespace": "apollo",
+      "text": "Deprecated Apollo partner API policy: rotate the fulfillment token every 90 days.",
+      "score": 0.8567384,
+      "providerMemoryId": "c54f8779-8916-4e89-9a27-fa6d8eab79fd",
+      "tags": [
+        "security",
+        "api-token",
+        "deprecated"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "apollo-api-rotation-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo partner API policy: rotate the fulfillment token every 30 days and store the checksum in Shield.",
+      "score": 0.8298037,
+      "providerMemoryId": "9e575e89-a461-4008-bc85-43eed5b449df",
+      "tags": [
+        "security",
+        "api-token",
+        "current",
+        "shield"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "apollo-checkout-deadline",
+      "namespace": "apollo",
+      "text": "Apollo checkout migration deadline is April 18, 2026 and the cutover rehearsal is scheduled two days earlier.",
+      "score": 0.6659425,
+      "providerMemoryId": "da7c9f4b-02c1-4cd1-935c-8c2cabb02d60",
+      "tags": [
+        "project",
+        "checkout",
+        "deadline"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "apollo-alex-platform",
+      "namespace": "apollo",
+      "text": "Apollo platform engineering: Alex Kim owns the rollout gates service and deployment approvals.",
+      "score": 0.6330374,
+      "providerMemoryId": "a2b88d01-715a-417c-97a3-a024cd832372",
+      "tags": [
+        "people",
+        "platform",
+        "alex-kim"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "apollo-pagerduty-v1",
+      "namespace": "apollo",
+      "text": "Deprecated Apollo incident policy from January 2026: use PagerDuty escalation path Beta for checkout pages.",
+      "score": 0.62823784,
+      "providerMemoryId": "97681bcf-1381-441e-a13a-64c4f53a2fdc",
+      "tags": [
+        "incident",
+        "pagerduty",
+        "checkout",
+        "deprecated"
+      ]
+    }
+  ]
+}

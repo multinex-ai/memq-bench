@@ -1,2 +1,4 @@
 node_modules/
 dist/
+.venv-mem0/
+artifacts/tmp/

@@ -1,0 +1,41 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "keyword_context",
+  "repetition": 1,
+  "caseId": "apollo-incident-root-cause",
+  "providerContext": "keyword_baseline",
+  "question": "What actually took down Apollo checkout on March 17?",
+  "expectedTerms": [
+    "pgbouncer",
+    "dns"
+  ],
+  "forbiddenTerms": [
+    "redis",
+    "kafka"
+  ],
+  "relevantSourceIds": [
+    "apollo-incident-root-cause"
+  ],
+  "primarySourceId": "apollo-incident-root-cause",
+  "contextSourceIds": [
+    "apollo-incident-root-cause",
+    "apollo-pagerduty-v2",
+    "apollo-checkout-deadline",
+    "apollo-checkout-owner",
+    "apollo-pagerduty-v1"
+  ],
+  "answer": "The March 17 Apollo checkout outage was caused by stale PgBouncer DNS cache after Postgres failover.",
+  "citations": [
+    "apollo-incident-root-cause"
+  ],
+  "metrics": {
+    "answerPass": true,
+    "citationHit": true,
+    "citationRecall": 1,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

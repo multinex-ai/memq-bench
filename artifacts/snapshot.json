@@ -1,92 +1,204 @@
 {
-  "benchmark": "memq-bench",
-  "generatedAt": "2026-04-08T12:38:17.384Z",
-  "artifacts": [
-    "artifacts/results/memq-smoke-fixture-memq_accelerated-byzantine-generals-consensus-r1.json",
-    "artifacts/results/memq-smoke-fixture-memq_accelerated-dining-philosophers-leases-r1.json",
-    "artifacts/results/memq-smoke-fixture-memq_accelerated-embedding-translation-fabric-r1.json",
-    "artifacts/results/memq-smoke-fixture-memq_accelerated-manual-copy-regression-r1.json",
-    "artifacts/results/memq-smoke-fixture-memq_accelerated-protocol-tool-discipline-r1.json",
-    "artifacts/results/memq-smoke-fixture-memq_core-byzantine-generals-consensus-r1.json",
-    "artifacts/results/memq-smoke-fixture-memq_core-dining-philosophers-leases-r1.json",
-    "artifacts/results/memq-smoke-fixture-memq_core-embedding-translation-fabric-r1.json",
-    "artifacts/results/memq-smoke-fixture-memq_core-manual-copy-regression-r1.json",
-    "artifacts/results/memq-smoke-fixture-memq_core-protocol-tool-discipline-r1.json",
-    "artifacts/results/memq-smoke-fixture-naive_memory-byzantine-generals-consensus-r1.json",
-    "artifacts/results/memq-smoke-fixture-naive_memory-dining-philosophers-leases-r1.json",
-    "artifacts/results/memq-smoke-fixture-naive_memory-embedding-translation-fabric-r1.json",
-    "artifacts/results/memq-smoke-fixture-naive_memory-manual-copy-regression-r1.json",
-    "artifacts/results/memq-smoke-fixture-naive_memory-protocol-tool-discipline-r1.json",
-    "artifacts/results/memq-smoke-fixture-stateless-byzantine-generals-consensus-r1.json",
-    "artifacts/results/memq-smoke-fixture-stateless-dining-philosophers-leases-r1.json",
-    "artifacts/results/memq-smoke-fixture-stateless-embedding-translation-fabric-r1.json",
-    "artifacts/results/memq-smoke-fixture-stateless-manual-copy-regression-r1.json",
-    "artifacts/results/memq-smoke-fixture-stateless-protocol-tool-discipline-r1.json"
-  ],
-  "summary": {
-    "fixture:memq_accelerated": {
-      "runs": 5,
-      "passed": 5,
+  "benchmark": "memq-bench-retrieval",
+  "generatedAt": "2026-04-09T02:54:04.412Z",
+  "corpus": {
+    "caseCount": 12,
+    "namespaces": [
+      "apollo",
+      "orion",
+      "zephyr"
+    ],
+    "families": [
+      "disambiguation",
+      "freshness",
+      "incident",
+      "preference",
+      "procedural",
+      "project_memory",
+      "runbook"
+    ]
+  },
+  "providers": {
+    "keyword_baseline": {
+      "runs": 36,
+      "completed": 36,
       "failed": 0,
       "skipped": 0,
-      "avgDurationMs": 81,
-      "avgPackedTokens": 171
+      "avgLatencyMs": 0,
+      "p95LatencyMs": 0,
+      "hitAtKRate": 1,
+      "primaryAt1Rate": 0.5833333333333334,
+      "avgRecallAtK": 0.9166666666666666,
+      "avgPrecisionAtK": 0.21666666666666679,
+      "avgMrr": 0.861111111111111,
+      "leakageFreeRate": 0.6666666666666666
     },
-    "fixture:memq_core": {
-      "runs": 5,
-      "passed": 5,
+    "mem0_oss": {
+      "runs": 36,
+      "completed": 36,
       "failed": 0,
       "skipped": 0,
-      "avgDurationMs": 32,
-      "avgPackedTokens": 171
+      "avgLatencyMs": 3353,
+      "p95LatencyMs": 4672,
+      "hitAtKRate": 1,
+      "primaryAt1Rate": 0.5833333333333334,
+      "avgRecallAtK": 1,
+      "avgPrecisionAtK": 0.2500000000000001,
+      "avgMrr": 0.9166666666666666,
+      "leakageFreeRate": 0.6666666666666666
     },
-    "fixture:naive_memory": {
-      "runs": 5,
-      "passed": 0,
-      "failed": 5,
+    "memq_mcp": {
+      "runs": 36,
+      "completed": 36,
+      "failed": 0,
       "skipped": 0,
-      "avgDurationMs": 1,
-      "avgPackedTokens": 61
-    },
-    "fixture:stateless": {
-      "runs": 5,
-      "passed": 0,
-      "failed": 5,
-      "skipped": 0,
-      "avgDurationMs": 2,
-      "avgPackedTokens": 34
+      "avgLatencyMs": 8,
+      "p95LatencyMs": 22,
+      "hitAtKRate": 0.3055555555555556,
+      "primaryAt1Rate": 0.16666666666666666,
+      "avgRecallAtK": 0.2916666666666667,
+      "avgPrecisionAtK": 0.07222222222222222,
+      "avgMrr": 0.2546296296296296,
+      "leakageFreeRate": 0.8888888888888888
     }
   },
-  "corpus": {
-    "taskCount": 5,
-    "tasks": [
-      "byzantine-generals-consensus",
-      "dining-philosophers-leases",
-      "embedding-translation-fabric",
-      "manual-copy-regression",
-      "protocol-tool-discipline"
-    ]
-  },
-  "headline": {
-    "memqCondition": "fixture:memq_accelerated",
-    "baselineCondition": "fixture:naive_memory",
-    "memqPassRate": 1,
-    "baselinePassRate": 0,
-    "passPointDelta": 100
-  },
+  "comparisons": [
+    {
+      "provider": "memq_mcp",
+      "comparator": "mem0_oss",
+      "primaryAt1DeltaPoints": -42,
+      "recallDeltaPoints": -71,
+      "latencyDeltaMs": -3345
+    },
+    {
+      "provider": "memq_mcp",
+      "comparator": "keyword_baseline",
+      "primaryAt1DeltaPoints": -42,
+      "recallDeltaPoints": -62,
+      "latencyDeltaMs": 8
+    }
+  ],
   "reproducibility": {
-    "resultCount": 20,
-    "tracks": [
-      "fixture"
+    "resultCount": 108,
+    "providers": [
+      "keyword_baseline",
+      "mem0_oss",
+      "memq_mcp"
     ],
-    "conditions": [
-      "memq_accelerated",
-      "memq_core",
-      "naive_memory",
-      "stateless"
-    ],
-    "models": [
-      "internal:fixture-evaluator"
+    "repetitions": [
+      1,
+      2,
+      3
     ]
-  }
+  },
+  "artifacts": [
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-alex-billing-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-alex-billing-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-alex-billing-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-api-rotation-current-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-api-rotation-current-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-api-rotation-current-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-cfo-email-current-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-cfo-email-current-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-cfo-email-current-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-checkout-owner-deadline-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-checkout-owner-deadline-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-checkout-owner-deadline-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-incident-root-cause-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-incident-root-cause-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-incident-root-cause-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-memq-loop-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-memq-loop-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-memq-loop-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-notify-dana-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-notify-dana-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-notify-dana-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-pagerduty-current-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-pagerduty-current-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-pagerduty-current-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-postgres-failover-fix-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-postgres-failover-fix-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-apollo-postgres-failover-fix-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-orion-api-rotation-current-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-orion-api-rotation-current-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-orion-api-rotation-current-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-zephyr-pagerduty-current-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-zephyr-pagerduty-current-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-zephyr-pagerduty-current-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-zephyr-wallet-owner-deadline-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-zephyr-wallet-owner-deadline-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-keyword_baseline-zephyr-wallet-owner-deadline-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-alex-billing-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-alex-billing-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-alex-billing-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-api-rotation-current-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-api-rotation-current-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-api-rotation-current-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-cfo-email-current-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-cfo-email-current-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-cfo-email-current-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-checkout-owner-deadline-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-checkout-owner-deadline-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-checkout-owner-deadline-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-incident-root-cause-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-incident-root-cause-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-incident-root-cause-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-memq-loop-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-memq-loop-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-memq-loop-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-notify-dana-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-notify-dana-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-notify-dana-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-pagerduty-current-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-pagerduty-current-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-pagerduty-current-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-postgres-failover-fix-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-postgres-failover-fix-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-apollo-postgres-failover-fix-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-orion-api-rotation-current-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-orion-api-rotation-current-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-orion-api-rotation-current-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-zephyr-pagerduty-current-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-zephyr-pagerduty-current-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-zephyr-pagerduty-current-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-zephyr-wallet-owner-deadline-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-zephyr-wallet-owner-deadline-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-mem0_oss-zephyr-wallet-owner-deadline-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-alex-billing-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-alex-billing-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-alex-billing-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-api-rotation-current-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-api-rotation-current-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-api-rotation-current-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-cfo-email-current-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-cfo-email-current-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-cfo-email-current-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-checkout-owner-deadline-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-checkout-owner-deadline-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-checkout-owner-deadline-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-incident-root-cause-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-incident-root-cause-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-incident-root-cause-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-memq-loop-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-memq-loop-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-memq-loop-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-notify-dana-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-notify-dana-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-notify-dana-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-pagerduty-current-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-pagerduty-current-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-pagerduty-current-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-postgres-failover-fix-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-postgres-failover-fix-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-apollo-postgres-failover-fix-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-orion-api-rotation-current-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-orion-api-rotation-current-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-orion-api-rotation-current-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-zephyr-pagerduty-current-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-zephyr-pagerduty-current-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-zephyr-pagerduty-current-r3.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-zephyr-wallet-owner-deadline-r1.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-zephyr-wallet-owner-deadline-r2.json",
+    "artifacts/retrieval-results/memq-retrieval-smoke-memq_mcp-zephyr-wallet-owner-deadline-r3.json"
+  ]
 }

@@ -1,0 +1,125 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "memq_mcp",
+  "repetition": 1,
+  "caseId": "apollo-checkout-owner-deadline",
+  "family": "project_memory",
+  "namespace": "apollo",
+  "query": "Who is driving the Apollo checkout cutover and when does it land?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:51:06.635Z",
+  "finishedAt": "2026-04-09T02:51:06.639Z",
+  "searchLatencyMs": 4,
+  "prepareDurationMs": 1932,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-checkout-owner",
+    "apollo-checkout-deadline"
+  ],
+  "forbiddenSourceIds": [
+    "zephyr-checkout-owner",
+    "zephyr-checkout-deadline",
+    "orion-wallet-owner"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": false,
+    "precisionAtK": 0.4,
+    "recallAtK": 1,
+    "mrr": 1,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      1,
+      4
+    ],
+    "forbiddenRanks": []
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "apollo-checkout-deadline",
+      "namespace": "apollo",
+      "text": "Apollo checkout migration deadline is April 18, 2026 and the cutover rehearsal is scheduled two days earlier.",
+      "score": 0.52879475,
+      "providerMemoryId": "ac163a3b-81dd-48eb-bfba-ab1508506733",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-checkout-deadline",
+        "namespace:apollo",
+        "project",
+        "checkout",
+        "deadline"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "apollo-postgres-fix",
+      "namespace": "apollo",
+      "text": "Apollo checkout failover fix: restart the PgBouncer deployment and flush the sidecar DNS cache to clear stale primary routing.",
+      "score": 0.37320482,
+      "providerMemoryId": "27f47abc-b75b-4fd3-98e3-de1da2f0b9d9",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-postgres-fix",
+        "namespace:apollo",
+        "runbook",
+        "postgres",
+        "pgbouncer",
+        "fix"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "apollo-pagerduty-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo incident policy: checkout alerts use PagerDuty escalation path Gamma. Primary on-call is Mira Chen.",
+      "score": 0.3497232,
+      "providerMemoryId": "ef4d1865-5a87-4304-96a7-4571aa90f941",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-pagerduty-v2",
+        "namespace:apollo",
+        "incident",
+        "pagerduty",
+        "checkout",
+        "current"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "apollo-checkout-owner",
+      "namespace": "apollo",
+      "text": "Apollo checkout migration owner is Rina Patel from platform engineering.",
+      "score": 0.27142980000000005,
+      "providerMemoryId": "e11f5b76-ec19-4fdd-be5e-6fbd3c1f6b37",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-checkout-owner",
+        "namespace:apollo",
+        "project",
+        "checkout",
+        "owner"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "apollo-pagerduty-v1",
+      "namespace": "apollo",
+      "text": "Deprecated Apollo incident policy from January 2026: use PagerDuty escalation path Beta for checkout pages.",
+      "score": 0.27098956,
+      "providerMemoryId": "c470f234-2add-4846-8bf2-67a67588ee96",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-pagerduty-v1",
+        "namespace:apollo",
+        "incident",
+        "pagerduty",
+        "checkout",
+        "deprecated"
+      ]
+    }
+  ]
+}

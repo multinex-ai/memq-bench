@@ -1,0 +1,106 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "mem0_oss",
+  "repetition": 2,
+  "caseId": "apollo-memq-loop",
+  "family": "procedural",
+  "namespace": "apollo",
+  "query": "For serious MemQ work, which call checks readiness, which one brings semantic recall versus hot continuity, and what gets written when work is done?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:52:23.857Z",
+  "finishedAt": "2026-04-09T02:52:26.815Z",
+  "searchLatencyMs": 2958,
+  "prepareDurationMs": 9326,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-memq-loop"
+  ],
+  "forbiddenSourceIds": [],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": true,
+    "precisionAtK": 0.2,
+    "recallAtK": 1,
+    "mrr": 1,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      1
+    ],
+    "forbiddenRanks": []
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "apollo-memq-loop",
+      "namespace": "apollo",
+      "text": "Required MemQ operating loop for non-trivial work: call memory_status before execution, use search_memory for semantic recall, use recent_memory for HOT continuity, call add_memory after execution, and call reflect_memory at task or session close.",
+      "score": 0.83323634,
+      "providerMemoryId": "9ea78839-e619-4caa-a546-10e01408ad7f",
+      "tags": [
+        "memq",
+        "protocol",
+        "mcp",
+        "procedural"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "apollo-pagerduty-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo incident policy: checkout alerts use PagerDuty escalation path Gamma. Primary on-call is Mira Chen.",
+      "score": 0.5561306,
+      "providerMemoryId": "8173acf7-7b19-4f25-8f56-0205eb1caa56",
+      "tags": [
+        "incident",
+        "pagerduty",
+        "checkout",
+        "current"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "apollo-postgres-trigger",
+      "namespace": "apollo",
+      "text": "Apollo checkout failover runbook trigger: if writes stall after the primary database recovers, suspect stale PgBouncer DNS cache before changing application code.",
+      "score": 0.54620165,
+      "providerMemoryId": "aef85a10-fa83-4a92-985b-ebb667d51179",
+      "tags": [
+        "runbook",
+        "postgres",
+        "pgbouncer",
+        "failover"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "apollo-postgres-fix",
+      "namespace": "apollo",
+      "text": "Apollo checkout failover fix: restart the PgBouncer deployment and flush the sidecar DNS cache to clear stale primary routing.",
+      "score": 0.5213745,
+      "providerMemoryId": "73602227-1476-4769-ad72-85961739493b",
+      "tags": [
+        "runbook",
+        "postgres",
+        "pgbouncer",
+        "fix"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "apollo-pagerduty-v1",
+      "namespace": "apollo",
+      "text": "Deprecated Apollo incident policy from January 2026: use PagerDuty escalation path Beta for checkout pages.",
+      "score": 0.52049816,
+      "providerMemoryId": "97681bcf-1381-441e-a13a-64c4f53a2fdc",
+      "tags": [
+        "incident",
+        "pagerduty",
+        "checkout",
+        "deprecated"
+      ]
+    }
+  ]
+}

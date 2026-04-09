@@ -1,0 +1,36 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "memq_mcp",
+  "repetition": 3,
+  "caseId": "orion-api-rotation-current",
+  "family": "freshness",
+  "namespace": "orion",
+  "query": "What is Orion's present credential rollover schedule for dispatch partner access?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:52:50.846Z",
+  "finishedAt": "2026-04-09T02:52:50.853Z",
+  "searchLatencyMs": 7,
+  "prepareDurationMs": 2186,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "orion-api-rotation-v1"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-api-rotation-v2",
+    "zephyr-api-rotation-v1"
+  ],
+  "metrics": {
+    "hitAtK": false,
+    "primaryAt1": false,
+    "precisionAtK": 0,
+    "recallAtK": 0,
+    "mrr": 0,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [],
+    "forbiddenRanks": []
+  },
+  "results": []
+}

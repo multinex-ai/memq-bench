@@ -1,0 +1,36 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "no_memory",
+  "repetition": 1,
+  "caseId": "apollo-incident-root-cause",
+  "providerContext": "none",
+  "question": "What actually took down Apollo checkout on March 17?",
+  "expectedTerms": [
+    "pgbouncer",
+    "dns"
+  ],
+  "forbiddenTerms": [
+    "redis",
+    "kafka"
+  ],
+  "relevantSourceIds": [
+    "apollo-incident-root-cause"
+  ],
+  "primarySourceId": "apollo-incident-root-cause",
+  "contextSourceIds": [],
+  "answer": "INSUFFICIENT_CONTEXT",
+  "citations": [],
+  "metrics": {
+    "answerPass": false,
+    "citationHit": false,
+    "citationRecall": 0,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [
+      "pgbouncer",
+      "dns"
+    ],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

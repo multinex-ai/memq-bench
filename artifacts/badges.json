@@ -1,10 +1,11 @@
 {
   "snapshot": {
-    "generatedAt": "2026-04-08T12:38:17.384Z",
-    "taskCount": 5,
-    "passPointDelta": 100,
-    "memqCore": "5/5",
-    "memqAccelerated": "5/5",
-    "baseline": "0/5"
+    "generatedAt": "2026-04-09T02:54:04.412Z",
+    "caseCount": 12,
+    "memqPrimaryAt1Pct": 17,
+    "memqRecallPct": 29,
+    "mem0PrimaryAt1Pct": 58,
+    "baselinePrimaryAt1Pct": 58,
+    "memqVsMem0PrimaryDeltaPts": -42
   }
 }

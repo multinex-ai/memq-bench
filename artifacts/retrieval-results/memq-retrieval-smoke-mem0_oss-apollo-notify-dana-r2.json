@@ -1,0 +1,106 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "mem0_oss",
+  "repetition": 2,
+  "caseId": "apollo-notify-dana",
+  "family": "preference",
+  "namespace": "apollo",
+  "query": "What is Dana Morales's preferred channel for Apollo invoice issues?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:52:26.816Z",
+  "finishedAt": "2026-04-09T02:52:30.314Z",
+  "searchLatencyMs": 3498,
+  "prepareDurationMs": 9326,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-notify-dana"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-notify-erin",
+    "zephyr-notify-dana"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": true,
+    "precisionAtK": 0.2,
+    "recallAtK": 1,
+    "mrr": 1,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      1
+    ],
+    "forbiddenRanks": []
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "apollo-notify-dana",
+      "namespace": "apollo",
+      "text": "Dana Morales does not want SMS billing alerts. Notify Dana by email whenever invoice exceptions occur.",
+      "score": 0.74572873,
+      "providerMemoryId": "c2b49a19-c726-4799-9858-9561901cd076",
+      "tags": [
+        "preference",
+        "billing",
+        "notifications",
+        "email"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "apollo-alex-billing",
+      "namespace": "apollo",
+      "text": "Apollo billing operations: Alex Kim owns invoice reconciliation and payment exception review.",
+      "score": 0.7089044,
+      "providerMemoryId": "427a919a-5eed-4678-985f-5546e6861bd2",
+      "tags": [
+        "people",
+        "billing",
+        "alex-kim"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "apollo-cfo-email-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo CFO contact email is cfo-office@apollo.example.",
+      "score": 0.6850079,
+      "providerMemoryId": "bec052a1-dc96-4ff2-b0ff-04ffcf307707",
+      "tags": [
+        "finance",
+        "email",
+        "current"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "apollo-cfo-email-v1",
+      "namespace": "apollo",
+      "text": "Old Apollo finance contact from 2025: finance@apollo.example handled CFO correspondence.",
+      "score": 0.68126273,
+      "providerMemoryId": "864fb108-4da8-4c60-9d43-c8f9405bdb5b",
+      "tags": [
+        "finance",
+        "email",
+        "deprecated"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "apollo-pagerduty-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo incident policy: checkout alerts use PagerDuty escalation path Gamma. Primary on-call is Mira Chen.",
+      "score": 0.6592273,
+      "providerMemoryId": "8173acf7-7b19-4f25-8f56-0205eb1caa56",
+      "tags": [
+        "incident",
+        "pagerduty",
+        "checkout",
+        "current"
+      ]
+    }
+  ]
+}

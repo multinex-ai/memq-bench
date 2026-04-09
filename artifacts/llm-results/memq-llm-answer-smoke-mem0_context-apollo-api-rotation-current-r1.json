@@ -1,0 +1,41 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "mem0_context",
+  "repetition": 1,
+  "caseId": "apollo-api-rotation-current",
+  "providerContext": "mem0_oss",
+  "question": "What is the current credential rollover cadence for Apollo fulfillment partner access?",
+  "expectedTerms": [
+    "30 days"
+  ],
+  "forbiddenTerms": [
+    "90 days",
+    "60 days",
+    "45 days"
+  ],
+  "relevantSourceIds": [
+    "apollo-api-rotation-v2"
+  ],
+  "primarySourceId": "apollo-api-rotation-v2",
+  "contextSourceIds": [
+    "apollo-api-rotation-v1",
+    "apollo-api-rotation-v2",
+    "apollo-checkout-deadline",
+    "apollo-alex-platform",
+    "apollo-pagerduty-v1"
+  ],
+  "answer": "The current Apollo partner API policy is to rotate the fulfillment token every 30 days and store the checksum in Shield.",
+  "citations": [
+    "apollo-api-rotation-v2"
+  ],
+  "metrics": {
+    "answerPass": true,
+    "citationHit": true,
+    "citationRecall": 1,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

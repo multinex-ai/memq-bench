@@ -1,0 +1,35 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "no_memory",
+  "repetition": 1,
+  "caseId": "apollo-cfo-email-current",
+  "providerContext": "none",
+  "question": "Where should board-level Apollo finance questions go now?",
+  "expectedTerms": [
+    "cfo-office@apollo.example"
+  ],
+  "forbiddenTerms": [
+    "finance@apollo.example",
+    "treasury@zephyr.example",
+    "finance-ops@orion.example"
+  ],
+  "relevantSourceIds": [
+    "apollo-cfo-email-v2"
+  ],
+  "primarySourceId": "apollo-cfo-email-v2",
+  "contextSourceIds": [],
+  "answer": "INSUFFICIENT_CONTEXT",
+  "citations": [],
+  "metrics": {
+    "answerPass": false,
+    "citationHit": false,
+    "citationRecall": 0,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [
+      "cfo-office@apollo.example"
+    ],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

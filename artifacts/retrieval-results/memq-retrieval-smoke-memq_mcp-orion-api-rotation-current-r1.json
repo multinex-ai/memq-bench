@@ -1,0 +1,104 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "memq_mcp",
+  "repetition": 1,
+  "caseId": "orion-api-rotation-current",
+  "family": "freshness",
+  "namespace": "orion",
+  "query": "What is Orion's present credential rollover schedule for dispatch partner access?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:51:06.673Z",
+  "finishedAt": "2026-04-09T02:51:06.676Z",
+  "searchLatencyMs": 3,
+  "prepareDurationMs": 1932,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "orion-api-rotation-v1"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-api-rotation-v2",
+    "zephyr-api-rotation-v1"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": false,
+    "precisionAtK": 0.2,
+    "recallAtK": 1,
+    "mrr": 0.3333333333333333,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      3
+    ],
+    "forbiddenRanks": []
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "orion-wallet-owner",
+      "namespace": "orion",
+      "text": "Orion dispatch modernization owner is Chloe Bennett from logistics systems.",
+      "score": 0.30065213,
+      "providerMemoryId": "1cac57f0-3eb1-4f9a-b423-a1241abe21f6",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:orion-wallet-owner",
+        "namespace:orion",
+        "project",
+        "dispatch",
+        "owner"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "orion-cfo-email-v1",
+      "namespace": "orion",
+      "text": "Current Orion CFO contact email is finance-ops@orion.example.",
+      "score": 0.30030938000000007,
+      "providerMemoryId": "16c5e04f-3734-4920-b500-2fd025fffd92",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:orion-cfo-email-v1",
+        "namespace:orion",
+        "finance",
+        "email",
+        "current"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "orion-api-rotation-v1",
+      "namespace": "orion",
+      "text": "Current Orion partner API policy: rotate the dispatch token every 45 days.",
+      "score": 0.25753574,
+      "providerMemoryId": "8b53db25-440a-4d6f-80dc-a419d12da89f",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:orion-api-rotation-v1",
+        "namespace:orion",
+        "security",
+        "api-token",
+        "current"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "orion-incident-root-cause",
+      "namespace": "orion",
+      "text": "The Orion dispatch outage was caused by a Kafka consumer group rebalance storm.",
+      "score": 0.24258542,
+      "providerMemoryId": "45d7d0ba-48b8-4920-a2d6-e69790976b61",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:orion-incident-root-cause",
+        "namespace:orion",
+        "incident",
+        "dispatch",
+        "kafka",
+        "root-cause"
+      ]
+    }
+  ]
+}

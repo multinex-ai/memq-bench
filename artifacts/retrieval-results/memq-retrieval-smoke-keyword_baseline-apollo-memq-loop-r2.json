@@ -1,0 +1,99 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "keyword_baseline",
+  "repetition": 2,
+  "caseId": "apollo-memq-loop",
+  "family": "procedural",
+  "namespace": "apollo",
+  "query": "For serious MemQ work, which call checks readiness, which one brings semantic recall versus hot continuity, and what gets written when work is done?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:51:50.459Z",
+  "finishedAt": "2026-04-09T02:51:50.459Z",
+  "searchLatencyMs": 0,
+  "prepareDurationMs": 0,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-memq-loop"
+  ],
+  "forbiddenSourceIds": [],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": true,
+    "precisionAtK": 0.2,
+    "recallAtK": 1,
+    "mrr": 1,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      1
+    ],
+    "forbiddenRanks": []
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "apollo-memq-loop",
+      "namespace": "apollo",
+      "text": "Required MemQ operating loop for non-trivial work: call memory_status before execution, use search_memory for semantic recall, use recent_memory for HOT continuity, call add_memory after execution, and call reflect_memory at task or session close.",
+      "score": 14.015,
+      "tags": [
+        "memq",
+        "protocol",
+        "mcp",
+        "procedural"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "apollo-checkout-deadline",
+      "namespace": "apollo",
+      "text": "Apollo checkout migration deadline is April 18, 2026 and the cutover rehearsal is scheduled two days earlier.",
+      "score": 3.006,
+      "tags": [
+        "project",
+        "checkout",
+        "deadline"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "apollo-pagerduty-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo incident policy: checkout alerts use PagerDuty escalation path Gamma. Primary on-call is Mira Chen.",
+      "score": 2.252,
+      "tags": [
+        "incident",
+        "pagerduty",
+        "checkout",
+        "current"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "apollo-notify-erin",
+      "namespace": "apollo",
+      "text": "Erin Walker prefers SMS for urgent fraud alerts and ignores email after hours.",
+      "score": 2.017,
+      "tags": [
+        "preference",
+        "fraud",
+        "notifications",
+        "sms"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "apollo-cfo-email-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo CFO contact email is cfo-office@apollo.example.",
+      "score": 1.264,
+      "tags": [
+        "finance",
+        "email",
+        "current"
+      ]
+    }
+  ]
+}

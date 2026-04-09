@@ -1,0 +1,44 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "keyword_context",
+  "repetition": 1,
+  "caseId": "apollo-checkout-owner-deadline",
+  "providerContext": "keyword_baseline",
+  "question": "Who is driving the Apollo checkout cutover and when does it land?",
+  "expectedTerms": [
+    "rina",
+    "april 18"
+  ],
+  "forbiddenTerms": [
+    "mateo",
+    "may 2",
+    "chloe"
+  ],
+  "relevantSourceIds": [
+    "apollo-checkout-owner",
+    "apollo-checkout-deadline"
+  ],
+  "primarySourceId": "apollo-checkout-owner",
+  "contextSourceIds": [
+    "apollo-checkout-deadline",
+    "apollo-postgres-fix",
+    "apollo-api-rotation-v2",
+    "apollo-pagerduty-v2",
+    "apollo-incident-root-cause"
+  ],
+  "answer": "INSUFFICIENT_CONTEXT",
+  "citations": [],
+  "metrics": {
+    "answerPass": false,
+    "citationHit": false,
+    "citationRecall": 0,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [
+      "rina",
+      "april 18"
+    ],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

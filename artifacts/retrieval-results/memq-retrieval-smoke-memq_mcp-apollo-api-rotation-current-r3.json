@@ -1,0 +1,37 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "memq_mcp",
+  "repetition": 3,
+  "caseId": "apollo-api-rotation-current",
+  "family": "freshness",
+  "namespace": "apollo",
+  "query": "What is the current credential rollover cadence for Apollo fulfillment partner access?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:52:50.745Z",
+  "finishedAt": "2026-04-09T02:52:50.759Z",
+  "searchLatencyMs": 14,
+  "prepareDurationMs": 2186,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-api-rotation-v2"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-api-rotation-v1",
+    "zephyr-api-rotation-v1",
+    "orion-api-rotation-v1"
+  ],
+  "metrics": {
+    "hitAtK": false,
+    "primaryAt1": false,
+    "precisionAtK": 0,
+    "recallAtK": 0,
+    "mrr": 0,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [],
+    "forbiddenRanks": []
+  },
+  "results": []
+}

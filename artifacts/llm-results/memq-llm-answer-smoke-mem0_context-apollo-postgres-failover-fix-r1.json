@@ -1,0 +1,43 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "mem0_context",
+  "repetition": 1,
+  "caseId": "apollo-postgres-failover-fix",
+  "providerContext": "mem0_oss",
+  "question": "Apollo checkout recovered from failover but still cannot write. What remediation should ops run?",
+  "expectedTerms": [
+    "pgbouncer",
+    "dns",
+    "restart"
+  ],
+  "forbiddenTerms": [
+    "wal archiver",
+    "kafka"
+  ],
+  "relevantSourceIds": [
+    "apollo-postgres-trigger",
+    "apollo-postgres-fix"
+  ],
+  "primarySourceId": "apollo-postgres-fix",
+  "contextSourceIds": [
+    "apollo-postgres-trigger",
+    "apollo-postgres-fix",
+    "apollo-incident-root-cause",
+    "apollo-pagerduty-v2",
+    "apollo-checkout-deadline"
+  ],
+  "answer": "Restart the PgBouncer deployment and flush the sidecar DNS cache to clear stale primary routing.",
+  "citations": [
+    "[apollo-postgres-fix]"
+  ],
+  "metrics": {
+    "answerPass": true,
+    "citationHit": false,
+    "citationRecall": 0,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

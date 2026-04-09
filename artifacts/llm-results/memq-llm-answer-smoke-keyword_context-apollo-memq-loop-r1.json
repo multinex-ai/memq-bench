@@ -1,0 +1,45 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "keyword_context",
+  "repetition": 1,
+  "caseId": "apollo-memq-loop",
+  "providerContext": "keyword_baseline",
+  "question": "For serious MemQ work, which call checks readiness, which one brings semantic recall versus hot continuity, and what gets written when work is done?",
+  "expectedTerms": [
+    "memory_status",
+    "search_memory",
+    "recent_memory",
+    "add_memory",
+    "reflect_memory"
+  ],
+  "forbiddenTerms": [
+    "skip memory_status"
+  ],
+  "relevantSourceIds": [
+    "apollo-memq-loop"
+  ],
+  "primarySourceId": "apollo-memq-loop",
+  "contextSourceIds": [
+    "apollo-memq-loop",
+    "apollo-checkout-deadline",
+    "apollo-pagerduty-v2",
+    "apollo-notify-erin",
+    "apollo-cfo-email-v2"
+  ],
+  "answer": "For serious MemQ work, memory_status checks readiness, search_memory brings semantic recall versus recent_memory for hot continuity, and add_memory gets written when work is done.",
+  "citations": [
+    "[apollo-memq-loop]"
+  ],
+  "metrics": {
+    "answerPass": false,
+    "citationHit": false,
+    "citationRecall": 0,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [
+      "reflect_memory"
+    ],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

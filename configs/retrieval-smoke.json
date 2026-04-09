@@ -1,0 +1,31 @@
+{
+  "name": "memq-retrieval-smoke",
+  "description": "Operational retrieval benchmark comparing MemQ MCP against Mem0 OSS and a deterministic keyword baseline.",
+  "dataset": {
+    "corpusPath": "datasets/ops-retrieval/corpus.json",
+    "casesPath": "datasets/ops-retrieval/cases.json"
+  },
+  "repetitions": 3,
+  "topK": 5,
+  "providers": [
+    { "id": "keyword_baseline" },
+    { "id": "memq_mcp" },
+    { "id": "mem0_oss" }
+  ],
+  "memq": {
+    "url": "http://127.0.0.1:18000/mcp/v1",
+    "timeoutMs": 8000
+  },
+  "mem0": {
+    "venvPath": ".venv-mem0",
+    "qdrantHost": "127.0.0.1",
+    "qdrantPort": 16333,
+    "llmProvider": "gemini",
+    "llmModel": "gemini-2.0-flash",
+    "embedderProvider": "gemini",
+    "embedderModel": "models/gemini-embedding-001",
+    "embeddingDims": 768
+  },
+  "outputDir": "artifacts/retrieval-results"
+}
+

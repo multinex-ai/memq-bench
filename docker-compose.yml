@@ -1,9 +1,24 @@
 services:
+  qdrant:
+    image: qdrant/qdrant:v1.13.4
+    ports:
+      - "16333:6333"
+      - "16334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+  falkordb:
+    image: falkordb/falkordb-server:v4.14.9
+    ports:
+      - "16380:6379"
+    volumes:
+      - falkordb_data:/data
+
   memq:
     image: ghcr.io/multinex-ai/multinex/munx-memorystack/gateway-deno:v2.1.0
     pull_policy: missing
     ports:
-      - "8000:8000"
+      - "18000:8000"
     environment:
       PORT: "8000"
       QDRANT_URL: http://qdrant:6333
@@ -25,22 +40,8 @@ services:
       - qdrant
       - falkordb
 
-  qdrant:
-    image: qdrant/qdrant:v1.13.4
-    ports:
-      - "6333:6333"
-      - "6334:6334"
-    volumes:
-      - qdrant_data:/qdrant/storage
-
-  falkordb:
-    image: falkordb/falkordb-server:v4.14.9
-    ports:
-      - "6380:6379"
-    volumes:
-      - falkordb_data:/data
-
 volumes:
   memq_data:
   qdrant_data:
   falkordb_data:
+

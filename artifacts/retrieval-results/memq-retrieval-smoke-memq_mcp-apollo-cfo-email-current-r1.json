@@ -1,0 +1,124 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "memq_mcp",
+  "repetition": 1,
+  "caseId": "apollo-cfo-email-current",
+  "family": "freshness",
+  "namespace": "apollo",
+  "query": "Where should board-level Apollo finance questions go now?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:51:06.653Z",
+  "finishedAt": "2026-04-09T02:51:06.657Z",
+  "searchLatencyMs": 4,
+  "prepareDurationMs": 1932,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-cfo-email-v2"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-cfo-email-v1",
+    "zephyr-cfo-email-v1",
+    "orion-cfo-email-v1"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": false,
+    "precisionAtK": 0.2,
+    "recallAtK": 1,
+    "mrr": 0.5,
+    "leakageCount": 1,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      2
+    ],
+    "forbiddenRanks": [
+      1
+    ]
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "apollo-cfo-email-v1",
+      "namespace": "apollo",
+      "text": "Old Apollo finance contact from 2025: finance@apollo.example handled CFO correspondence.",
+      "score": 0.37094773999999997,
+      "providerMemoryId": "47e46537-7328-4010-accb-3e32270f018c",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-cfo-email-v1",
+        "namespace:apollo",
+        "finance",
+        "email",
+        "deprecated"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "apollo-cfo-email-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo CFO contact email is cfo-office@apollo.example.",
+      "score": 0.19582264,
+      "providerMemoryId": "a189a5a0-9fc1-4f53-a2c9-616b0ddabcfd",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-cfo-email-v2",
+        "namespace:apollo",
+        "finance",
+        "email",
+        "current"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "apollo-incident-redis-distractor",
+      "namespace": "apollo",
+      "text": "A separate Apollo recommendation incident in February was caused by Redis eviction pressure in the ranking cache.",
+      "score": 0.18099163999999998,
+      "providerMemoryId": "d5ed25a5-e50f-48b2-8f76-3ced917f8a9c",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-incident-redis-distractor",
+        "namespace:apollo",
+        "incident",
+        "redis",
+        "recommendations"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "apollo-incident-root-cause",
+      "namespace": "apollo",
+      "text": "The March 17 Apollo checkout outage was caused by stale PgBouncer DNS cache after Postgres failover, not by application deploys.",
+      "score": 0.162228304,
+      "providerMemoryId": "22ec48cd-ef72-46b9-ad32-c339b4cb4aa7",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-incident-root-cause",
+        "namespace:apollo",
+        "incident",
+        "checkout",
+        "root-cause",
+        "postgres"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "apollo-postgres-fix",
+      "namespace": "apollo",
+      "text": "Apollo checkout failover fix: restart the PgBouncer deployment and flush the sidecar DNS cache to clear stale primary routing.",
+      "score": 0.12774253,
+      "providerMemoryId": "27f47abc-b75b-4fd3-98e3-de1da2f0b9d9",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-postgres-fix",
+        "namespace:apollo",
+        "runbook",
+        "postgres",
+        "pgbouncer",
+        "fix"
+      ]
+    }
+  ]
+}

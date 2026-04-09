@@ -1,0 +1,37 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "memq_mcp",
+  "repetition": 3,
+  "caseId": "apollo-pagerduty-current",
+  "family": "freshness",
+  "namespace": "apollo",
+  "query": "When Apollo checkout blows up, which escalation chain should on-call use today?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:52:50.652Z",
+  "finishedAt": "2026-04-09T02:52:50.666Z",
+  "searchLatencyMs": 14,
+  "prepareDurationMs": 2186,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-pagerduty-v2"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-pagerduty-v1",
+    "zephyr-pagerduty-v1",
+    "orion-pagerduty-v1"
+  ],
+  "metrics": {
+    "hitAtK": false,
+    "primaryAt1": false,
+    "precisionAtK": 0,
+    "recallAtK": 0,
+    "mrr": 0,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [],
+    "forbiddenRanks": []
+  },
+  "results": []
+}

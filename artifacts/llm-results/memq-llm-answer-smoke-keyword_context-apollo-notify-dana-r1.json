@@ -1,0 +1,40 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "keyword_context",
+  "repetition": 1,
+  "caseId": "apollo-notify-dana",
+  "providerContext": "keyword_baseline",
+  "question": "What is Dana Morales's preferred channel for Apollo invoice issues?",
+  "expectedTerms": [
+    "email"
+  ],
+  "forbiddenTerms": [
+    "sms",
+    "slack"
+  ],
+  "relevantSourceIds": [
+    "apollo-notify-dana"
+  ],
+  "primarySourceId": "apollo-notify-dana",
+  "contextSourceIds": [
+    "apollo-notify-dana",
+    "apollo-cfo-email-v2",
+    "apollo-memq-loop",
+    "apollo-checkout-deadline",
+    "apollo-pagerduty-v2"
+  ],
+  "answer": "Dana Morales prefers to be notified by email whenever invoice exceptions occur.",
+  "citations": [
+    "[apollo-notify-dana] Dana Morales does not want SMS billing alerts. Notify Dana by email whenever invoice exceptions occur."
+  ],
+  "metrics": {
+    "answerPass": true,
+    "citationHit": false,
+    "citationRecall": 0,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

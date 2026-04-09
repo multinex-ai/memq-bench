@@ -1,0 +1,40 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "mem0_context",
+  "repetition": 1,
+  "caseId": "orion-api-rotation-current",
+  "providerContext": "mem0_oss",
+  "question": "What is Orion's present credential rollover schedule for dispatch partner access?",
+  "expectedTerms": [
+    "45 days"
+  ],
+  "forbiddenTerms": [
+    "30 days",
+    "60 days"
+  ],
+  "relevantSourceIds": [
+    "orion-api-rotation-v1"
+  ],
+  "primarySourceId": "orion-api-rotation-v1",
+  "contextSourceIds": [
+    "orion-api-rotation-v1",
+    "orion-pagerduty-v1",
+    "orion-incident-root-cause",
+    "orion-wallet-owner",
+    "orion-cfo-email-v1"
+  ],
+  "answer": "Orion rotates the dispatch token every 45 days.",
+  "citations": [
+    "[orion-api-rotation-v1]"
+  ],
+  "metrics": {
+    "answerPass": true,
+    "citationHit": false,
+    "citationRecall": 0,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

@@ -1,0 +1,11 @@
+{
+  "snapshot": {
+    "generatedAt": "2026-04-09T03:03:18.677Z",
+    "noMemoryAnswerPassPct": 0,
+    "keywordAnswerPassPct": 75,
+    "memqAnswerPassPct": 75,
+    "mem0AnswerPassPct": 92,
+    "memqVsNoMemoryAnswerDeltaPts": 75,
+    "memqVsMem0AnswerDeltaPts": -17
+  }
+}

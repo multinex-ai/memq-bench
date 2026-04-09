@@ -1,0 +1,105 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "mem0_oss",
+  "repetition": 3,
+  "caseId": "zephyr-pagerduty-current",
+  "family": "freshness",
+  "namespace": "zephyr",
+  "query": "If Zephyr wallet alerts fire today, which escalation chain handles them?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:53:48.892Z",
+  "finishedAt": "2026-04-09T02:53:53.563Z",
+  "searchLatencyMs": 4672,
+  "prepareDurationMs": 7910,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "zephyr-pagerduty-v1"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-pagerduty-v2",
+    "orion-pagerduty-v1"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": true,
+    "precisionAtK": 0.2,
+    "recallAtK": 1,
+    "mrr": 1,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      1
+    ],
+    "forbiddenRanks": []
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "zephyr-pagerduty-v1",
+      "namespace": "zephyr",
+      "text": "Current Zephyr incident policy: wallet alerts use PagerDuty escalation path Delta.",
+      "score": 0.88200295,
+      "providerMemoryId": "3f6cd6c4-9dbd-48c6-9878-8376e904a08b",
+      "tags": [
+        "incident",
+        "pagerduty",
+        "wallet",
+        "current"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "zephyr-checkout-deadline",
+      "namespace": "zephyr",
+      "text": "Zephyr wallet migration deadline is May 2, 2026.",
+      "score": 0.7200456,
+      "providerMemoryId": "4c2c5029-be19-4612-86b8-f5dfdc7c4039",
+      "tags": [
+        "project",
+        "wallet",
+        "deadline"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "zephyr-notify-dana",
+      "namespace": "zephyr",
+      "text": "Dana Morales prefers Slack for merchant payout alerts inside Zephyr.",
+      "score": 0.69946104,
+      "providerMemoryId": "42f05513-5968-4cef-afff-5d634b23fbd5",
+      "tags": [
+        "preference",
+        "notifications",
+        "slack"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "zephyr-cfo-email-v1",
+      "namespace": "zephyr",
+      "text": "Current Zephyr CFO contact email is treasury@zephyr.example.",
+      "score": 0.6927644,
+      "providerMemoryId": "4cf8f540-6208-447c-8af1-9d691aa32f69",
+      "tags": [
+        "finance",
+        "email",
+        "current"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "zephyr-checkout-owner",
+      "namespace": "zephyr",
+      "text": "Zephyr wallet migration owner is Mateo Ruiz from payments infrastructure.",
+      "score": 0.68686855,
+      "providerMemoryId": "3cc15e3e-29b6-42a5-833a-011caa667280",
+      "tags": [
+        "project",
+        "wallet",
+        "owner"
+      ]
+    }
+  ]
+}

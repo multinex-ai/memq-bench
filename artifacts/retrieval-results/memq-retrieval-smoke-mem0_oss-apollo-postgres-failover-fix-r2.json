@@ -1,0 +1,111 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "mem0_oss",
+  "repetition": 2,
+  "caseId": "apollo-postgres-failover-fix",
+  "family": "runbook",
+  "namespace": "apollo",
+  "query": "Apollo checkout recovered from failover but still cannot write. What remediation should ops run?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:52:07.655Z",
+  "finishedAt": "2026-04-09T02:52:10.510Z",
+  "searchLatencyMs": 2855,
+  "prepareDurationMs": 9326,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-postgres-trigger",
+    "apollo-postgres-fix"
+  ],
+  "forbiddenSourceIds": [
+    "zephyr-postgres-trigger",
+    "zephyr-postgres-fix",
+    "orion-incident-root-cause"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": false,
+    "precisionAtK": 0.4,
+    "recallAtK": 1,
+    "mrr": 1,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      1,
+      2
+    ],
+    "forbiddenRanks": []
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "apollo-postgres-trigger",
+      "namespace": "apollo",
+      "text": "Apollo checkout failover runbook trigger: if writes stall after the primary database recovers, suspect stale PgBouncer DNS cache before changing application code.",
+      "score": 0.798768,
+      "providerMemoryId": "aef85a10-fa83-4a92-985b-ebb667d51179",
+      "tags": [
+        "runbook",
+        "postgres",
+        "pgbouncer",
+        "failover"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "apollo-postgres-fix",
+      "namespace": "apollo",
+      "text": "Apollo checkout failover fix: restart the PgBouncer deployment and flush the sidecar DNS cache to clear stale primary routing.",
+      "score": 0.7726509,
+      "providerMemoryId": "73602227-1476-4769-ad72-85961739493b",
+      "tags": [
+        "runbook",
+        "postgres",
+        "pgbouncer",
+        "fix"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "apollo-incident-root-cause",
+      "namespace": "apollo",
+      "text": "The March 17 Apollo checkout outage was caused by stale PgBouncer DNS cache after Postgres failover, not by application deploys.",
+      "score": 0.73271763,
+      "providerMemoryId": "af0de2f8-cf37-4a85-b913-0060952a8586",
+      "tags": [
+        "incident",
+        "checkout",
+        "root-cause",
+        "postgres"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "apollo-pagerduty-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo incident policy: checkout alerts use PagerDuty escalation path Gamma. Primary on-call is Mira Chen.",
+      "score": 0.70463145,
+      "providerMemoryId": "8173acf7-7b19-4f25-8f56-0205eb1caa56",
+      "tags": [
+        "incident",
+        "pagerduty",
+        "checkout",
+        "current"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "apollo-checkout-deadline",
+      "namespace": "apollo",
+      "text": "Apollo checkout migration deadline is April 18, 2026 and the cutover rehearsal is scheduled two days earlier.",
+      "score": 0.6726765,
+      "providerMemoryId": "da7c9f4b-02c1-4cd1-935c-8c2cabb02d60",
+      "tags": [
+        "project",
+        "checkout",
+        "deadline"
+      ]
+    }
+  ]
+}

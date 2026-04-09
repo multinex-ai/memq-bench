@@ -1,0 +1,67 @@
+{
+  "benchmark": "memq-llm-answer-benchmark",
+  "generatedAt": "2026-04-09T03:03:18.677Z",
+  "conditions": {
+    "keyword_context": {
+      "runs": 12,
+      "completed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "answerPassRate": 0.75,
+      "citationHitRate": 0.5,
+      "citationRecall": 0.5416666666666666
+    },
+    "mem0_context": {
+      "runs": 12,
+      "completed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "answerPassRate": 0.9166666666666666,
+      "citationHitRate": 0.5,
+      "citationRecall": 0.5
+    },
+    "memq_context": {
+      "runs": 12,
+      "completed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "answerPassRate": 0.75,
+      "citationHitRate": 0.4166666666666667,
+      "citationRecall": 0.4166666666666667
+    },
+    "no_memory": {
+      "runs": 12,
+      "completed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "answerPassRate": 0,
+      "citationHitRate": 0,
+      "citationRecall": 0
+    }
+  },
+  "comparisons": [
+    {
+      "condition": "memq_context",
+      "comparator": "no_memory",
+      "answerPassDeltaPoints": 75,
+      "citationHitDeltaPoints": 42,
+      "citationRecallDeltaPoints": 42
+    },
+    {
+      "condition": "memq_context",
+      "comparator": "keyword_context",
+      "answerPassDeltaPoints": 0,
+      "citationHitDeltaPoints": -8,
+      "citationRecallDeltaPoints": -12
+    },
+    {
+      "condition": "memq_context",
+      "comparator": "mem0_context",
+      "answerPassDeltaPoints": -17,
+      "citationHitDeltaPoints": -8,
+      "citationRecallDeltaPoints": -8
+    }
+  ],
+  "caseCount": 12,
+  "resultCount": 48
+}

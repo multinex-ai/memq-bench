@@ -1,0 +1,106 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "mem0_oss",
+  "repetition": 1,
+  "caseId": "orion-api-rotation-current",
+  "family": "freshness",
+  "namespace": "orion",
+  "query": "What is Orion's present credential rollover schedule for dispatch partner access?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:51:45.250Z",
+  "finishedAt": "2026-04-09T02:51:48.097Z",
+  "searchLatencyMs": 2847,
+  "prepareDurationMs": 8182,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "orion-api-rotation-v1"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-api-rotation-v2",
+    "zephyr-api-rotation-v1"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": true,
+    "precisionAtK": 0.2,
+    "recallAtK": 1,
+    "mrr": 1,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      1
+    ],
+    "forbiddenRanks": []
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "orion-api-rotation-v1",
+      "namespace": "orion",
+      "text": "Current Orion partner API policy: rotate the dispatch token every 45 days.",
+      "score": 0.88086987,
+      "providerMemoryId": "ccb85671-f6fe-4bab-9f4d-4513a08e2a54",
+      "tags": [
+        "security",
+        "api-token",
+        "current"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "orion-pagerduty-v1",
+      "namespace": "orion",
+      "text": "Current Orion incident policy: logistics alerts use PagerDuty escalation path Sigma.",
+      "score": 0.6673132,
+      "providerMemoryId": "a43c206a-4805-4f04-9493-1c3b873d5cec",
+      "tags": [
+        "incident",
+        "pagerduty",
+        "logistics",
+        "current"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "orion-incident-root-cause",
+      "namespace": "orion",
+      "text": "The Orion dispatch outage was caused by a Kafka consumer group rebalance storm.",
+      "score": 0.6563389,
+      "providerMemoryId": "ce84e3dc-f671-41bd-9541-ab1038fbb7a3",
+      "tags": [
+        "incident",
+        "dispatch",
+        "kafka",
+        "root-cause"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "orion-wallet-owner",
+      "namespace": "orion",
+      "text": "Orion dispatch modernization owner is Chloe Bennett from logistics systems.",
+      "score": 0.63702303,
+      "providerMemoryId": "7e68f463-8a8b-42fd-9d15-3985b559b889",
+      "tags": [
+        "project",
+        "dispatch",
+        "owner"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "orion-cfo-email-v1",
+      "namespace": "orion",
+      "text": "Current Orion CFO contact email is finance-ops@orion.example.",
+      "score": 0.6095562,
+      "providerMemoryId": "02d0033d-7028-43d5-8322-689965dbdf21",
+      "tags": [
+        "finance",
+        "email",
+        "current"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "no_memory",
+  "repetition": 1,
+  "caseId": "apollo-alex-billing",
+  "providerContext": "none",
+  "question": "Which Alex Kim cleans up Apollo billing exceptions?",
+  "expectedTerms": [
+    "alex kim",
+    "invoice"
+  ],
+  "forbiddenTerms": [
+    "rollout gates",
+    "chargeback"
+  ],
+  "relevantSourceIds": [
+    "apollo-alex-billing"
+  ],
+  "primarySourceId": "apollo-alex-billing",
+  "contextSourceIds": [],
+  "answer": "INSUFFICIENT_CONTEXT",
+  "citations": [],
+  "metrics": {
+    "answerPass": false,
+    "citationHit": false,
+    "citationRecall": 0,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [
+      "alex kim",
+      "invoice"
+    ],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

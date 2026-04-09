@@ -1,0 +1,120 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "memq_mcp",
+  "repetition": 1,
+  "caseId": "zephyr-pagerduty-current",
+  "family": "freshness",
+  "namespace": "zephyr",
+  "query": "If Zephyr wallet alerts fire today, which escalation chain handles them?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:51:06.670Z",
+  "finishedAt": "2026-04-09T02:51:06.673Z",
+  "searchLatencyMs": 3,
+  "prepareDurationMs": 1932,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "zephyr-pagerduty-v1"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-pagerduty-v2",
+    "orion-pagerduty-v1"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": true,
+    "precisionAtK": 0.2,
+    "recallAtK": 1,
+    "mrr": 1,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      1
+    ],
+    "forbiddenRanks": []
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "zephyr-pagerduty-v1",
+      "namespace": "zephyr",
+      "text": "Current Zephyr incident policy: wallet alerts use PagerDuty escalation path Delta.",
+      "score": 0.5874626500000001,
+      "providerMemoryId": "0ddd7db8-54ad-4e4a-98e9-c249b2fd9ab3",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:zephyr-pagerduty-v1",
+        "namespace:zephyr",
+        "incident",
+        "pagerduty",
+        "wallet",
+        "current"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "zephyr-cfo-email-v1",
+      "namespace": "zephyr",
+      "text": "Current Zephyr CFO contact email is treasury@zephyr.example.",
+      "score": 0.43749433000000004,
+      "providerMemoryId": "7e219e33-4c1a-4125-85d8-90bdb3b3af74",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:zephyr-cfo-email-v1",
+        "namespace:zephyr",
+        "finance",
+        "email",
+        "current"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "zephyr-checkout-owner",
+      "namespace": "zephyr",
+      "text": "Zephyr wallet migration owner is Mateo Ruiz from payments infrastructure.",
+      "score": 0.34179904000000005,
+      "providerMemoryId": "8cdd4ee1-4714-472d-9bbf-aba6ea0845a3",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:zephyr-checkout-owner",
+        "namespace:zephyr",
+        "project",
+        "wallet",
+        "owner"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "zephyr-notify-dana",
+      "namespace": "zephyr",
+      "text": "Dana Morales prefers Slack for merchant payout alerts inside Zephyr.",
+      "score": 0.33253314,
+      "providerMemoryId": "25014eef-ae01-40ba-9830-52b4185dc9cb",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:zephyr-notify-dana",
+        "namespace:zephyr",
+        "preference",
+        "notifications",
+        "slack"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "zephyr-alex-billing",
+      "namespace": "zephyr",
+      "text": "Zephyr billing operations: Alex Kim owns chargeback review for merchant payouts.",
+      "score": 0.30030637000000004,
+      "providerMemoryId": "3c72d1cb-75d4-4ef0-bf9d-eaeadcc35d61",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:zephyr-alex-billing",
+        "namespace:zephyr",
+        "people",
+        "billing",
+        "alex-kim"
+      ]
+    }
+  ]
+}

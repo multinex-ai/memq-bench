@@ -1,0 +1,105 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "keyword_baseline",
+  "repetition": 2,
+  "caseId": "apollo-postgres-failover-fix",
+  "family": "runbook",
+  "namespace": "apollo",
+  "query": "Apollo checkout recovered from failover but still cannot write. What remediation should ops run?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:51:50.457Z",
+  "finishedAt": "2026-04-09T02:51:50.457Z",
+  "searchLatencyMs": 0,
+  "prepareDurationMs": 0,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-postgres-trigger",
+    "apollo-postgres-fix"
+  ],
+  "forbiddenSourceIds": [
+    "zephyr-postgres-trigger",
+    "zephyr-postgres-fix",
+    "orion-incident-root-cause"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": false,
+    "precisionAtK": 0.2,
+    "recallAtK": 0.5,
+    "mrr": 0.3333333333333333,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      3
+    ],
+    "forbiddenRanks": []
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "apollo-incident-root-cause",
+      "namespace": "apollo",
+      "text": "The March 17 Apollo checkout outage was caused by stale PgBouncer DNS cache after Postgres failover, not by application deploys.",
+      "score": 4.007,
+      "tags": [
+        "incident",
+        "checkout",
+        "root-cause",
+        "postgres"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "apollo-checkout-owner",
+      "namespace": "apollo",
+      "text": "Apollo checkout migration owner is Rina Patel from platform engineering.",
+      "score": 4.005,
+      "tags": [
+        "project",
+        "checkout",
+        "owner"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "apollo-postgres-trigger",
+      "namespace": "apollo",
+      "text": "Apollo checkout failover runbook trigger: if writes stall after the primary database recovers, suspect stale PgBouncer DNS cache before changing application code.",
+      "score": 4.003,
+      "tags": [
+        "runbook",
+        "postgres",
+        "pgbouncer",
+        "failover"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "apollo-pagerduty-v1",
+      "namespace": "apollo",
+      "text": "Deprecated Apollo incident policy from January 2026: use PagerDuty escalation path Beta for checkout pages.",
+      "score": 4.001,
+      "tags": [
+        "incident",
+        "pagerduty",
+        "checkout",
+        "deprecated"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "apollo-pagerduty-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo incident policy: checkout alerts use PagerDuty escalation path Gamma. Primary on-call is Mira Chen.",
+      "score": 3.252,
+      "tags": [
+        "incident",
+        "pagerduty",
+        "checkout",
+        "current"
+      ]
+    }
+  ]
+}

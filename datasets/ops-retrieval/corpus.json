@@ -1,0 +1,282 @@
+[
+  {
+    "sourceId": "apollo-pagerduty-v1",
+    "namespace": "apollo",
+    "family": "freshness",
+    "memoryType": "semantic",
+    "text": "Deprecated Apollo incident policy from January 2026: use PagerDuty escalation path Beta for checkout pages.",
+    "tags": ["incident", "pagerduty", "checkout", "deprecated"],
+    "order": 1
+  },
+  {
+    "sourceId": "apollo-pagerduty-v2",
+    "namespace": "apollo",
+    "family": "freshness",
+    "memoryType": "semantic",
+    "text": "Current Apollo incident policy: checkout alerts use PagerDuty escalation path Gamma. Primary on-call is Mira Chen.",
+    "tags": ["incident", "pagerduty", "checkout", "current"],
+    "order": 2
+  },
+  {
+    "sourceId": "apollo-postgres-trigger",
+    "namespace": "apollo",
+    "family": "runbook",
+    "memoryType": "procedural",
+    "text": "Apollo checkout failover runbook trigger: if writes stall after the primary database recovers, suspect stale PgBouncer DNS cache before changing application code.",
+    "tags": ["runbook", "postgres", "pgbouncer", "failover"],
+    "order": 3
+  },
+  {
+    "sourceId": "apollo-postgres-fix",
+    "namespace": "apollo",
+    "family": "runbook",
+    "memoryType": "procedural",
+    "text": "Apollo checkout failover fix: restart the PgBouncer deployment and flush the sidecar DNS cache to clear stale primary routing.",
+    "tags": ["runbook", "postgres", "pgbouncer", "fix"],
+    "order": 4
+  },
+  {
+    "sourceId": "apollo-checkout-owner",
+    "namespace": "apollo",
+    "family": "project_memory",
+    "memoryType": "semantic",
+    "text": "Apollo checkout migration owner is Rina Patel from platform engineering.",
+    "tags": ["project", "checkout", "owner"],
+    "order": 5
+  },
+  {
+    "sourceId": "apollo-checkout-deadline",
+    "namespace": "apollo",
+    "family": "project_memory",
+    "memoryType": "semantic",
+    "text": "Apollo checkout migration deadline is April 18, 2026 and the cutover rehearsal is scheduled two days earlier.",
+    "tags": ["project", "checkout", "deadline"],
+    "order": 6
+  },
+  {
+    "sourceId": "apollo-incident-root-cause",
+    "namespace": "apollo",
+    "family": "incident",
+    "memoryType": "semantic",
+    "text": "The March 17 Apollo checkout outage was caused by stale PgBouncer DNS cache after Postgres failover, not by application deploys.",
+    "tags": ["incident", "checkout", "root-cause", "postgres"],
+    "order": 7
+  },
+  {
+    "sourceId": "apollo-incident-redis-distractor",
+    "namespace": "apollo",
+    "family": "incident",
+    "memoryType": "semantic",
+    "text": "A separate Apollo recommendation incident in February was caused by Redis eviction pressure in the ranking cache.",
+    "tags": ["incident", "redis", "recommendations"],
+    "order": 8
+  },
+  {
+    "sourceId": "apollo-alex-billing",
+    "namespace": "apollo",
+    "family": "disambiguation",
+    "memoryType": "semantic",
+    "text": "Apollo billing operations: Alex Kim owns invoice reconciliation and payment exception review.",
+    "tags": ["people", "billing", "alex-kim"],
+    "order": 9
+  },
+  {
+    "sourceId": "apollo-alex-platform",
+    "namespace": "apollo",
+    "family": "disambiguation",
+    "memoryType": "semantic",
+    "text": "Apollo platform engineering: Alex Kim owns the rollout gates service and deployment approvals.",
+    "tags": ["people", "platform", "alex-kim"],
+    "order": 10
+  },
+  {
+    "sourceId": "apollo-api-rotation-v1",
+    "namespace": "apollo",
+    "family": "freshness",
+    "memoryType": "semantic",
+    "text": "Deprecated Apollo partner API policy: rotate the fulfillment token every 90 days.",
+    "tags": ["security", "api-token", "deprecated"],
+    "order": 11
+  },
+  {
+    "sourceId": "apollo-api-rotation-v2",
+    "namespace": "apollo",
+    "family": "freshness",
+    "memoryType": "semantic",
+    "text": "Current Apollo partner API policy: rotate the fulfillment token every 30 days and store the checksum in Shield.",
+    "tags": ["security", "api-token", "current", "shield"],
+    "order": 12
+  },
+  {
+    "sourceId": "apollo-cfo-email-v1",
+    "namespace": "apollo",
+    "family": "freshness",
+    "memoryType": "semantic",
+    "text": "Old Apollo finance contact from 2025: finance@apollo.example handled CFO correspondence.",
+    "tags": ["finance", "email", "deprecated"],
+    "order": 13
+  },
+  {
+    "sourceId": "apollo-cfo-email-v2",
+    "namespace": "apollo",
+    "family": "freshness",
+    "memoryType": "semantic",
+    "text": "Current Apollo CFO contact email is cfo-office@apollo.example.",
+    "tags": ["finance", "email", "current"],
+    "order": 14
+  },
+  {
+    "sourceId": "apollo-memq-loop",
+    "namespace": "apollo",
+    "family": "procedural",
+    "memoryType": "procedural",
+    "text": "Required MemQ operating loop for non-trivial work: call memory_status before execution, use search_memory for semantic recall, use recent_memory for HOT continuity, call add_memory after execution, and call reflect_memory at task or session close.",
+    "tags": ["memq", "protocol", "mcp", "procedural"],
+    "order": 15
+  },
+  {
+    "sourceId": "apollo-notify-dana",
+    "namespace": "apollo",
+    "family": "preference",
+    "memoryType": "semantic",
+    "text": "Dana Morales does not want SMS billing alerts. Notify Dana by email whenever invoice exceptions occur.",
+    "tags": ["preference", "billing", "notifications", "email"],
+    "order": 16
+  },
+  {
+    "sourceId": "apollo-notify-erin",
+    "namespace": "apollo",
+    "family": "preference",
+    "memoryType": "semantic",
+    "text": "Erin Walker prefers SMS for urgent fraud alerts and ignores email after hours.",
+    "tags": ["preference", "fraud", "notifications", "sms"],
+    "order": 17
+  },
+  {
+    "sourceId": "zephyr-pagerduty-v1",
+    "namespace": "zephyr",
+    "family": "freshness",
+    "memoryType": "semantic",
+    "text": "Current Zephyr incident policy: wallet alerts use PagerDuty escalation path Delta.",
+    "tags": ["incident", "pagerduty", "wallet", "current"],
+    "order": 18
+  },
+  {
+    "sourceId": "zephyr-postgres-trigger",
+    "namespace": "zephyr",
+    "family": "runbook",
+    "memoryType": "procedural",
+    "text": "Zephyr failover trigger: if writes stall after recovery, inspect WAL archiver backlog before touching PgBouncer.",
+    "tags": ["runbook", "postgres", "wal", "failover"],
+    "order": 19
+  },
+  {
+    "sourceId": "zephyr-postgres-fix",
+    "namespace": "zephyr",
+    "family": "runbook",
+    "memoryType": "procedural",
+    "text": "Zephyr failover fix: restore the WAL archiver worker and re-run replication slot validation.",
+    "tags": ["runbook", "postgres", "wal", "fix"],
+    "order": 20
+  },
+  {
+    "sourceId": "zephyr-checkout-owner",
+    "namespace": "zephyr",
+    "family": "project_memory",
+    "memoryType": "semantic",
+    "text": "Zephyr wallet migration owner is Mateo Ruiz from payments infrastructure.",
+    "tags": ["project", "wallet", "owner"],
+    "order": 21
+  },
+  {
+    "sourceId": "zephyr-checkout-deadline",
+    "namespace": "zephyr",
+    "family": "project_memory",
+    "memoryType": "semantic",
+    "text": "Zephyr wallet migration deadline is May 2, 2026.",
+    "tags": ["project", "wallet", "deadline"],
+    "order": 22
+  },
+  {
+    "sourceId": "zephyr-alex-billing",
+    "namespace": "zephyr",
+    "family": "disambiguation",
+    "memoryType": "semantic",
+    "text": "Zephyr billing operations: Alex Kim owns chargeback review for merchant payouts.",
+    "tags": ["people", "billing", "alex-kim"],
+    "order": 23
+  },
+  {
+    "sourceId": "zephyr-api-rotation-v1",
+    "namespace": "zephyr",
+    "family": "freshness",
+    "memoryType": "semantic",
+    "text": "Current Zephyr partner API policy: rotate the settlement token every 60 days.",
+    "tags": ["security", "api-token", "current"],
+    "order": 24
+  },
+  {
+    "sourceId": "zephyr-cfo-email-v1",
+    "namespace": "zephyr",
+    "family": "freshness",
+    "memoryType": "semantic",
+    "text": "Current Zephyr CFO contact email is treasury@zephyr.example.",
+    "tags": ["finance", "email", "current"],
+    "order": 25
+  },
+  {
+    "sourceId": "zephyr-notify-dana",
+    "namespace": "zephyr",
+    "family": "preference",
+    "memoryType": "semantic",
+    "text": "Dana Morales prefers Slack for merchant payout alerts inside Zephyr.",
+    "tags": ["preference", "notifications", "slack"],
+    "order": 26
+  },
+  {
+    "sourceId": "orion-pagerduty-v1",
+    "namespace": "orion",
+    "family": "freshness",
+    "memoryType": "semantic",
+    "text": "Current Orion incident policy: logistics alerts use PagerDuty escalation path Sigma.",
+    "tags": ["incident", "pagerduty", "logistics", "current"],
+    "order": 27
+  },
+  {
+    "sourceId": "orion-incident-root-cause",
+    "namespace": "orion",
+    "family": "incident",
+    "memoryType": "semantic",
+    "text": "The Orion dispatch outage was caused by a Kafka consumer group rebalance storm.",
+    "tags": ["incident", "dispatch", "kafka", "root-cause"],
+    "order": 28
+  },
+  {
+    "sourceId": "orion-wallet-owner",
+    "namespace": "orion",
+    "family": "project_memory",
+    "memoryType": "semantic",
+    "text": "Orion dispatch modernization owner is Chloe Bennett from logistics systems.",
+    "tags": ["project", "dispatch", "owner"],
+    "order": 29
+  },
+  {
+    "sourceId": "orion-cfo-email-v1",
+    "namespace": "orion",
+    "family": "freshness",
+    "memoryType": "semantic",
+    "text": "Current Orion CFO contact email is finance-ops@orion.example.",
+    "tags": ["finance", "email", "current"],
+    "order": 30
+  },
+  {
+    "sourceId": "orion-api-rotation-v1",
+    "namespace": "orion",
+    "family": "freshness",
+    "memoryType": "semantic",
+    "text": "Current Orion partner API policy: rotate the dispatch token every 45 days.",
+    "tags": ["security", "api-token", "current"],
+    "order": 31
+  }
+]
+

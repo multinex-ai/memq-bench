@@ -1,0 +1,108 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "mem0_oss",
+  "repetition": 2,
+  "caseId": "zephyr-wallet-owner-deadline",
+  "family": "project_memory",
+  "namespace": "zephyr",
+  "query": "Who is leading the Zephyr wallet cutover and when is the target date?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:52:30.315Z",
+  "finishedAt": "2026-04-09T02:52:34.321Z",
+  "searchLatencyMs": 4006,
+  "prepareDurationMs": 9326,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "zephyr-checkout-owner",
+    "zephyr-checkout-deadline"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-checkout-owner",
+    "apollo-checkout-deadline",
+    "orion-wallet-owner"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": false,
+    "precisionAtK": 0.4,
+    "recallAtK": 1,
+    "mrr": 1,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      1,
+      2
+    ],
+    "forbiddenRanks": []
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "zephyr-checkout-deadline",
+      "namespace": "zephyr",
+      "text": "Zephyr wallet migration deadline is May 2, 2026.",
+      "score": 0.8561305,
+      "providerMemoryId": "a86225f4-b070-4a1e-817a-4fa494e69a99",
+      "tags": [
+        "project",
+        "wallet",
+        "deadline"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "zephyr-checkout-owner",
+      "namespace": "zephyr",
+      "text": "Zephyr wallet migration owner is Mateo Ruiz from payments infrastructure.",
+      "score": 0.76707023,
+      "providerMemoryId": "cc7b7550-6516-44a2-adde-0f9bf09400c3",
+      "tags": [
+        "project",
+        "wallet",
+        "owner"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "zephyr-pagerduty-v1",
+      "namespace": "zephyr",
+      "text": "Current Zephyr incident policy: wallet alerts use PagerDuty escalation path Delta.",
+      "score": 0.6989225,
+      "providerMemoryId": "164d0bf1-f4bb-41b9-8feb-dcdc05376756",
+      "tags": [
+        "incident",
+        "pagerduty",
+        "wallet",
+        "current"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "zephyr-cfo-email-v1",
+      "namespace": "zephyr",
+      "text": "Current Zephyr CFO contact email is treasury@zephyr.example.",
+      "score": 0.6832737,
+      "providerMemoryId": "d9673c84-2212-4683-a19c-14e70c197e16",
+      "tags": [
+        "finance",
+        "email",
+        "current"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "zephyr-api-rotation-v1",
+      "namespace": "zephyr",
+      "text": "Current Zephyr partner API policy: rotate the settlement token every 60 days.",
+      "score": 0.6646724,
+      "providerMemoryId": "b637344a-aba1-4898-a381-740ef6ab7d87",
+      "tags": [
+        "security",
+        "api-token",
+        "current"
+      ]
+    }
+  ]
+}

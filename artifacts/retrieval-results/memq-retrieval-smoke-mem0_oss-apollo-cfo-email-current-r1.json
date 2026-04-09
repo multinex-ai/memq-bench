@@ -1,0 +1,108 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "mem0_oss",
+  "repetition": 1,
+  "caseId": "apollo-cfo-email-current",
+  "family": "freshness",
+  "namespace": "apollo",
+  "query": "Where should board-level Apollo finance questions go now?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:51:32.606Z",
+  "finishedAt": "2026-04-09T02:51:34.948Z",
+  "searchLatencyMs": 2342,
+  "prepareDurationMs": 8182,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-cfo-email-v2"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-cfo-email-v1",
+    "zephyr-cfo-email-v1",
+    "orion-cfo-email-v1"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": false,
+    "precisionAtK": 0.2,
+    "recallAtK": 1,
+    "mrr": 0.5,
+    "leakageCount": 1,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      2
+    ],
+    "forbiddenRanks": [
+      1
+    ]
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "apollo-cfo-email-v1",
+      "namespace": "apollo",
+      "text": "Old Apollo finance contact from 2025: finance@apollo.example handled CFO correspondence.",
+      "score": 0.76111436,
+      "providerMemoryId": "ff3bd971-b0c0-4e22-8f3c-075660106a1c",
+      "tags": [
+        "finance",
+        "email",
+        "deprecated"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "apollo-cfo-email-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo CFO contact email is cfo-office@apollo.example.",
+      "score": 0.7520391,
+      "providerMemoryId": "1c541bbd-c5a0-42cf-8402-98839d8b1742",
+      "tags": [
+        "finance",
+        "email",
+        "current"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "apollo-alex-billing",
+      "namespace": "apollo",
+      "text": "Apollo billing operations: Alex Kim owns invoice reconciliation and payment exception review.",
+      "score": 0.6819067,
+      "providerMemoryId": "7531231a-539d-4a83-89c3-150e34fff3b2",
+      "tags": [
+        "people",
+        "billing",
+        "alex-kim"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "apollo-alex-platform",
+      "namespace": "apollo",
+      "text": "Apollo platform engineering: Alex Kim owns the rollout gates service and deployment approvals.",
+      "score": 0.65378517,
+      "providerMemoryId": "6a130065-47dc-457a-ac1e-bc502edeb0f4",
+      "tags": [
+        "people",
+        "platform",
+        "alex-kim"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "apollo-pagerduty-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo incident policy: checkout alerts use PagerDuty escalation path Gamma. Primary on-call is Mira Chen.",
+      "score": 0.6457957,
+      "providerMemoryId": "1c212e97-5114-4886-a6de-fc438ce90aba",
+      "tags": [
+        "incident",
+        "pagerduty",
+        "checkout",
+        "current"
+      ]
+    }
+  ]
+}

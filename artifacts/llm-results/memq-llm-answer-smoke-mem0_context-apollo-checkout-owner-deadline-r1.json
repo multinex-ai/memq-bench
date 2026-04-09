@@ -1,0 +1,44 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "mem0_context",
+  "repetition": 1,
+  "caseId": "apollo-checkout-owner-deadline",
+  "providerContext": "mem0_oss",
+  "question": "Who is driving the Apollo checkout cutover and when does it land?",
+  "expectedTerms": [
+    "rina",
+    "april 18"
+  ],
+  "forbiddenTerms": [
+    "mateo",
+    "may 2",
+    "chloe"
+  ],
+  "relevantSourceIds": [
+    "apollo-checkout-owner",
+    "apollo-checkout-deadline"
+  ],
+  "primarySourceId": "apollo-checkout-owner",
+  "contextSourceIds": [
+    "apollo-checkout-deadline",
+    "apollo-checkout-owner",
+    "apollo-pagerduty-v1",
+    "apollo-pagerduty-v2",
+    "apollo-incident-root-cause"
+  ],
+  "answer": "Rina Patel from platform engineering is driving the Apollo checkout cutover. It lands on April 18, 2026.",
+  "citations": [
+    "apollo-checkout-owner",
+    "apollo-checkout-deadline"
+  ],
+  "metrics": {
+    "answerPass": true,
+    "citationHit": true,
+    "citationRecall": 1,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

@@ -1,42 +1,50 @@
-# MemQ Benchmark Summary
+# MemQ Retrieval Benchmark Summary
 
-## Headline
-- best MemQ condition: fixture:memq_accelerated
-- baseline condition: fixture:naive_memory
-- pass-point delta: 100
+Generated: 2026-04-09T02:54:04.412Z
 
-## Corpus
-- task count: 5
-- task ids: byzantine-generals-consensus, dining-philosophers-leases, embedding-translation-fabric, manual-copy-regression, protocol-tool-discipline
-
-## fixture:memq_accelerated
-- runs: 5
-- passed: 5
+## Providers
+### keyword_baseline
+- runs: 36
+- completed: 36
 - failed: 0
 - skipped: 0
-- avg duration ms: 81
-- avg packed tokens: 171
+- primary@1: 58%
+- hit@k: 100%
+- recall@k: 92%
+- precision@k: 22%
+- mrr: 0.861
+- leakage-free: 67%
+- avg latency ms: 0
+- p95 latency ms: 0
 
-## fixture:memq_core
-- runs: 5
-- passed: 5
+### mem0_oss
+- runs: 36
+- completed: 36
 - failed: 0
 - skipped: 0
-- avg duration ms: 32
-- avg packed tokens: 171
+- primary@1: 58%
+- hit@k: 100%
+- recall@k: 100%
+- precision@k: 25%
+- mrr: 0.917
+- leakage-free: 67%
+- avg latency ms: 3353
+- p95 latency ms: 4672
 
-## fixture:naive_memory
-- runs: 5
-- passed: 0
-- failed: 5
+### memq_mcp
+- runs: 36
+- completed: 36
+- failed: 0
 - skipped: 0
-- avg duration ms: 1
-- avg packed tokens: 61
+- primary@1: 17%
+- hit@k: 31%
+- recall@k: 29%
+- precision@k: 7%
+- mrr: 0.255
+- leakage-free: 89%
+- avg latency ms: 8
+- p95 latency ms: 22
 
-## fixture:stateless
-- runs: 5
-- passed: 0
-- failed: 5
-- skipped: 0
-- avg duration ms: 2
-- avg packed tokens: 34
+## Comparisons
+- memq_mcp vs mem0_oss: primary@1 delta -42 pts, recall delta -71 pts, avg latency delta -3345 ms
+- memq_mcp vs keyword_baseline: primary@1 delta -42 pts, recall delta -62 pts, avg latency delta 8 ms

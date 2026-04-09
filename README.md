@@ -4,141 +4,139 @@
 
 <p align="center">
   <a href="https://github.com/multinex-ai/memq-bench/actions/workflows/benchmark.yml"><img src="https://img.shields.io/github/actions/workflow/status/multinex-ai/memq-bench/benchmark.yml?branch=master&label=benchmark&style=for-the-badge" alt="Benchmark workflow status" /></a>
-  <a href="./artifacts/snapshot.json"><img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/badges.json&query=%24.snapshot.passPointDelta&label=pass%20delta&suffix=%20pts&color=10b981&style=for-the-badge" alt="Pass-point delta from current snapshot" /></a>
-  <a href="./artifacts/snapshot.json"><img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/badges.json&query=%24.snapshot.memqCore&label=memq%20core&color=0ea5e9&style=for-the-badge" alt="MemQ core result from current snapshot" /></a>
-  <a href="./artifacts/snapshot.json"><img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/badges.json&query=%24.snapshot.taskCount&label=fixture%20tasks&color=7c3aed&style=for-the-badge" alt="Fixture task count from current snapshot" /></a>
-  <a href="./docs/reproducibility-protocol.md"><img src="https://img.shields.io/badge/reproducibility-protocol%20published-2563eb?style=for-the-badge" alt="Reproducibility protocol published" /></a>
-  <a href="./docs/publication.md"><img src="https://img.shields.io/badge/publication-badge%20policy%20enforced-f59e0b?style=for-the-badge" alt="Publication badge policy enforced" /></a>
+  <a href="./artifacts/snapshot.json"><img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/badges.json&query=%24.snapshot.caseCount&label=retrieval%20cases&color=7c3aed&style=for-the-badge" alt="Retrieval case count" /></a>
+  <a href="./artifacts/snapshot.json"><img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/badges.json&query=%24.snapshot.memqPrimaryAt1Pct&label=memq%20retrieval%20primary%401&suffix=%25&color=0ea5e9&style=for-the-badge" alt="MemQ retrieval primary at one" /></a>
+  <a href="./artifacts/snapshot.json"><img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/badges.json&query=%24.snapshot.mem0PrimaryAt1Pct&label=mem0%20retrieval%20primary%401&suffix=%25&color=10b981&style=for-the-badge" alt="Mem0 retrieval primary at one" /></a>
+  <a href="./artifacts/llm-snapshot.json"><img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/llm-badges.json&query=%24.snapshot.memqAnswerPassPct&label=memq%20llm%20answer%20pass&suffix=%25&color=0284c7&style=for-the-badge" alt="MemQ LLM answer pass rate" /></a>
+  <a href="./artifacts/llm-snapshot.json"><img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/llm-badges.json&query=%24.snapshot.noMemoryAnswerPassPct&label=no%20memory%20llm%20pass&suffix=%25&color=f59e0b&style=for-the-badge" alt="No memory LLM answer pass rate" /></a>
+  <a href="./artifacts/llm-snapshot.json"><img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/llm-badges.json&query=%24.snapshot.memqVsNoMemoryAnswerDeltaPts&label=memq%20vs%20no%20memory&suffix=%20pts&color=2563eb&style=for-the-badge" alt="MemQ versus no memory answer delta" /></a>
+  <a href="./artifacts/llm-snapshot.json"><img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/llm-badges.json&query=%24.snapshot.memqVsMem0AnswerDeltaPts&label=memq%20vs%20mem0&suffix=%20pts&color=64748b&style=for-the-badge" alt="MemQ versus Mem0 answer delta" /></a>
 </p>
 
 <p align="center">
-  Public MemQ benchmark repo for proving token savings, translation-aware coordination, and multi-agent memory retention against stateless and naive-memory controls.
+  Public benchmark repo for measuring operational memory retrieval and same-model answer quality with and without MemQ-backed context.
 </p>
 
-## Official Docs
+## Docs
 
-- [MemQ Bench Docs](./docs/README.md)
-- [Quickstart](./docs/tutorials/quickstart.md)
-- [Translation Accelerated Fabric Tutorial](./docs/tutorials/translation-accelerated-fabric.md)
-- [Coordination Benchmarks Tutorial](./docs/tutorials/coordination-benchmarks.md)
+- [Benchmark docs](./docs/README.md)
 - [Methodology](./docs/methodology.md)
+- [Reproducibility protocol](./docs/reproducibility-protocol.md)
+- [Retrieval snapshot](./artifacts/snapshot.json)
+- [Retrieval summary](./artifacts/summary.md)
+- [LLM snapshot](./artifacts/llm-snapshot.json)
+- [LLM summary](./artifacts/llm-summary.md)
 
-## Why this repo exists
+## What this repo measures
 
-MemQ Bench is the public proof surface for MemQ’s memory and translation claims.
+`memq-bench` now has two benchmark layers over the same operational memory corpus.
 
-It answers three concrete questions:
+1. Retrieval benchmark
+   Compares `memq_mcp`, `mem0_oss`, and a deterministic `keyword_baseline` on 12 paraphrased operational queries across freshness, incident response, procedural recall, disambiguation, project memory, and preference memory.
+2. Same-model answer benchmark
+   Uses the same Gemini model to answer the same 12 questions in four conditions:
+   - `no_memory`
+   - `keyword_context`
+   - `memq_context`
+   - `mem0_context`
 
-1. Can MemQ preserve coordination facts that stateless and naive-memory agents drop?
-2. Can MemQ translate vectors across model spaces without paying a re-embedding tax?
-3. Can MemQ turn resolved coordination patterns into reusable memory that improves future agent runs?
+The retrieval layer measures ranking quality and leakage. The LLM layer measures whether memory actually changes the final answer quality for the same model.
 
-The benchmark compares four conditions:
+## Headline result
 
-- `stateless`
-- `naive_memory`
-- `memq_core`
-- `memq_accelerated`
+This repo is designed to answer two different public questions without conflating them:
 
-## Current validated snapshot
+1. Does MemQ retrieve the right memories better than other systems?
+2. Does giving an LLM MemQ-backed context improve its final answers compared with no memory at all?
 
-The checked-in snapshot is a deterministic fixture smoke run over five tasks:
+On the current checked-in corpus, the honest answer is:
 
-- `embedding-translation-fabric`
-- `byzantine-generals-consensus`
-- `dining-philosophers-leases`
-- `manual-copy-regression`
-- `protocol-tool-discipline`
+- `MemQ vs Mem0 retrieval`: MemQ is faster and more leakage-resistant, but weaker on raw retrieval quality.
+- `MemQ vs no-memory LLM`: the same model moves from `0%` answer pass with no memory to `75%` with MemQ context.
+- `MemQ vs Mem0 LLM`: MemQ materially improves answers versus no memory, but trails Mem0 context on this corpus.
 
-The current public proof is meant to validate the harness and the memory contract.
-It is strict evidence for the benchmark repo itself, and a safe public surface for
-explaining the architecture before larger external tracks are published.
+## Current snapshot
 
-| Condition | Result | Avg duration | Avg packed tokens |
+Retrieval benchmark, 12 cases, 3 repetitions, exact-memory seeding:
+
+| Provider | Primary@1 | Hit@K | Recall@K | Leakage-free | Avg latency |
+| --- | --- | --- | --- | --- | --- |
+| `mem0_oss` | `58%` | `100%` | `100%` | `67%` | `3353 ms` |
+| `keyword_baseline` | `58%` | `100%` | `92%` | `67%` | `0 ms` |
+| `memq_mcp` | `17%` | `31%` | `29%` | `89%` | `8 ms` |
+
+Same-model answer benchmark, 12 cases, Gemini `2.0-flash`, 1 repetition:
+
+| Condition | Answer pass | Citation hit | Citation recall |
 | --- | --- | --- | --- |
-| `memq_core` | `5 / 5 passed` | `17 ms` | `171` |
-| `memq_accelerated` | `5 / 5 passed` | `115 ms` | `171` |
-| `naive_memory` | `0 / 5 passed` | `1 ms` | `61` |
-| `stateless` | `0 / 5 passed` | `2 ms` | `34` |
+| `mem0_context` | `92%` | `50%` | `50%` |
+| `keyword_context` | `75%` | `50%` | `54%` |
+| `memq_context` | `75%` | `42%` | `42%` |
+| `no_memory` | `0%` | `0%` | `0%` |
 
-That yields a `+100` pass-point delta from the best MemQ condition over the
-best baseline in the current deterministic smoke run.
+The current snapshot is intentionally honest:
 
-Quick proof links:
+- MemQ is materially faster than the comparator stack in this setup.
+- MemQ is also the most leakage-free provider in the current retrieval corpus.
+- On this corpus, MemQ retrieval quality is behind both Mem0 OSS and the lexical control.
+- The same-model answer benchmark still shows a real memory effect: `memq_context` moves the model from `0%` answer pass without memory to `75%` with MemQ context.
+- The repo publishes both the uplift story and the gap story so readers can verify exactly where MemQ helps today and where it still trails.
 
-- [Snapshot JSON](./artifacts/snapshot.json)
-- [Badge data JSON](./artifacts/badges.json)
-- [Summary markdown](./artifacts/summary.md)
-- [Translation payload and result](./artifacts/translation-showcase.md)
-- [Raw result files](./artifacts/results/)
+## Why the benchmark is structured this way
 
-## Benchmark cases
+The old fixture-only harness could prove repository wiring, but it could not prove product behavior. The current suite fixes that:
 
-| Case | What it demonstrates |
-| --- | --- |
-| `embedding-translation-fabric` | Exact recall of the public translation contract, payload, and result. |
-| `byzantine-generals-consensus` | Multi-agent consensus after translated command vectors are normalized into one decision space. |
-| `dining-philosophers-leases` | Resource coordination, deadlock avoidance, and `_commons` publication of resolved issues. |
-| `manual-copy-regression` | Regression avoidance from prior build failures. |
-| `protocol-tool-discipline` | Correct MemQ usage loop and search/recent split. |
+- MemQ is benchmarked through a live MCP surface.
+- Mem0 is benchmarked through real `mem0ai` calls backed by live Qdrant.
+- Queries are paraphrased away from the exact stored text so a keyword control is not automatically perfect.
+- The LLM benchmark uses the same model across all memory conditions to isolate the effect of context, not model choice.
 
-## Translation spotlight
+## Benchmark corpus
 
-The benchmark repo ships a canonical example of the MemQ translation contract:
+The checked-in corpus is operational on purpose. It focuses on the kinds of memory retrieval problems agents and operators actually hit:
 
-```json
-{
-  "vector": [0.91, 0.42, -0.18, 0.07],
-  "source_dimension": 4,
-  "target_dimension": 2,
-  "source_profile": {
-    "provider": "openai",
-    "model": "text-embedding-3-large",
-    "dimension": 4
-  },
-  "target_profile": {
-    "provider": "cloudflare",
-    "model": "bge-base-en-v1.5",
-    "dimension": 2
-  }
-}
-```
+- current versus deprecated runbooks and policies
+- root-cause recall under distractors
+- owner plus deadline retrieval
+- same-name disambiguation
+- notification preferences
+- protocol/tool discipline
 
-```json
-{
-  "mode": "stateless_translation",
-  "translated_vector": [0.91, 0.42],
-  "dimension": 2,
-  "method": "truncation",
-  "quality": {
-    "retention": 0.5,
-    "lossless": false
-  }
-}
-```
+Files:
 
-This same translation proof is referenced inside the Byzantine Generals benchmark
-to show that cross-model command vectors can be normalized before quorum.
+- [Corpus](./datasets/ops-retrieval/corpus.json)
+- [Cases](./datasets/ops-retrieval/cases.json)
 
 ## Quickstart
 
+Start the local benchmark stack:
+
 ```bash
 cd memq-bench
+docker compose up -d
+```
+
+Install dependencies:
+
+```bash
 npm install
+npm run setup:mem0
+```
+
+Run the retrieval benchmark:
+
+```bash
 npm run bench
 ```
 
-That sequence runs:
+Run the same-model LLM answer benchmark:
 
-- type-check
-- result cleanup
-- deterministic smoke benchmark
-- snapshot publication
+```bash
+npm run bench:llm
+```
 
-## Public claims discipline
+## Notes
 
-- `fixture` runs validate the harness and deterministic memory logic.
-- `local_cli` and `antigravity` should be published separately once those tracks are pinned.
-- Translation savings claims should always link back to the translation artifact and the snapshot.
-- `_commons` coordination claims should cite the benchmark tasks that exercise `resolved_issue` and consensus promotion behavior.
-- README badges must resolve to GitHub workflow state, committed snapshot artifacts, or first-party docs in this repo.
+- `npm run bench` currently writes the retrieval snapshot to [artifacts/snapshot.json](./artifacts/snapshot.json).
+- `npm run bench:llm` writes the answer-quality snapshot to [artifacts/llm-snapshot.json](./artifacts/llm-snapshot.json).
+- The legacy fixture harness still exists in the repo as `npm run bench:legacy`, but it is no longer the primary public benchmark story.

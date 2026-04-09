@@ -1,0 +1,35 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "no_memory",
+  "repetition": 1,
+  "caseId": "apollo-api-rotation-current",
+  "providerContext": "none",
+  "question": "What is the current credential rollover cadence for Apollo fulfillment partner access?",
+  "expectedTerms": [
+    "30 days"
+  ],
+  "forbiddenTerms": [
+    "90 days",
+    "60 days",
+    "45 days"
+  ],
+  "relevantSourceIds": [
+    "apollo-api-rotation-v2"
+  ],
+  "primarySourceId": "apollo-api-rotation-v2",
+  "contextSourceIds": [],
+  "answer": "INSUFFICIENT_CONTEXT",
+  "citations": [],
+  "metrics": {
+    "answerPass": false,
+    "citationHit": false,
+    "citationRecall": 0,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [
+      "30 days"
+    ],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

@@ -1,0 +1,104 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "keyword_baseline",
+  "repetition": 3,
+  "caseId": "zephyr-wallet-owner-deadline",
+  "family": "project_memory",
+  "namespace": "zephyr",
+  "query": "Who is leading the Zephyr wallet cutover and when is the target date?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:52:48.463Z",
+  "finishedAt": "2026-04-09T02:52:48.463Z",
+  "searchLatencyMs": 0,
+  "prepareDurationMs": 0,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "zephyr-checkout-owner",
+    "zephyr-checkout-deadline"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-checkout-owner",
+    "apollo-checkout-deadline",
+    "orion-wallet-owner"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": false,
+    "precisionAtK": 0.4,
+    "recallAtK": 1,
+    "mrr": 1,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      1,
+      2
+    ],
+    "forbiddenRanks": []
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "zephyr-checkout-deadline",
+      "namespace": "zephyr",
+      "text": "Zephyr wallet migration deadline is May 2, 2026.",
+      "score": 4.022,
+      "tags": [
+        "project",
+        "wallet",
+        "deadline"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "zephyr-checkout-owner",
+      "namespace": "zephyr",
+      "text": "Zephyr wallet migration owner is Mateo Ruiz from payments infrastructure.",
+      "score": 4.021,
+      "tags": [
+        "project",
+        "wallet",
+        "owner"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "zephyr-cfo-email-v1",
+      "namespace": "zephyr",
+      "text": "Current Zephyr CFO contact email is treasury@zephyr.example.",
+      "score": 3.275,
+      "tags": [
+        "finance",
+        "email",
+        "current"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "zephyr-pagerduty-v1",
+      "namespace": "zephyr",
+      "text": "Current Zephyr incident policy: wallet alerts use PagerDuty escalation path Delta.",
+      "score": 3.268,
+      "tags": [
+        "incident",
+        "pagerduty",
+        "wallet",
+        "current"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "zephyr-postgres-fix",
+      "namespace": "zephyr",
+      "text": "Zephyr failover fix: restore the WAL archiver worker and re-run replication slot validation.",
+      "score": 3.02,
+      "tags": [
+        "runbook",
+        "postgres",
+        "wal",
+        "fix"
+      ]
+    }
+  ]
+}

@@ -3,37 +3,43 @@
 This benchmark is reproducible if an independent operator can:
 
 1. install the benchmark dependencies
-2. run the deterministic smoke manifest from this repo
-3. inspect the raw result JSON for every task and condition
-4. regenerate `artifacts/snapshot.json` and `artifacts/summary.md`
-5. verify the same task outcomes with the same task corpus and fixture journal
+2. start the local benchmark stack
+3. run the retrieval benchmark from this repo
+4. run the same-model LLM benchmark from this repo
+5. inspect the raw result JSON for every provider and condition
+6. regenerate the published snapshot and summary artifacts
 
 ## Verification rules
 
-- task success is determined by deterministic verifiers only
-- required facts must appear in the answer output exactly as declared in the task spec
-- a run artifact is invalid if the model metadata, track, condition, task id, or verifier result is missing
+- retrieval outcomes are determined from committed gold labels in the checked-in cases
+- answer-quality outcomes are determined from committed expected terms, forbidden terms, and citation targets
+- a run artifact is invalid if provider or condition metadata, case id, or computed metrics are missing
+- retrieval and LLM answer claims must be discussed separately
 
 ## Runtime pinning
 
 Every published run should capture:
 
 - benchmark repo commit SHA
-- task corpus version
-- model config hash
-- MemQ benchmark harness version
-- optional graph augmentation availability
-- optional vector augmentation availability
+- benchmark manifest identifier
+- corpus version or dataset commit
+- model identifier and temperature for the LLM answer benchmark
+- MemQ server version or image tag when available
+- Mem0 package version and vector backend
 
 ## Isolation
 
-- `stateless` must not call MemQ
-- `naive_memory` must not call MemQ
-- `memq_core` may only use the core retrieval loop
-- `memq_accelerated` must log every augmentation source and slicing decision
+- `keyword_baseline` must only use the checked-in lexical scorer
+- `no_memory` must not receive retrieval snippets
+- `keyword_context`, `memq_context`, and `mem0_context` must all use the same model and answer prompt
+- MemQ runs must stay isolated by benchmark run tag and namespace
+- Mem0 runs must stay isolated by benchmark run tag and collection namespace
 
-## Translation proof
+## Publication rule
 
-The translation showcase is part of the reproducibility surface. If the request
-and response pair changes, the benchmark docs and task corpus must be updated in
-the same commit.
+The public story must remain literal:
+
+- retrieval benchmark claims are product retrieval claims
+- same-model answer benchmark claims are context-effect claims
+- speed claims must be tied to the measured harness and configuration
+- gaps must remain published alongside wins when the committed artifacts show them

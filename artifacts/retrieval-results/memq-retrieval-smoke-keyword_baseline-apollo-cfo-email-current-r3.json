@@ -1,0 +1,104 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "keyword_baseline",
+  "repetition": 3,
+  "caseId": "apollo-cfo-email-current",
+  "family": "freshness",
+  "namespace": "apollo",
+  "query": "Where should board-level Apollo finance questions go now?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:52:48.461Z",
+  "finishedAt": "2026-04-09T02:52:48.461Z",
+  "searchLatencyMs": 0,
+  "prepareDurationMs": 0,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-cfo-email-v2"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-cfo-email-v1",
+    "zephyr-cfo-email-v1",
+    "orion-cfo-email-v1"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": false,
+    "precisionAtK": 0.2,
+    "recallAtK": 1,
+    "mrr": 0.5,
+    "leakageCount": 1,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      2
+    ],
+    "forbiddenRanks": [
+      1
+    ]
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "apollo-cfo-email-v1",
+      "namespace": "apollo",
+      "text": "Old Apollo finance contact from 2025: finance@apollo.example handled CFO correspondence.",
+      "score": 5.013,
+      "tags": [
+        "finance",
+        "email",
+        "deprecated"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "apollo-cfo-email-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo CFO contact email is cfo-office@apollo.example.",
+      "score": 3.264,
+      "tags": [
+        "finance",
+        "email",
+        "current"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "apollo-api-rotation-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo partner API policy: rotate the fulfillment token every 30 days and store the checksum in Shield.",
+      "score": 1.262,
+      "tags": [
+        "security",
+        "api-token",
+        "current",
+        "shield"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "apollo-pagerduty-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo incident policy: checkout alerts use PagerDuty escalation path Gamma. Primary on-call is Mira Chen.",
+      "score": 1.252,
+      "tags": [
+        "incident",
+        "pagerduty",
+        "checkout",
+        "current"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "apollo-api-rotation-v1",
+      "namespace": "apollo",
+      "text": "Deprecated Apollo partner API policy: rotate the fulfillment token every 90 days.",
+      "score": 1.011,
+      "tags": [
+        "security",
+        "api-token",
+        "deprecated"
+      ]
+    }
+  ]
+}

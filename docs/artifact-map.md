@@ -1,40 +1,49 @@
 # Artifact Map
 
-This repo ships the outputs needed to inspect the current validated benchmark
-surface.
+This repo ships the inputs and outputs needed to inspect the current public
+benchmark surface.
 
 ## Primary public artifacts
 
-- [`../artifacts/snapshot.json`](../artifacts/snapshot.json) — machine-readable benchmark summary and reproducibility metadata
-- [`../artifacts/summary.md`](../artifacts/summary.md) — human-readable summary for the current snapshot
-- [`../artifacts/translation-showcase.json`](../artifacts/translation-showcase.json) — canonical vector translation request and result
-- [`../artifacts/translation-showcase.md`](../artifacts/translation-showcase.md) — human-readable translation proof
-- [`../artifacts/results/`](../artifacts/results/) — raw run-level result files used to compute the published snapshot
+- [`../artifacts/snapshot.json`](../artifacts/snapshot.json) — machine-readable retrieval benchmark summary
+- [`../artifacts/summary.md`](../artifacts/summary.md) — human-readable retrieval summary
+- [`../artifacts/badges.json`](../artifacts/badges.json) — retrieval badge values derived from the committed snapshot
+- [`../artifacts/llm-snapshot.json`](../artifacts/llm-snapshot.json) — machine-readable same-model answer benchmark summary
+- [`../artifacts/llm-summary.md`](../artifacts/llm-summary.md) — human-readable same-model answer summary
+- [`../artifacts/llm-badges.json`](../artifacts/llm-badges.json) — LLM badge values derived from the committed snapshot
+- [`../artifacts/retrieval-results/`](../artifacts/retrieval-results/) — raw retrieval run artifacts
+- [`../artifacts/llm-results/`](../artifacts/llm-results/) — raw LLM answer run artifacts
 
 ## Run manifests
 
-- [`../configs/smoke.json`](../configs/smoke.json) — deterministic smoke run used for the public proof
-- [`../configs/debug.json`](../configs/debug.json) — focused single-run manifest for iteration
-- [`../configs/nightly.json`](../configs/nightly.json) — broader run manifest intended for scheduled execution
+- [`../configs/retrieval-smoke.json`](../configs/retrieval-smoke.json) — retrieval benchmark manifest
+- [`../configs/llm-answer-smoke.json`](../configs/llm-answer-smoke.json) — same-model answer benchmark manifest
 
-## Task corpus
+## Benchmark corpus
 
-- [`../tasks/embedding-translation-fabric/task.json`](../tasks/embedding-translation-fabric/task.json)
-- [`../tasks/byzantine-generals-consensus/task.json`](../tasks/byzantine-generals-consensus/task.json)
-- [`../tasks/dining-philosophers-leases/task.json`](../tasks/dining-philosophers-leases/task.json)
-- [`../tasks/manual-copy-regression/task.json`](../tasks/manual-copy-regression/task.json)
-- [`../tasks/protocol-tool-discipline/task.json`](../tasks/protocol-tool-discipline/task.json)
+- [`../datasets/ops-retrieval/corpus.json`](../datasets/ops-retrieval/corpus.json) — stored operational memories
+- [`../datasets/ops-retrieval/cases.json`](../datasets/ops-retrieval/cases.json) — paraphrased retrieval and answer-quality cases
 
-## Fixtures
+## Harness sources
 
-- [`../fixtures/soul-journal/memq.jsonl`](../fixtures/soul-journal/memq.jsonl) — canonical MemQ replay seed for the deterministic harness
-- [`../fixtures/workspaces/`](../fixtures/workspaces/) — task-scoped fixture workspaces
+- [`../src/retrievalHarness.ts`](../src/retrievalHarness.ts) — retrieval benchmark execution
+- [`../src/retrievalAnalysis.ts`](../src/retrievalAnalysis.ts) — retrieval aggregation and badge generation
+- [`../src/llmHarness.ts`](../src/llmHarness.ts) — same-model answer benchmark execution
+- [`../src/llmAnalysis.ts`](../src/llmAnalysis.ts) — answer benchmark aggregation and badge generation
+- [`../python/mem0_provider.py`](../python/mem0_provider.py) — Mem0 comparator wrapper
+- [`../python/llm_answer_provider.py`](../python/llm_answer_provider.py) — strict JSON LLM answer runner
+
+## Legacy artifacts
+
+- [`../artifacts/results/`](../artifacts/results/) — legacy fixture harness outputs retained for historical inspection
+- [`../artifacts/translation-showcase.json`](../artifacts/translation-showcase.json) — earlier translation showcase artifact
+- [`../artifacts/translation-showcase.md`](../artifacts/translation-showcase.md) — earlier translation showcase summary
 
 ## Source of truth rule
 
 Public benchmark claims should cite:
 
-1. the exact snapshot file
-2. the exact run manifest
+1. the exact committed snapshot file
+2. the exact committed manifest
 3. the exact raw result files
 4. the methodology and reproducibility docs in this repo

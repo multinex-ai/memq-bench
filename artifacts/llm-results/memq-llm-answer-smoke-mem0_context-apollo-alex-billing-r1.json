@@ -1,0 +1,41 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "mem0_context",
+  "repetition": 1,
+  "caseId": "apollo-alex-billing",
+  "providerContext": "mem0_oss",
+  "question": "Which Alex Kim cleans up Apollo billing exceptions?",
+  "expectedTerms": [
+    "alex kim",
+    "invoice"
+  ],
+  "forbiddenTerms": [
+    "rollout gates",
+    "chargeback"
+  ],
+  "relevantSourceIds": [
+    "apollo-alex-billing"
+  ],
+  "primarySourceId": "apollo-alex-billing",
+  "contextSourceIds": [
+    "apollo-alex-billing",
+    "apollo-alex-platform",
+    "apollo-pagerduty-v2",
+    "apollo-checkout-owner",
+    "apollo-checkout-deadline"
+  ],
+  "answer": "Alex Kim owns invoice reconciliation and payment exception review for Apollo billing operations.",
+  "citations": [
+    "[apollo-alex-billing] Apollo billing operations: Alex Kim owns invoice reconciliation and payment exception review."
+  ],
+  "metrics": {
+    "answerPass": true,
+    "citationHit": false,
+    "citationRecall": 0,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

@@ -1,0 +1,123 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "memq_mcp",
+  "repetition": 1,
+  "caseId": "apollo-api-rotation-current",
+  "family": "freshness",
+  "namespace": "apollo",
+  "query": "What is the current credential rollover cadence for Apollo fulfillment partner access?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:51:06.649Z",
+  "finishedAt": "2026-04-09T02:51:06.652Z",
+  "searchLatencyMs": 4,
+  "prepareDurationMs": 1932,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-api-rotation-v2"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-api-rotation-v1",
+    "zephyr-api-rotation-v1",
+    "orion-api-rotation-v1"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": true,
+    "precisionAtK": 0.2,
+    "recallAtK": 1,
+    "mrr": 1,
+    "leakageCount": 1,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      1
+    ],
+    "forbiddenRanks": [
+      2
+    ]
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "apollo-api-rotation-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo partner API policy: rotate the fulfillment token every 30 days and store the checksum in Shield.",
+      "score": 0.3540107,
+      "providerMemoryId": "7c4c91aa-cfd5-4657-b70c-df2892660c52",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-api-rotation-v2",
+        "namespace:apollo",
+        "security",
+        "api-token",
+        "current",
+        "shield"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "apollo-api-rotation-v1",
+      "namespace": "apollo",
+      "text": "Deprecated Apollo partner API policy: rotate the fulfillment token every 90 days.",
+      "score": 0.33120044000000004,
+      "providerMemoryId": "97d8eb8b-2952-477f-8ad4-2c7843fb7f3d",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-api-rotation-v1",
+        "namespace:apollo",
+        "security",
+        "api-token",
+        "deprecated"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "apollo-alex-platform",
+      "namespace": "apollo",
+      "text": "Apollo platform engineering: Alex Kim owns the rollout gates service and deployment approvals.",
+      "score": 0.29920723000000005,
+      "providerMemoryId": "a5cac670-946b-49e4-a33e-7f5a215ba481",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-alex-platform",
+        "namespace:apollo",
+        "people",
+        "platform",
+        "alex-kim"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "apollo-checkout-deadline",
+      "namespace": "apollo",
+      "text": "Apollo checkout migration deadline is April 18, 2026 and the cutover rehearsal is scheduled two days earlier.",
+      "score": 0.26785364,
+      "providerMemoryId": "ac163a3b-81dd-48eb-bfba-ab1508506733",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-checkout-deadline",
+        "namespace:apollo",
+        "project",
+        "checkout",
+        "deadline"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "apollo-incident-redis-distractor",
+      "namespace": "apollo",
+      "text": "A separate Apollo recommendation incident in February was caused by Redis eviction pressure in the ranking cache.",
+      "score": 0.26542668,
+      "providerMemoryId": "d5ed25a5-e50f-48b2-8f76-3ced917f8a9c",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-incident-redis-distractor",
+        "namespace:apollo",
+        "incident",
+        "redis",
+        "recommendations"
+      ]
+    }
+  ]
+}

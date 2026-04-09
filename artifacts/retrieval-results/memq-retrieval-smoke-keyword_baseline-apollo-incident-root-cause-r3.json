@@ -1,0 +1,102 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "keyword_baseline",
+  "repetition": 3,
+  "caseId": "apollo-incident-root-cause",
+  "family": "incident",
+  "namespace": "apollo",
+  "query": "What actually took down Apollo checkout on March 17?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:52:48.458Z",
+  "finishedAt": "2026-04-09T02:52:48.458Z",
+  "searchLatencyMs": 0,
+  "prepareDurationMs": 0,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-incident-root-cause"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-incident-redis-distractor",
+    "orion-incident-root-cause"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": true,
+    "precisionAtK": 0.2,
+    "recallAtK": 1,
+    "mrr": 1,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      1
+    ],
+    "forbiddenRanks": []
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "apollo-incident-root-cause",
+      "namespace": "apollo",
+      "text": "The March 17 Apollo checkout outage was caused by stale PgBouncer DNS cache after Postgres failover, not by application deploys.",
+      "score": 5.007,
+      "tags": [
+        "incident",
+        "checkout",
+        "root-cause",
+        "postgres"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "apollo-pagerduty-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo incident policy: checkout alerts use PagerDuty escalation path Gamma. Primary on-call is Mira Chen.",
+      "score": 4.252,
+      "tags": [
+        "incident",
+        "pagerduty",
+        "checkout",
+        "current"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "apollo-checkout-deadline",
+      "namespace": "apollo",
+      "text": "Apollo checkout migration deadline is April 18, 2026 and the cutover rehearsal is scheduled two days earlier.",
+      "score": 3.006,
+      "tags": [
+        "project",
+        "checkout",
+        "deadline"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "apollo-checkout-owner",
+      "namespace": "apollo",
+      "text": "Apollo checkout migration owner is Rina Patel from platform engineering.",
+      "score": 3.005,
+      "tags": [
+        "project",
+        "checkout",
+        "owner"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "apollo-pagerduty-v1",
+      "namespace": "apollo",
+      "text": "Deprecated Apollo incident policy from January 2026: use PagerDuty escalation path Beta for checkout pages.",
+      "score": 3.001,
+      "tags": [
+        "incident",
+        "pagerduty",
+        "checkout",
+        "deprecated"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "mem0_oss",
+  "repetition": 2,
+  "caseId": "apollo-pagerduty-current",
+  "family": "freshness",
+  "namespace": "apollo",
+  "query": "When Apollo checkout blows up, which escalation chain should on-call use today?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:52:04.685Z",
+  "finishedAt": "2026-04-09T02:52:07.654Z",
+  "searchLatencyMs": 2969,
+  "prepareDurationMs": 9326,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-pagerduty-v2"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-pagerduty-v1",
+    "zephyr-pagerduty-v1",
+    "orion-pagerduty-v1"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": true,
+    "precisionAtK": 0.2,
+    "recallAtK": 1,
+    "mrr": 1,
+    "leakageCount": 1,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      1
+    ],
+    "forbiddenRanks": [
+      2
+    ]
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "apollo-pagerduty-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo incident policy: checkout alerts use PagerDuty escalation path Gamma. Primary on-call is Mira Chen.",
+      "score": 0.8667606,
+      "providerMemoryId": "8173acf7-7b19-4f25-8f56-0205eb1caa56",
+      "tags": [
+        "incident",
+        "pagerduty",
+        "checkout",
+        "current"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "apollo-pagerduty-v1",
+      "namespace": "apollo",
+      "text": "Deprecated Apollo incident policy from January 2026: use PagerDuty escalation path Beta for checkout pages.",
+      "score": 0.8147812,
+      "providerMemoryId": "97681bcf-1381-441e-a13a-64c4f53a2fdc",
+      "tags": [
+        "incident",
+        "pagerduty",
+        "checkout",
+        "deprecated"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "apollo-incident-root-cause",
+      "namespace": "apollo",
+      "text": "The March 17 Apollo checkout outage was caused by stale PgBouncer DNS cache after Postgres failover, not by application deploys.",
+      "score": 0.7342409,
+      "providerMemoryId": "af0de2f8-cf37-4a85-b913-0060952a8586",
+      "tags": [
+        "incident",
+        "checkout",
+        "root-cause",
+        "postgres"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "apollo-checkout-owner",
+      "namespace": "apollo",
+      "text": "Apollo checkout migration owner is Rina Patel from platform engineering.",
+      "score": 0.7191101,
+      "providerMemoryId": "7598c5d8-bf54-421c-91c4-ed6c2efb3c82",
+      "tags": [
+        "project",
+        "checkout",
+        "owner"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "apollo-checkout-deadline",
+      "namespace": "apollo",
+      "text": "Apollo checkout migration deadline is April 18, 2026 and the cutover rehearsal is scheduled two days earlier.",
+      "score": 0.71677107,
+      "providerMemoryId": "da7c9f4b-02c1-4cd1-935c-8c2cabb02d60",
+      "tags": [
+        "project",
+        "checkout",
+        "deadline"
+      ]
+    }
+  ]
+}

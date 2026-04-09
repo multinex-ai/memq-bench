@@ -6,8 +6,15 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
-  benchmark:
+  type-check:
+    name: Type Check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,6 +32,23 @@ jobs:
       - name: Type check
         run: npm run type-check
 
+  legacy-smoke:
+    name: Legacy Fixture Smoke
+    needs: [type-check]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
       - name: Smoke run
         run: npm run clean:results && npm run smoke
 
@@ -34,9 +58,122 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: memq-bench-results
+          name: memq-bench-legacy-results
           path: |
             artifacts/badges.json
             artifacts/snapshot.json
             artifacts/summary.md
             artifacts/results
+
+  retrieval-bench:
+    name: Retrieval Benchmark (LLMC)
+    needs: [type-check]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    services:
+      qdrant:
+        image: qdrant/qdrant:v1.13.4
+        ports:
+          - 16333:6333
+      falkordb:
+        image: falkordb/falkordb-server:v4.14.9
+        ports:
+          - 16380:6379
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Setup Python venv for Mem0
+        run: |
+          python3 -m venv .venv-mem0
+          . .venv-mem0/bin/activate
+          pip install -r python-requirements-mem0.txt
+
+      - name: Start MemQ gateway
+        run: |
+          docker run -d --name memq-bench-gateway \
+            --network ${{ job.services.qdrant.network }} \
+            -p 18000:8000 \
+            -e PORT=8000 \
+            -e QDRANT_URL=http://qdrant:6333 \
+            -e QDRANT_COLLECTION=soul_journal \
+            -e FALKOR_REDIS_URL=redis://falkordb:6379 \
+            -e FALKOR_GRAPH=memq \
+            -e INTERNAL_BUS_TOKEN=secret_bus_token \
+            -e SOUL_JOURNAL_PATH=/var/lib/memq/soul_journal.jsonl \
+            -e AUTO_REFLECT_EVERY=25 \
+            -e VECTOR_DIM=256 \
+            -e TOP_K_DEFAULT=5 \
+            -e SIMILARITY_DEDUP_THRESHOLD=0.985 \
+            -e REQUIRE_AUTH=false \
+            -e DB_RETRY_ATTEMPTS=3 \
+            -e DB_RETRY_BASE_DELAY_SECONDS=0.25 \
+            ghcr.io/multinex-ai/multinex/munx-memorystack/gateway-deno:v2.1.0
+          sleep 5
+
+      - name: Run retrieval benchmark
+        run: npm run bench
+
+      - name: Upload retrieval artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: memq-bench-retrieval-results
+          path: |
+            artifacts/badges.json
+            artifacts/snapshot.json
+            artifacts/summary.md
+            artifacts/retrieval-results
+
+  llm-answer-bench:
+    name: LLM Answer Benchmark (LLMC)
+    needs: [retrieval-bench]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Setup Python venv for LLM provider
+        run: |
+          python3 -m venv .venv-mem0
+          . .venv-mem0/bin/activate
+          pip install -r python-requirements-mem0.txt
+
+      - name: Download retrieval artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: memq-bench-retrieval-results
+          path: artifacts
+
+      - name: Run LLM answer benchmark
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        run: npm run bench:llm
+
+      - name: Upload LLM artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: memq-bench-llm-results
+          path: |
+            artifacts/llm-badges.json
+            artifacts/llm-snapshot.json
+            artifacts/llm-summary.md
+            artifacts/llm-results

@@ -1,0 +1,40 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "memq_context",
+  "repetition": 1,
+  "caseId": "apollo-notify-dana",
+  "providerContext": "memq_mcp",
+  "question": "What is Dana Morales's preferred channel for Apollo invoice issues?",
+  "expectedTerms": [
+    "email"
+  ],
+  "forbiddenTerms": [
+    "sms",
+    "slack"
+  ],
+  "relevantSourceIds": [
+    "apollo-notify-dana"
+  ],
+  "primarySourceId": "apollo-notify-dana",
+  "contextSourceIds": [
+    "apollo-pagerduty-v2",
+    "apollo-checkout-owner",
+    "apollo-checkout-deadline",
+    "apollo-pagerduty-v1",
+    "apollo-alex-billing"
+  ],
+  "answer": "INSUFFICIENT_CONTEXT",
+  "citations": [],
+  "metrics": {
+    "answerPass": false,
+    "citationHit": false,
+    "citationRecall": 0,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [
+      "email"
+    ],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

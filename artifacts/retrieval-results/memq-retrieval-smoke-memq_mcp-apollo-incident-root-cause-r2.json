@@ -1,0 +1,36 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "memq_mcp",
+  "repetition": 2,
+  "caseId": "apollo-incident-root-cause",
+  "family": "incident",
+  "namespace": "apollo",
+  "query": "What actually took down Apollo checkout on March 17?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:51:52.391Z",
+  "finishedAt": "2026-04-09T02:51:52.395Z",
+  "searchLatencyMs": 4,
+  "prepareDurationMs": 1911,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-incident-root-cause"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-incident-redis-distractor",
+    "orion-incident-root-cause"
+  ],
+  "metrics": {
+    "hitAtK": false,
+    "primaryAt1": false,
+    "precisionAtK": 0,
+    "recallAtK": 0,
+    "mrr": 0,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [],
+    "forbiddenRanks": []
+  },
+  "results": []
+}

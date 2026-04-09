@@ -1,0 +1,44 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "keyword_context",
+  "repetition": 1,
+  "caseId": "zephyr-wallet-owner-deadline",
+  "providerContext": "keyword_baseline",
+  "question": "Who is leading the Zephyr wallet cutover and when is the target date?",
+  "expectedTerms": [
+    "mateo",
+    "may 2"
+  ],
+  "forbiddenTerms": [
+    "rina",
+    "april 18",
+    "chloe"
+  ],
+  "relevantSourceIds": [
+    "zephyr-checkout-owner",
+    "zephyr-checkout-deadline"
+  ],
+  "primarySourceId": "zephyr-checkout-owner",
+  "contextSourceIds": [
+    "zephyr-checkout-deadline",
+    "zephyr-checkout-owner",
+    "zephyr-cfo-email-v1",
+    "zephyr-pagerduty-v1",
+    "zephyr-postgres-fix"
+  ],
+  "answer": "Mateo Ruiz from payments infrastructure is leading the Zephyr wallet migration. The deadline is May 2, 2026.",
+  "citations": [
+    "[zephyr-checkout-owner]",
+    "[zephyr-checkout-deadline]"
+  ],
+  "metrics": {
+    "answerPass": true,
+    "citationHit": false,
+    "citationRecall": 0,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

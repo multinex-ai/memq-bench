@@ -1,0 +1,34 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "no_memory",
+  "repetition": 1,
+  "caseId": "orion-api-rotation-current",
+  "providerContext": "none",
+  "question": "What is Orion's present credential rollover schedule for dispatch partner access?",
+  "expectedTerms": [
+    "45 days"
+  ],
+  "forbiddenTerms": [
+    "30 days",
+    "60 days"
+  ],
+  "relevantSourceIds": [
+    "orion-api-rotation-v1"
+  ],
+  "primarySourceId": "orion-api-rotation-v1",
+  "contextSourceIds": [],
+  "answer": "INSUFFICIENT_CONTEXT",
+  "citations": [],
+  "metrics": {
+    "answerPass": false,
+    "citationHit": false,
+    "citationRecall": 0,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [
+      "45 days"
+    ],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

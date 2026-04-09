@@ -1,0 +1,37 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "memq_mcp",
+  "repetition": 2,
+  "caseId": "apollo-cfo-email-current",
+  "family": "freshness",
+  "namespace": "apollo",
+  "query": "Where should board-level Apollo finance questions go now?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:51:52.402Z",
+  "finishedAt": "2026-04-09T02:51:52.406Z",
+  "searchLatencyMs": 4,
+  "prepareDurationMs": 1911,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-cfo-email-v2"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-cfo-email-v1",
+    "zephyr-cfo-email-v1",
+    "orion-cfo-email-v1"
+  ],
+  "metrics": {
+    "hitAtK": false,
+    "primaryAt1": false,
+    "precisionAtK": 0,
+    "recallAtK": 0,
+    "mrr": 0,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [],
+    "forbiddenRanks": []
+  },
+  "results": []
+}

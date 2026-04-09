@@ -1,0 +1,34 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "no_memory",
+  "repetition": 1,
+  "caseId": "zephyr-pagerduty-current",
+  "providerContext": "none",
+  "question": "If Zephyr wallet alerts fire today, which escalation chain handles them?",
+  "expectedTerms": [
+    "delta"
+  ],
+  "forbiddenTerms": [
+    "gamma",
+    "sigma"
+  ],
+  "relevantSourceIds": [
+    "zephyr-pagerduty-v1"
+  ],
+  "primarySourceId": "zephyr-pagerduty-v1",
+  "contextSourceIds": [],
+  "answer": "INSUFFICIENT_CONTEXT",
+  "citations": [],
+  "metrics": {
+    "answerPass": false,
+    "citationHit": false,
+    "citationRecall": 0,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [
+      "delta"
+    ],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

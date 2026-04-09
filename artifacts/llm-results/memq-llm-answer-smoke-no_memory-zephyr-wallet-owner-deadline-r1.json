@@ -1,0 +1,38 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "no_memory",
+  "repetition": 1,
+  "caseId": "zephyr-wallet-owner-deadline",
+  "providerContext": "none",
+  "question": "Who is leading the Zephyr wallet cutover and when is the target date?",
+  "expectedTerms": [
+    "mateo",
+    "may 2"
+  ],
+  "forbiddenTerms": [
+    "rina",
+    "april 18",
+    "chloe"
+  ],
+  "relevantSourceIds": [
+    "zephyr-checkout-owner",
+    "zephyr-checkout-deadline"
+  ],
+  "primarySourceId": "zephyr-checkout-owner",
+  "contextSourceIds": [],
+  "answer": "INSUFFICIENT_CONTEXT",
+  "citations": [],
+  "metrics": {
+    "answerPass": false,
+    "citationHit": false,
+    "citationRecall": 0,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [
+      "mateo",
+      "may 2"
+    ],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}

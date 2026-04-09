@@ -1,0 +1,36 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "memq_mcp",
+  "repetition": 2,
+  "caseId": "apollo-alex-billing",
+  "family": "disambiguation",
+  "namespace": "apollo",
+  "query": "Which Alex Kim cleans up Apollo billing exceptions?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:51:52.396Z",
+  "finishedAt": "2026-04-09T02:51:52.398Z",
+  "searchLatencyMs": 3,
+  "prepareDurationMs": 1911,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-alex-billing"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-alex-platform",
+    "zephyr-alex-billing"
+  ],
+  "metrics": {
+    "hitAtK": false,
+    "primaryAt1": false,
+    "precisionAtK": 0,
+    "recallAtK": 0,
+    "mrr": 0,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [],
+    "forbiddenRanks": []
+  },
+  "results": []
+}

@@ -1,0 +1,23 @@
+{
+  "name": "memq-llm-answer-smoke",
+  "description": "Same-model answer benchmark across no-memory, keyword, MemQ, and Mem0 contexts.",
+  "dataset": {
+    "casesPath": "datasets/ops-retrieval/cases.json",
+    "retrievalResultsDir": "artifacts/retrieval-results",
+    "retrievalRepetition": 1
+  },
+  "repetitions": 1,
+  "conditions": [
+    "no_memory",
+    "keyword_context",
+    "memq_context",
+    "mem0_context"
+  ],
+  "model": {
+    "venvPath": ".venv-mem0",
+    "provider": "gemini",
+    "model": "gemini-2.0-flash"
+  },
+  "outputDir": "artifacts/llm-results"
+}
+

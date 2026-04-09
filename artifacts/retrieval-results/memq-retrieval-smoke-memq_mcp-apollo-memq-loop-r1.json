@@ -1,0 +1,119 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "memq_mcp",
+  "repetition": 1,
+  "caseId": "apollo-memq-loop",
+  "family": "procedural",
+  "namespace": "apollo",
+  "query": "For serious MemQ work, which call checks readiness, which one brings semantic recall versus hot continuity, and what gets written when work is done?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:51:06.657Z",
+  "finishedAt": "2026-04-09T02:51:06.660Z",
+  "searchLatencyMs": 3,
+  "prepareDurationMs": 1932,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-memq-loop"
+  ],
+  "forbiddenSourceIds": [],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": true,
+    "precisionAtK": 0.2,
+    "recallAtK": 1,
+    "mrr": 1,
+    "leakageCount": 0,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      1
+    ],
+    "forbiddenRanks": []
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "apollo-memq-loop",
+      "namespace": "apollo",
+      "text": "Required MemQ operating loop for non-trivial work: call memory_status before execution, use search_memory for semantic recall, use recent_memory for HOT continuity, call add_memory after execution, and call reflect_memory at task or session close.",
+      "score": 0.49147110000000005,
+      "providerMemoryId": "333f7c46-72d9-401a-9431-a26d25db5c32",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-memq-loop",
+        "namespace:apollo",
+        "memq",
+        "protocol",
+        "mcp",
+        "procedural"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "apollo-checkout-deadline",
+      "namespace": "apollo",
+      "text": "Apollo checkout migration deadline is April 18, 2026 and the cutover rehearsal is scheduled two days earlier.",
+      "score": 0.22077173,
+      "providerMemoryId": "ac163a3b-81dd-48eb-bfba-ab1508506733",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-checkout-deadline",
+        "namespace:apollo",
+        "project",
+        "checkout",
+        "deadline"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "apollo-alex-platform",
+      "namespace": "apollo",
+      "text": "Apollo platform engineering: Alex Kim owns the rollout gates service and deployment approvals.",
+      "score": 0.18122648,
+      "providerMemoryId": "a5cac670-946b-49e4-a33e-7f5a215ba481",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-alex-platform",
+        "namespace:apollo",
+        "people",
+        "platform",
+        "alex-kim"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "apollo-pagerduty-v1",
+      "namespace": "apollo",
+      "text": "Deprecated Apollo incident policy from January 2026: use PagerDuty escalation path Beta for checkout pages.",
+      "score": 0.14049667,
+      "providerMemoryId": "c470f234-2add-4846-8bf2-67a67588ee96",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-pagerduty-v1",
+        "namespace:apollo",
+        "incident",
+        "pagerduty",
+        "checkout",
+        "deprecated"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "apollo-notify-erin",
+      "namespace": "apollo",
+      "text": "Erin Walker prefers SMS for urgent fraud alerts and ignores email after hours.",
+      "score": 0.13883652999999999,
+      "providerMemoryId": "4b76b71d-efc8-47ef-a4b2-c02cc5015ce3",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-notify-erin",
+        "namespace:apollo",
+        "preference",
+        "fraud",
+        "notifications",
+        "sms"
+      ]
+    }
+  ]
+}

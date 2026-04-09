@@ -1,0 +1,123 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "memq_mcp",
+  "repetition": 1,
+  "caseId": "apollo-alex-billing",
+  "family": "disambiguation",
+  "namespace": "apollo",
+  "query": "Which Alex Kim cleans up Apollo billing exceptions?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:51:06.644Z",
+  "finishedAt": "2026-04-09T02:51:06.648Z",
+  "searchLatencyMs": 4,
+  "prepareDurationMs": 1932,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-alex-billing"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-alex-platform",
+    "zephyr-alex-billing"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": true,
+    "precisionAtK": 0.2,
+    "recallAtK": 1,
+    "mrr": 1,
+    "leakageCount": 1,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      1
+    ],
+    "forbiddenRanks": [
+      2
+    ]
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "apollo-alex-billing",
+      "namespace": "apollo",
+      "text": "Apollo billing operations: Alex Kim owns invoice reconciliation and payment exception review.",
+      "score": 0.5411771400000001,
+      "providerMemoryId": "84d9bf00-6bcd-4fed-81bf-75a7ba200c2c",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-alex-billing",
+        "namespace:apollo",
+        "people",
+        "billing",
+        "alex-kim"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "apollo-alex-platform",
+      "namespace": "apollo",
+      "text": "Apollo platform engineering: Alex Kim owns the rollout gates service and deployment approvals.",
+      "score": 0.38334120000000005,
+      "providerMemoryId": "a5cac670-946b-49e4-a33e-7f5a215ba481",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-alex-platform",
+        "namespace:apollo",
+        "people",
+        "platform",
+        "alex-kim"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "apollo-incident-root-cause",
+      "namespace": "apollo",
+      "text": "The March 17 Apollo checkout outage was caused by stale PgBouncer DNS cache after Postgres failover, not by application deploys.",
+      "score": 0.25664617,
+      "providerMemoryId": "22ec48cd-ef72-46b9-ad32-c339b4cb4aa7",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-incident-root-cause",
+        "namespace:apollo",
+        "incident",
+        "checkout",
+        "root-cause",
+        "postgres"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "apollo-notify-dana",
+      "namespace": "apollo",
+      "text": "Dana Morales does not want SMS billing alerts. Notify Dana by email whenever invoice exceptions occur.",
+      "score": 0.23588893,
+      "providerMemoryId": "146318e4-9d7c-475c-b730-896139585932",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-notify-dana",
+        "namespace:apollo",
+        "preference",
+        "billing",
+        "notifications",
+        "email"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "apollo-incident-redis-distractor",
+      "namespace": "apollo",
+      "text": "A separate Apollo recommendation incident in February was caused by Redis eviction pressure in the ranking cache.",
+      "score": 0.22294045999999998,
+      "providerMemoryId": "d5ed25a5-e50f-48b2-8f76-3ced917f8a9c",
+      "tags": [
+        "bench-run:memq-retrieval-smoke-r1-memq_mcp",
+        "source:apollo-incident-redis-distractor",
+        "namespace:apollo",
+        "incident",
+        "redis",
+        "recommendations"
+      ]
+    }
+  ]
+}

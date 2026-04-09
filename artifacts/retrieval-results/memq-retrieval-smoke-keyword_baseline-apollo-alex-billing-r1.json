@@ -1,0 +1,102 @@
+{
+  "runName": "memq-retrieval-smoke",
+  "provider": "keyword_baseline",
+  "repetition": 1,
+  "caseId": "apollo-alex-billing",
+  "family": "disambiguation",
+  "namespace": "apollo",
+  "query": "Which Alex Kim cleans up Apollo billing exceptions?",
+  "topK": 5,
+  "status": "completed",
+  "reason": "",
+  "startedAt": "2026-04-09T02:51:04.687Z",
+  "finishedAt": "2026-04-09T02:51:04.687Z",
+  "searchLatencyMs": 0,
+  "prepareDurationMs": 0,
+  "seededEntryCount": 31,
+  "relevantSourceIds": [
+    "apollo-alex-billing"
+  ],
+  "forbiddenSourceIds": [
+    "apollo-alex-platform",
+    "zephyr-alex-billing"
+  ],
+  "metrics": {
+    "hitAtK": true,
+    "primaryAt1": true,
+    "precisionAtK": 0.2,
+    "recallAtK": 1,
+    "mrr": 1,
+    "leakageCount": 1,
+    "namespaceLeakageCount": 0,
+    "relevantRanks": [
+      1
+    ],
+    "forbiddenRanks": [
+      2
+    ]
+  },
+  "results": [
+    {
+      "rank": 1,
+      "sourceId": "apollo-alex-billing",
+      "namespace": "apollo",
+      "text": "Apollo billing operations: Alex Kim owns invoice reconciliation and payment exception review.",
+      "score": 7.009,
+      "tags": [
+        "people",
+        "billing",
+        "alex-kim"
+      ]
+    },
+    {
+      "rank": 2,
+      "sourceId": "apollo-alex-platform",
+      "namespace": "apollo",
+      "text": "Apollo platform engineering: Alex Kim owns the rollout gates service and deployment approvals.",
+      "score": 5.01,
+      "tags": [
+        "people",
+        "platform",
+        "alex-kim"
+      ]
+    },
+    {
+      "rank": 3,
+      "sourceId": "apollo-notify-dana",
+      "namespace": "apollo",
+      "text": "Dana Morales does not want SMS billing alerts. Notify Dana by email whenever invoice exceptions occur.",
+      "score": 3.016,
+      "tags": [
+        "preference",
+        "billing",
+        "notifications",
+        "email"
+      ]
+    },
+    {
+      "rank": 4,
+      "sourceId": "apollo-cfo-email-v2",
+      "namespace": "apollo",
+      "text": "Current Apollo CFO contact email is cfo-office@apollo.example.",
+      "score": 2.264,
+      "tags": [
+        "finance",
+        "email",
+        "current"
+      ]
+    },
+    {
+      "rank": 5,
+      "sourceId": "apollo-cfo-email-v1",
+      "namespace": "apollo",
+      "text": "Old Apollo finance contact from 2025: finance@apollo.example handled CFO correspondence.",
+      "score": 2.013,
+      "tags": [
+        "finance",
+        "email",
+        "deprecated"
+      ]
+    }
+  ]
+}

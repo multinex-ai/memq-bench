@@ -1,0 +1,35 @@
+{
+  "runName": "memq-llm-answer-smoke",
+  "condition": "no_memory",
+  "repetition": 1,
+  "caseId": "apollo-pagerduty-current",
+  "providerContext": "none",
+  "question": "When Apollo checkout blows up, which escalation chain should on-call use today?",
+  "expectedTerms": [
+    "gamma"
+  ],
+  "forbiddenTerms": [
+    "beta",
+    "delta",
+    "sigma"
+  ],
+  "relevantSourceIds": [
+    "apollo-pagerduty-v2"
+  ],
+  "primarySourceId": "apollo-pagerduty-v2",
+  "contextSourceIds": [],
+  "answer": "INSUFFICIENT_CONTEXT",
+  "citations": [],
+  "metrics": {
+    "answerPass": false,
+    "citationHit": false,
+    "citationRecall": 0,
+    "forbiddenCitationCount": 0,
+    "missingTerms": [
+      "gamma"
+    ],
+    "matchedForbiddenTerms": []
+  },
+  "status": "completed",
+  "reason": ""
+}
