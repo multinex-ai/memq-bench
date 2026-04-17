@@ -140,3 +140,41 @@ npm run bench:llm
 - `npm run bench` currently writes the retrieval snapshot to [artifacts/snapshot.json](./artifacts/snapshot.json).
 - `npm run bench:llm` writes the answer-quality snapshot to [artifacts/llm-snapshot.json](./artifacts/llm-snapshot.json).
 - The legacy fixture harness still exists in the repo as `npm run bench:legacy`, but it is no longer the primary public benchmark story.
+
+## Skills, Hooks & MCP Install
+
+This repo also distributes reusable agent skills and IDE hook templates for integrating MemQ persistent memory into AI coding tools.
+
+### One-line MCP install
+
+```bash
+curl -fsSL https://memq.multinex.ai/install-mcp | bash
+```
+
+Auto-detects Claude Desktop, Cursor, VS Code, Antigravity, and Claude Code.
+
+### Agent Hook Templates
+
+Copy the appropriate template into your project root:
+
+| Tool | Command |
+|------|---------|
+| **Cursor** | `curl -fsSL https://raw.githubusercontent.com/multinex-ai/memq-bench/master/skills/hooks/templates/.cursorrules > .cursorrules` |
+| **Claude Code** | `mkdir -p .claude && curl -fsSL https://raw.githubusercontent.com/multinex-ai/memq-bench/master/skills/hooks/templates/claude-instructions.md > .claude/instructions.md` |
+| **Gemini / Antigravity** | `curl -fsSL https://raw.githubusercontent.com/multinex-ai/memq-bench/master/skills/hooks/templates/GEMINI.md > GEMINI.md` |
+
+### Skills
+
+| Skill | Description |
+|-------|-------------|
+| [`memq-memory`](./skills/memq-memory/SKILL.md) | Session lifecycle hooks, memory types, context packing, episodic replay |
+| [`memq-planning`](./skills/memq-planning/SKILL.md) | Durable plan state, checkpoints, multi-session workflows, bridge sync |
+
+Install into your project:
+
+```bash
+cp -r skills/memq-memory/ .agents/skills/memq-memory/
+cp -r skills/memq-planning/ .agents/skills/memq-planning/
+```
+
+Full setup guide: [`skills/hooks/MEMQ_AGENT_HOOKS.md`](./skills/hooks/MEMQ_AGENT_HOOKS.md)
