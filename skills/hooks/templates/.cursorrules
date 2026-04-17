@@ -1,0 +1,28 @@
+# MemQ Memory Protocol — Cursor Rules
+
+# Persistent Memory (MemQ MCP)
+# You have access to persistent sovereign memory via MemQ MCP tools. USE THEM.
+
+## Session Start
+# Execute these IMMEDIATELY on every new conversation:
+# 1. reunion(include_status: true) — Verify MemQ connection
+# 2. recent_memory(limit: 10) — Load recent context
+# 3. search_memory(query: "<current task>", top_k: 5) — Find relevant past work
+# If unavailable: warn "⚠️ MemQ unavailable — degraded mode" and continue.
+
+## During Work
+# - Before planning: search_memory(query: "<topic>", top_k: 5)
+# - After completing: add_memory(text: "<summary>", memory_type: "checkpoint", tags: ["<domain>"])
+# - On bugs: add_memory(text: "<root cause + fix>", memory_type: "episodic", tags: ["bug"])
+# - On discoveries: add_memory(text: "<learning>", memory_type: "semantic", tags: ["pattern"])
+# - Context needed: mnemosyne_context(objective: "<goal>", include_recent: true)
+
+## Session End
+# reflect_memory(window: 50, force: true) — Consolidate learnings
+
+## Memory Types
+# episodic — Events and debugging ("Fixed timeout in webhook handler")
+# semantic — Facts and patterns ("Auth uses HMAC-SHA256 with replay protection")
+# procedural — Workflows ("Deploy: push master → CI → wrangler deploy")
+# checkpoint — Completions ("Billing overhaul done: 7 files, tests pass")
+# reflection — Meta-learning ("Auth bugs: check middleware first")
