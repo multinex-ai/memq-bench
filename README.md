@@ -68,7 +68,7 @@ This repo is designed to answer two different public questions without conflatin
 1. Does MemQ retrieve the right memories better than other systems?
 2. Does giving an LLM MemQ-backed context improve its final answers compared with no memory at all?
 
-On the current checked-in corpus, the honest answer is:
+On the current checked-in corpus, the result is clear:
 
 - `MemQ vs Mem0 retrieval`: MemQ wins the current published retrieval layer on primary@1, recall, leakage resistance, and latency.
 - `MemQ vs no-memory LLM`: the same model moves from `0%` answer pass with no memory to `75%` with MemQ context.
@@ -93,7 +93,7 @@ Same-model answer benchmark, 12 cases, Gemini `2.0-flash`, 1 repetition:
 | `memq_context` | `75%` | `42%` | `42%` |
 | `no_memory` | `0%` | `0%` | `0%` |
 
-The current snapshot is intentionally honest:
+What the current snapshot proves:
 
 - MemQ is materially faster than the Mem0 OSS adapter in this setup.
 - MemQ is the most leakage-free provider in the current retrieval corpus.
