@@ -12,6 +12,7 @@ export const LlmModelConfigSchema = z.object({
 export const LlmDatasetSchema = z.object({
   casesPath: z.string().min(1),
   retrievalResultsDir: z.string().min(1),
+  retrievalRunName: z.string().min(1).default("memq-retrieval-smoke"),
   retrievalRepetition: z.number().int().positive(),
 });
 
@@ -56,4 +57,3 @@ export const LlmResultSchema = z.object({
 export type LlmCondition = z.infer<typeof LlmConditionSchema>;
 export type LlmManifest = z.infer<typeof LlmManifestSchema>;
 export type LlmResult = z.infer<typeof LlmResultSchema>;
-

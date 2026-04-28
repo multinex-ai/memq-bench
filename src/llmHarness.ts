@@ -75,7 +75,7 @@ function retrievalFile(rootDir: string, manifest: LlmManifest, provider: string,
   return path.join(
     rootDir,
     manifest.dataset.retrievalResultsDir,
-    `memq-retrieval-smoke-${provider}-${caseId}-r${manifest.dataset.retrievalRepetition}.json`,
+    `${manifest.dataset.retrievalRunName}-${provider}-${caseId}-r${manifest.dataset.retrievalRepetition}.json`,
   );
 }
 
@@ -200,4 +200,3 @@ export async function runLlmManifest(rootDir: string, manifestPath: string): Pro
 
   return results;
 }
-

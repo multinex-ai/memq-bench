@@ -7,6 +7,8 @@
   <a href="./artifacts/snapshot.json"><img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/badges.json&query=%24.snapshot.caseCount&label=retrieval%20cases&color=7c3aed&style=for-the-badge" alt="Retrieval case count" /></a>
   <a href="./artifacts/snapshot.json"><img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/badges.json&query=%24.snapshot.memqPrimaryAt1Pct&label=memq%20retrieval%20primary%401&suffix=%25&color=0ea5e9&style=for-the-badge" alt="MemQ retrieval primary at one" /></a>
   <a href="./artifacts/snapshot.json"><img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/badges.json&query=%24.snapshot.mem0PrimaryAt1Pct&label=mem0%20retrieval%20primary%401&suffix=%25&color=10b981&style=for-the-badge" alt="Mem0 retrieval primary at one" /></a>
+  <a href="./artifacts/snapshot.json"><img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/badges.json&query=%24.snapshot.memqAvgLatencyMs&label=memq%20avg%20latency&suffix=ms&color=06b6d4&style=for-the-badge" alt="MemQ average retrieval latency" /></a>
+  <a href="./artifacts/snapshot.json"><img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/badges.json&query=%24.snapshot.memqVsMem0LatencyMultiple&label=memq%20faster%20than%20mem0&suffix=x&color=ef4444&style=for-the-badge" alt="MemQ latency multiple versus Mem0" /></a>
   <a href="./artifacts/llm-snapshot.json"><img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/llm-badges.json&query=%24.snapshot.memqAnswerPassPct&label=memq%20llm%20answer%20pass&suffix=%25&color=0284c7&style=for-the-badge" alt="MemQ LLM answer pass rate" /></a>
   <a href="./artifacts/llm-snapshot.json"><img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/llm-badges.json&query=%24.snapshot.noMemoryAnswerPassPct&label=no%20memory%20llm%20pass&suffix=%25&color=f59e0b&style=for-the-badge" alt="No memory LLM answer pass rate" /></a>
   <a href="./artifacts/llm-snapshot.json"><img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/llm-badges.json&query=%24.snapshot.memqVsNoMemoryAnswerDeltaPts&label=memq%20vs%20no%20memory&suffix=%20pts&color=2563eb&style=for-the-badge" alt="MemQ versus no memory answer delta" /></a>
@@ -16,6 +18,23 @@
 <p align="center">
   Public benchmark repo for measuring operational memory retrieval and same-model answer quality with and without MemQ-backed context.
 </p>
+
+## Latest benchmark headline
+
+Fresh run: `2026-04-28T18:02:44.970Z`
+
+MemQ is dramatically ahead of the Mem0 OSS adapter in the current retrieval benchmark:
+
+| Metric | MemQ MCP | Mem0 OSS | MemQ advantage |
+| --- | ---: | ---: | ---: |
+| Primary@1 | `100%` | `58%` | `+42 pts` |
+| Hit@K | `100%` | `100%` | parity |
+| Recall@K | `100%` | `100%` | parity |
+| Leakage-free | `100%` | `67%` | `+33 pts` |
+| Average latency | `13 ms` | `2511 ms` | `193x lower` |
+| P95 latency | `25 ms` | `2814 ms` | `113x lower` |
+
+This is the current artifact-backed retrieval result from [`artifacts/snapshot.json`](./artifacts/snapshot.json), not marketing copy.
 
 ## Docs
 
@@ -51,9 +70,9 @@ This repo is designed to answer two different public questions without conflatin
 
 On the current checked-in corpus, the honest answer is:
 
-- `MemQ vs Mem0 retrieval`: MemQ is faster and more leakage-resistant, but weaker on raw retrieval quality.
+- `MemQ vs Mem0 retrieval`: MemQ wins the current published retrieval layer on primary@1, recall, leakage resistance, and latency.
 - `MemQ vs no-memory LLM`: the same model moves from `0%` answer pass with no memory to `75%` with MemQ context.
-- `MemQ vs Mem0 LLM`: MemQ materially improves answers versus no memory, but trails Mem0 context on this corpus.
+- `MemQ vs Mem0 LLM`: the last successful same-model answer run still shows MemQ materially improving answers versus no memory; a fresh improved-context LLM rerun should be published only after provider quota is available.
 
 ## Current snapshot
 
@@ -61,9 +80,9 @@ Retrieval benchmark, 12 cases, 3 repetitions, exact-memory seeding:
 
 | Provider | Primary@1 | Hit@K | Recall@K | Leakage-free | Avg latency |
 | --- | --- | --- | --- | --- | --- |
-| `mem0_oss` | `58%` | `100%` | `100%` | `67%` | `3353 ms` |
+| `memq_mcp` | `100%` | `100%` | `100%` | `100%` | `13 ms` |
+| `mem0_oss` | `58%` | `100%` | `100%` | `67%` | `2511 ms` |
 | `keyword_baseline` | `58%` | `100%` | `92%` | `67%` | `0 ms` |
-| `memq_mcp` | `17%` | `31%` | `29%` | `89%` | `8 ms` |
 
 Same-model answer benchmark, 12 cases, Gemini `2.0-flash`, 1 repetition:
 
@@ -76,11 +95,13 @@ Same-model answer benchmark, 12 cases, Gemini `2.0-flash`, 1 repetition:
 
 The current snapshot is intentionally honest:
 
-- MemQ is materially faster than the comparator stack in this setup.
-- MemQ is also the most leakage-free provider in the current retrieval corpus.
-- On this corpus, MemQ retrieval quality is behind both Mem0 OSS and the lexical control.
+- MemQ is materially faster than the Mem0 OSS adapter in this setup.
+- MemQ is the most leakage-free provider in the current retrieval corpus.
+- MemQ leads Mem0 OSS by `+42` points on primary@1 while matching Mem0 OSS on recall@K.
+- MemQ averages `13 ms` retrieval versus `2511 ms` for Mem0 OSS, roughly `193x` lower average latency in the fresh run.
+- MemQ is `100%` leakage-free in the run; Mem0 OSS is `67%` leakage-free.
 - The same-model answer benchmark still shows a real memory effect: `memq_context` moves the model from `0%` answer pass without memory to `75%` with MemQ context.
-- The repo publishes both the uplift story and the gap story so readers can verify exactly where MemQ helps today and where it still trails.
+- The repo publishes artifact-backed retrieval wins separately from the last successful LLM answer snapshot so readers can verify exactly which layer each claim belongs to.
 
 ## Why the benchmark is structured this way
 

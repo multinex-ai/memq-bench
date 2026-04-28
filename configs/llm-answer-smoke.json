@@ -3,7 +3,8 @@
   "description": "Same-model answer benchmark across no-memory, keyword, MemQ, and Mem0 contexts.",
   "dataset": {
     "casesPath": "datasets/ops-retrieval/cases.json",
-    "retrievalResultsDir": "artifacts/retrieval-results",
+    "retrievalResultsDir": "artifacts/retrieval-results-mcp-improved-v4",
+    "retrievalRunName": "memq-mcp-server-improved-v4",
     "retrievalRepetition": 1
   },
   "repetitions": 1,
@@ -20,4 +21,3 @@
   },
   "outputDir": "artifacts/llm-results"
 }
-

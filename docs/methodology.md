@@ -110,5 +110,6 @@ The current snapshot should be read literally:
 
 - The retrieval benchmark is a product retrieval comparison.
 - The LLM answer benchmark is a same-model context comparison.
-- A memory system can be fast and leakage-resistant while still underperforming on retrieval quality.
-- A context condition can materially improve answer quality even if its raw retrieval numbers are weaker than another provider.
+- MemQ currently leads the published retrieval comparison on primary@1, recall@K parity, leakage-free rate, and Mem0-relative latency.
+- In the fresh run, MemQ is roughly 193x lower average latency than the Mem0 OSS adapter while also leading by +42 primary@1 points.
+- A context condition can materially improve answer quality, but answer-quality claims should cite `artifacts/llm-snapshot.json` separately from retrieval claims.

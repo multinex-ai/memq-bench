@@ -1,6 +1,6 @@
 # MemQ Retrieval Benchmark Summary
 
-Generated: 2026-04-09T04:03:56.996Z
+Generated: 2026-04-28T18:02:44.970Z
 
 ## Providers
 ### keyword_baseline
@@ -28,8 +28,8 @@ Generated: 2026-04-09T04:03:56.996Z
 - precision@k: 25%
 - mrr: 0.917
 - leakage-free: 67%
-- avg latency ms: 3381
-- p95 latency ms: 4163
+- avg latency ms: 2511
+- p95 latency ms: 2814
 
 ### memq_mcp
 - runs: 36
@@ -42,9 +42,9 @@ Generated: 2026-04-09T04:03:56.996Z
 - precision@k: 25%
 - mrr: 1.000
 - leakage-free: 100%
-- avg latency ms: 21
-- p95 latency ms: 31
+- avg latency ms: 13
+- p95 latency ms: 25
 
 ## Comparisons
-- memq_mcp vs mem0_oss: primary@1 delta 42 pts, recall delta 0 pts, avg latency delta -3360 ms
-- memq_mcp vs keyword_baseline: primary@1 delta 42 pts, recall delta 8 pts, avg latency delta 21 ms
+- memq_mcp vs mem0_oss: primary@1 delta 42 pts, recall delta 0 pts, avg latency delta -2498 ms
+- memq_mcp vs keyword_baseline: primary@1 delta 42 pts, recall delta 8 pts, avg latency delta 13 ms
