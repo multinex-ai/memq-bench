@@ -19,6 +19,11 @@
   Public benchmark repo for measuring operational memory retrieval and same-model answer quality with and without MemQ-backed context.
 </p>
 
+<p align="center">
+  <strong>Try hosted MemQ:</strong>
+  <a href="https://billing.multinex.ai/signup">sign up through the Billing Manager</a>.
+</p>
+
 ## Latest benchmark headline
 
 Fresh run: `2026-04-28T18:02:44.970Z`
