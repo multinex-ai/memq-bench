@@ -1,6 +1,6 @@
 # Methodology
 
-`memq-bench` now measures two different things and keeps them separate.
+`memq-bench` now measures two different things and keeps them separate. MemQ is evaluated as the hosted, governed global intelligence fabric exposed through its MCP surface, while Mem0 is evaluated as the open-source adapter configured for this harness.
 
 ## 1. Retrieval benchmark
 
@@ -9,9 +9,9 @@ This suite measures whether a memory system can retrieve the right stored items 
 ### Providers
 
 - `memq_mcp`
-  Live MemQ MCP `add_memory` and `search_memory` calls against the local benchmark stack.
+  Hosted MemQ MCP `add_memory` and `search_memory` calls against the governed MemQ fabric under test. The primary config uses `https://mcp.multinex.ai/mcp/v1` with an authorization header supplied from the local environment.
 - `mem0_oss`
-  Real `mem0ai` calls backed by live Qdrant with exact memory insertion (`infer=false`).
+  Real `mem0ai` open-source adapter calls backed by live Qdrant with exact memory insertion (`infer=false`).
 - `keyword_baseline`
   Deterministic lexical scorer over the same corpus, included as a control rather than a product claim.
 
@@ -32,7 +32,7 @@ The cases intentionally target operational memory tasks:
 ### Seeding protocol
 
 - Every provider is seeded with the same exact memory texts.
-- MemQ writes are isolated with a run-scoped tag and agent namespace.
+- MemQ writes are isolated with a run-scoped tag and agent namespace through the hosted governed MCP surface.
 - Mem0 writes are isolated with a run-scoped collection and user namespace.
 - Mem0 uses exact insertion (`infer=false`) so the retrieval benchmark measures retrieval, not fact extraction quality.
 - MemQ uses a short post-seed settle window before measurement starts to avoid counting ingestion visibility lag as retrieval failure.
@@ -108,7 +108,7 @@ From that, the answer suite computes:
 
 The current snapshot should be read literally:
 
-- The retrieval benchmark is a product retrieval comparison.
+- The retrieval benchmark is a product retrieval comparison: hosted governed MemQ fabric versus the Mem0 OSS adapter and lexical control.
 - The LLM answer benchmark is a same-model context comparison.
 - MemQ currently leads the published retrieval comparison on primary@1, recall@K parity, leakage-free rate, and Mem0-relative latency.
 - In the fresh run, MemQ is roughly 193x lower average latency than the Mem0 OSS adapter while also leading by +42 primary@1 points.

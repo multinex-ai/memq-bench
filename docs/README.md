@@ -1,6 +1,6 @@
 # MemQ Bench Docs
 
-MemQ Bench is the documentation surface for the public MemQ benchmark repo.
+MemQ Bench is the documentation surface for the public MemQ benchmark repo. It frames MemQ as the hosted, governed global intelligence fabric under test and keeps that product boundary separate from Mem0 OSS, lexical controls, and no-memory baselines.
 
 ## Start here
 
@@ -12,7 +12,9 @@ MemQ Bench is the documentation surface for the public MemQ benchmark repo.
 
 ## What this docs set covers
 
-- how to run the retrieval benchmark against live MemQ MCP and live Mem0 OSS
+- how to run the retrieval benchmark against hosted MemQ MCP and live Mem0 OSS
+- how to interpret MemQ's governed fabric surface separately from the Mem0 OSS adapter baseline
+- how to run local comparator services without treating MemQ itself as local
 - how to run the same-model LLM benchmark with and without memory
 - what the checked-in operational corpus actually tests
 - how to interpret retrieval quality separately from final answer quality

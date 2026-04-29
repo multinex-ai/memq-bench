@@ -3,7 +3,7 @@
 This benchmark is reproducible if an independent operator can:
 
 1. install the benchmark dependencies
-2. start the local benchmark stack
+2. start the local comparator and support services
 3. run the retrieval benchmark from this repo
 4. run the same-model LLM benchmark from this repo
 5. inspect the raw result JSON for every provider and condition
@@ -24,7 +24,8 @@ Every published run should capture:
 - benchmark manifest identifier
 - corpus version or dataset commit
 - model identifier and temperature for the LLM answer benchmark
-- MemQ server version or image tag when available
+- hosted MemQ endpoint revision or server version when available
+- name of the local environment variable used for the MemQ authorization header, never the secret value
 - Mem0 package version and vector backend
 
 ## Isolation
@@ -32,7 +33,7 @@ Every published run should capture:
 - `keyword_baseline` must only use the checked-in lexical scorer
 - `no_memory` must not receive retrieval snippets
 - `keyword_context`, `memq_context`, and `mem0_context` must all use the same model and answer prompt
-- MemQ runs must stay isolated by benchmark run tag and namespace
+- MemQ runs must use the hosted governed MCP surface and stay isolated by benchmark run tag and namespace
 - Mem0 runs must stay isolated by benchmark run tag and collection namespace
 
 ## Publication rule

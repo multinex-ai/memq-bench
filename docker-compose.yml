@@ -17,6 +17,8 @@ services:
   memq:
     image: ghcr.io/multinex-ai/multinex/munx-memorystack/gateway-deno:v2.1.0
     pull_policy: missing
+    profiles:
+      - legacy-local-memq
     ports:
       - "18000:8000"
     environment:
@@ -44,4 +46,3 @@ volumes:
   memq_data:
   qdrant_data:
   falkordb_data:
-

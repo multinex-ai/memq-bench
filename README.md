@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  Public benchmark repo for measuring operational memory retrieval and same-model answer quality with and without MemQ-backed context.
+  Public benchmark repo for measuring hosted MemQ, a governed global intelligence fabric for agent memory, against Mem0 OSS, keyword retrieval, and no-memory baselines.
 </p>
 
 <p align="center">
@@ -28,7 +28,7 @@
 
 Fresh run: `2026-04-28T18:02:44.970Z`
 
-MemQ is dramatically ahead of the Mem0 OSS adapter in the current retrieval benchmark:
+Hosted MemQ is dramatically ahead of the Mem0 OSS adapter in the current retrieval benchmark:
 
 | Metric | MemQ MCP | Mem0 OSS | MemQ advantage |
 | --- | ---: | ---: | ---: |
@@ -40,6 +40,17 @@ MemQ is dramatically ahead of the Mem0 OSS adapter in the current retrieval benc
 | P95 latency | `25 ms` | `2814 ms` | `113x lower` |
 
 This is the current artifact-backed retrieval result from [`artifacts/snapshot.json`](./artifacts/snapshot.json), not marketing copy.
+
+## What MemQ is in this benchmark
+
+MemQ is not presented here as a local vector-store helper or an embedded memory library. In this repo, MemQ is the hosted, governed global intelligence fabric exposed through the MemQ MCP surface and Billing Manager access controls.
+
+That makes the comparison intentionally explicit:
+
+- `memq_mcp` measures hosted MemQ: governed access, namespace isolation, durable replay, live MCP retrieval, and operator-grade usage controls.
+- `mem0_oss` measures the Mem0 open-source adapter backed by Qdrant in this benchmark setup.
+- `keyword_baseline` measures deterministic text matching over the same corpus.
+- `no_memory` measures the same model without retrieved context.
 
 ## Docs
 
@@ -53,10 +64,10 @@ This is the current artifact-backed retrieval result from [`artifacts/snapshot.j
 
 ## What this repo measures
 
-`memq-bench` now has two benchmark layers over the same operational memory corpus.
+`memq-bench` now has two benchmark layers over the same operational memory corpus, using hosted MemQ as the governed fabric under test.
 
 1. Retrieval benchmark
-   Compares `memq_mcp`, `mem0_oss`, and a deterministic `keyword_baseline` on 12 paraphrased operational queries across freshness, incident response, procedural recall, disambiguation, project memory, and preference memory.
+   Compares hosted `memq_mcp`, `mem0_oss`, and a deterministic `keyword_baseline` on 12 paraphrased operational queries across freshness, incident response, procedural recall, disambiguation, project memory, and preference memory.
 2. Same-model answer benchmark
    Uses the same Gemini model to answer the same 12 questions in four conditions:
    - `no_memory`
@@ -70,12 +81,12 @@ The retrieval layer measures ranking quality and leakage. The LLM layer measures
 
 This repo is designed to answer two different public questions without conflating them:
 
-1. Does MemQ retrieve the right memories better than other systems?
+1. Does the hosted MemQ fabric retrieve the right memories better than the Mem0 OSS adapter and lexical controls?
 2. Does giving an LLM MemQ-backed context improve its final answers compared with no memory at all?
 
 On the current checked-in corpus, the result is clear:
 
-- `MemQ vs Mem0 retrieval`: MemQ wins the current published retrieval layer on primary@1, recall, leakage resistance, and latency.
+- `MemQ vs Mem0 retrieval`: hosted MemQ wins the current published retrieval layer on primary@1, recall, leakage resistance, and latency.
 - `MemQ vs no-memory LLM`: the same model moves from `0%` answer pass with no memory to `75%` with MemQ context.
 - `MemQ vs Mem0 LLM`: the last successful same-model answer run still shows MemQ materially improving answers versus no memory; a fresh improved-context LLM rerun should be published only after provider quota is available.
 
@@ -100,11 +111,11 @@ Same-model answer benchmark, 12 cases, Gemini `2.0-flash`, 1 repetition:
 
 What the current snapshot proves:
 
-- MemQ is materially faster than the Mem0 OSS adapter in this setup.
-- MemQ is the most leakage-free provider in the current retrieval corpus.
-- MemQ leads Mem0 OSS by `+42` points on primary@1 while matching Mem0 OSS on recall@K.
-- MemQ averages `13 ms` retrieval versus `2511 ms` for Mem0 OSS, roughly `193x` lower average latency in the fresh run.
-- MemQ is `100%` leakage-free in the run; Mem0 OSS is `67%` leakage-free.
+- Hosted MemQ is materially faster than the Mem0 OSS adapter in this setup.
+- Hosted MemQ is the most leakage-free provider in the current retrieval corpus.
+- Hosted MemQ leads Mem0 OSS by `+42` points on primary@1 while matching Mem0 OSS on recall@K.
+- Hosted MemQ averages `13 ms` retrieval versus `2511 ms` for Mem0 OSS, roughly `193x` lower average latency in the fresh run.
+- Hosted MemQ is `100%` leakage-free in the run; Mem0 OSS is `67%` leakage-free.
 - The same-model answer benchmark still shows a real memory effect: `memq_context` moves the model from `0%` answer pass without memory to `75%` with MemQ context.
 - The repo publishes artifact-backed retrieval wins separately from the last successful LLM answer snapshot so readers can verify exactly which layer each claim belongs to.
 
@@ -112,7 +123,8 @@ What the current snapshot proves:
 
 The old fixture-only harness could prove repository wiring, but it could not prove product behavior. The current suite fixes that:
 
-- MemQ is benchmarked through a live MCP surface.
+- MemQ is benchmarked through the hosted MCP surface, not a local fixture or embedded vector helper.
+- MemQ's governance layer is part of the product boundary: hosted access, namespaces, and controlled context are the system under test.
 - Mem0 is benchmarked through real `mem0ai` calls backed by live Qdrant.
 - Queries are paraphrased away from the exact stored text so a keyword control is not automatically perfect.
 - The LLM benchmark uses the same model across all memory conditions to isolate the effect of context, not model choice.
@@ -135,11 +147,11 @@ Files:
 
 ## Quickstart
 
-Start the local benchmark stack:
+Start the local comparator/support services. MemQ itself is hosted; the local services are for the Mem0 OSS adapter and legacy support paths.
 
 ```bash
 cd memq-bench
-docker compose up -d
+docker compose up -d qdrant falkordb
 ```
 
 Install dependencies:
@@ -147,6 +159,12 @@ Install dependencies:
 ```bash
 npm install
 npm run setup:mem0
+```
+
+Provide a hosted MemQ auth header before running the primary retrieval benchmark:
+
+```bash
+export MEMQ_API_KEY_AUTH_HEADER="Bearer <your MemQ API token>"
 ```
 
 Run the retrieval benchmark:

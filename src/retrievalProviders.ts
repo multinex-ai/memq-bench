@@ -132,13 +132,31 @@ class MemQMcpProvider implements RetrievalProvider {
   private sessionId: string | null = null;
   private readonly timeoutMs: number;
   private readonly url: string;
+  private readonly authorizationHeaderEnv: string | undefined;
   private runTag = "";
   private state: ProviderState = { seededEntryCount: 0, prepareDurationMs: 0 };
   private scopedAgentByNamespace = new Map<string, string>();
 
-  public constructor(url: string, timeoutMs: number) {
+  public constructor(url: string, timeoutMs: number, authorizationHeaderEnv: string | undefined) {
     this.url = url;
     this.timeoutMs = timeoutMs;
+    this.authorizationHeaderEnv = authorizationHeaderEnv;
+  }
+
+  private headers(extraHeaders: Record<string, string> = {}): Record<string, string> {
+    const headers: Record<string, string> = {
+      "Content-Type": "application/json",
+      Accept: "application/json, text/event-stream",
+      ...extraHeaders,
+    };
+    if (this.authorizationHeaderEnv) {
+      const authorization = process.env[this.authorizationHeaderEnv];
+      if (!authorization) {
+        throw new Error(`MemQ MCP auth header env ${this.authorizationHeaderEnv} is not set.`);
+      }
+      headers.Authorization = authorization;
+    }
+    return headers;
   }
 
   private async initialize(): Promise<void> {
@@ -147,10 +165,7 @@ class MemQMcpProvider implements RetrievalProvider {
     }
     const response = await fetch(this.url, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json, text/event-stream",
-      },
+      headers: this.headers(),
       body: JSON.stringify({
         jsonrpc: "2.0",
         id: "initialize",
@@ -173,11 +188,7 @@ class MemQMcpProvider implements RetrievalProvider {
     }
     await fetch(this.url, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json, text/event-stream",
-        "Mcp-Session-Id": this.sessionId,
-      },
+      headers: this.headers({ "Mcp-Session-Id": this.sessionId }),
       body: JSON.stringify({ jsonrpc: "2.0", method: "notifications/initialized" }),
       signal: AbortSignal.timeout(this.timeoutMs),
     });
@@ -198,11 +209,7 @@ class MemQMcpProvider implements RetrievalProvider {
     }
     const response = await fetch(this.url, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json, text/event-stream",
-        "Mcp-Session-Id": this.sessionId,
-      },
+      headers: this.headers({ "Mcp-Session-Id": this.sessionId }),
       body: JSON.stringify({
         jsonrpc: "2.0",
         id: `tool:${name}`,
@@ -465,7 +472,7 @@ export function createRetrievalProvider(
       if (!manifest.memq) {
         throw new Error("memq configuration is required for the memq_mcp provider.");
       }
-      return new MemQMcpProvider(manifest.memq.url, manifest.memq.timeoutMs);
+      return new MemQMcpProvider(manifest.memq.url, manifest.memq.timeoutMs, manifest.memq.authorizationHeaderEnv);
     case "mem0_oss":
       return new Mem0OssProvider(rootDir, manifest);
   }

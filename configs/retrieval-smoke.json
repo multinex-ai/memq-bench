@@ -13,8 +13,9 @@
     { "id": "mem0_oss" }
   ],
   "memq": {
-    "url": "http://127.0.0.1:18000/mcp/v1",
-    "timeoutMs": 8000
+    "url": "https://mcp.multinex.ai/mcp/v1",
+    "timeoutMs": 8000,
+    "authorizationHeaderEnv": "MEMQ_API_KEY_AUTH_HEADER"
   },
   "mem0": {
     "venvPath": ".venv-mem0",
@@ -28,4 +29,3 @@
   },
   "outputDir": "artifacts/retrieval-results"
 }
-

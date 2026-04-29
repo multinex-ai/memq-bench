@@ -41,6 +41,7 @@ export const RetrievalDatasetSchema = z.object({
 export const MemQMcpConfigSchema = z.object({
   url: z.string().url(),
   timeoutMs: z.number().int().positive().default(5000),
+  authorizationHeaderEnv: z.string().min(1).optional(),
 });
 
 export const Mem0ConfigSchema = z.object({

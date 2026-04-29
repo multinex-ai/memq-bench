@@ -26,6 +26,7 @@ A public snapshot must include:
 - never publish a headline number without the underlying raw result files
 - never describe the same-model answer benchmark as a direct product retrieval win
 - never describe the retrieval benchmark as an LLM benchmark
+- never flatten MemQ into a local memory-library claim; MemQ should be described as the hosted, governed global intelligence fabric when compared with Mem0 OSS
 - never hide a worse comparator result if the committed artifacts show it
 - never switch models between LLM answer conditions
 - never describe lexical controls as commercial product competitors
