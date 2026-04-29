@@ -2,7 +2,8 @@
 
 Generated: 2026-04-09T03:03:18.677Z
 
-## keyword_context
+## Keyword context
+- condition id: `keyword_context`
 - runs: 12
 - completed: 12
 - failed: 0
@@ -11,7 +12,8 @@ Generated: 2026-04-09T03:03:18.677Z
 - citation hit rate: 50%
 - citation recall: 54%
 
-## mem0_context
+## Mem0 OSS context
+- condition id: `mem0_context`
 - runs: 12
 - completed: 12
 - failed: 0
@@ -20,7 +22,8 @@ Generated: 2026-04-09T03:03:18.677Z
 - citation hit rate: 50%
 - citation recall: 50%
 
-## memq_context
+## Hosted MemQ context
+- condition id: `memq_context`
 - runs: 12
 - completed: 12
 - failed: 0
@@ -29,7 +32,8 @@ Generated: 2026-04-09T03:03:18.677Z
 - citation hit rate: 42%
 - citation recall: 42%
 
-## no_memory
+## No memory
+- condition id: `no_memory`
 - runs: 12
 - completed: 12
 - failed: 0
@@ -39,6 +43,6 @@ Generated: 2026-04-09T03:03:18.677Z
 - citation recall: 0%
 
 ## Comparisons
-- memq_context vs no_memory: answer pass delta 75 pts, citation hit delta 42 pts, citation recall delta 42 pts
-- memq_context vs keyword_context: answer pass delta 0 pts, citation hit delta -8 pts, citation recall delta -12 pts
-- memq_context vs mem0_context: answer pass delta -17 pts, citation hit delta -8 pts, citation recall delta -8 pts
+- Hosted MemQ context vs No memory: answer pass delta 75 pts, citation hit delta 42 pts, citation recall delta 42 pts
+- Hosted MemQ context vs Keyword context: answer pass delta 0 pts, citation hit delta -8 pts, citation recall delta -12 pts
+- Hosted MemQ context vs Mem0 OSS context: answer pass delta -17 pts, citation hit delta -8 pts, citation recall delta -8 pts

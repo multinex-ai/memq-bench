@@ -20,6 +20,13 @@ interface ConditionComparison {
   citationRecallDeltaPoints: number;
 }
 
+const conditionDisplayName: Record<LlmCondition, string> = {
+  no_memory: "No memory",
+  keyword_context: "Keyword context",
+  memq_context: "Hosted MemQ context",
+  mem0_context: "Mem0 OSS context",
+};
+
 function average(values: number[]): number {
   if (values.length === 0) {
     return 0;
@@ -100,8 +107,13 @@ export async function publishLlm(resultsDir: string, outFile: string): Promise<v
   };
 
   const lines: string[] = ["# MemQ LLM Answer Benchmark Summary", "", `Generated: ${generatedAt}`, ""];
-  for (const [condition, aggregate] of Object.entries(summary)) {
-    lines.push(`## ${condition}`);
+  for (const condition of Object.keys(summary) as LlmCondition[]) {
+    const aggregate = summary[condition];
+    if (!aggregate) {
+      continue;
+    }
+    lines.push(`## ${conditionDisplayName[condition]}`);
+    lines.push(`- condition id: \`${condition}\``);
     lines.push(`- runs: ${aggregate.runs}`);
     lines.push(`- completed: ${aggregate.completed}`);
     lines.push(`- failed: ${aggregate.failed}`);
@@ -115,7 +127,7 @@ export async function publishLlm(resultsDir: string, outFile: string): Promise<v
   if (comparisons.length > 0) {
     lines.push("## Comparisons");
     for (const comparison of comparisons) {
-      lines.push(`- ${comparison.condition} vs ${comparison.comparator}: answer pass delta ${comparison.answerPassDeltaPoints} pts, citation hit delta ${comparison.citationHitDeltaPoints} pts, citation recall delta ${comparison.citationRecallDeltaPoints} pts`);
+      lines.push(`- ${conditionDisplayName[comparison.condition]} vs ${conditionDisplayName[comparison.comparator]}: answer pass delta ${comparison.answerPassDeltaPoints} pts, citation hit delta ${comparison.citationHitDeltaPoints} pts, citation recall delta ${comparison.citationRecallDeltaPoints} pts`);
     }
     lines.push("");
   }

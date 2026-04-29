@@ -1,6 +1,6 @@
 ---
 name: memq-memory
-description: Persistent sovereign memory for AI coding agents via MemQ MCP tools. Provides session lifecycle hooks, memory patterns, and best-practice recipes for durable recall, episodic replay, and cross-session continuity.
+description: Hosted governed memory fabric for AI coding agents via MemQ MCP tools. Provides session lifecycle hooks, memory patterns, and best-practice recipes for durable recall, episodic replay, and cross-session continuity.
 version: 1.0.0
 homepage: https://multinex.ai/memq
 tools:
@@ -18,11 +18,14 @@ tools:
 
 # MemQ Memory Skill
 
-Persistent sovereign memory for AI coding agents. This skill teaches agents how to use MemQ MCP tools effectively for durable recall, session continuity, and cross-conversation intelligence.
+Hosted governed memory fabric for AI coding agents. This skill teaches agents how to use MemQ MCP tools effectively for durable recall, session continuity, and cross-conversation intelligence.
 
 ## Prerequisites
 
-MemQ MCP server must be connected. Install via:
+MemQ MCP is hosted at `https://mcp.multinex.ai/mcp/v1` and governed through Billing Manager OAuth/API-key access. Start hosted access through the Billing Manager:
+[MemQ signup](https://billing.multinex.ai/signup?product=memq&next=%2Fcheckout%3Fproduct%3Dmemq-contributor).
+
+Install via:
 
 ```bash
 curl -fsSL https://memq.multinex.ai/install-mcp | bash

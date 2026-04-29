@@ -1,6 +1,9 @@
 # MemQ Memory Protocol — Gemini / Antigravity Instructions
 
-> ⚖️ Persistent sovereign memory via MemQ MCP tools. USE THEM for durable recall across sessions.
+> Hosted governed memory via MemQ MCP tools. USE THEM for durable recall across sessions.
+
+Endpoint: `https://mcp.multinex.ai/mcp/v1`
+Signup: [Billing Manager](https://billing.multinex.ai/signup?product=memq&next=%2Fcheckout%3Fproduct%3Dmemq-contributor)
 
 ## Session Start (Execute Immediately)
 

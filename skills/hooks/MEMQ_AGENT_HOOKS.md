@@ -1,7 +1,10 @@
 # MemQ Agent Hooks
 
-> Universal, AI-agnostic trigger hooks for persistent memory.
+> Universal, AI-agnostic trigger hooks for hosted governed MemQ memory.
 > Drop this file into your project as `AGENTS.md`, `GEMINI.md`, `.cursorrules`, or `.claude/instructions.md`.
+
+MemQ MCP is hosted at `https://mcp.multinex.ai/mcp/v1` and governed through Billing Manager OAuth/API-key access:
+[MemQ signup](https://billing.multinex.ai/signup?product=memq&next=%2Fcheckout%3Fproduct%3Dmemq-contributor).
 
 ## Trigger: SESSION_START
 

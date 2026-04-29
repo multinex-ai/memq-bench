@@ -1,6 +1,6 @@
 ---
 name: memq-planning
-description: Durable plan state management for multi-step AI agent workflows. Checkpoint, resume, and coordinate complex tasks across sessions using MemQ's sovereign plan state engine.
+description: Durable plan state management for multi-step AI agent workflows. Checkpoint, resume, and coordinate complex tasks across sessions using MemQ's hosted governed plan state engine.
 version: 1.0.0
 homepage: https://multinex.ai/memq
 tools:
@@ -20,7 +20,8 @@ Durable plan state management for multi-step AI agent workflows. Use this skill 
 
 ## Prerequisites
 
-MemQ MCP server must be connected with an active subscription that includes contract tools.
+MemQ MCP is hosted at `https://mcp.multinex.ai/mcp/v1` and governed through Billing Manager OAuth/API-key access. An active subscription with contract tools is required:
+[MemQ signup](https://billing.multinex.ai/signup?product=memq&next=%2Fcheckout%3Fproduct%3Dmemq-contributor).
 
 ## Core Concepts
 

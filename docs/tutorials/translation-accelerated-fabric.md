@@ -1,12 +1,10 @@
 # Translation Accelerated Fabric Tutorial
 
-This tutorial explains the MemQ translation proof published in this repo.
+This tutorial explains the hosted MemQ translation proof published in this repo.
 
 ## What the benchmark is proving
 
-MemQ can translate embeddings across model spaces without regenerating them from
-text. In the benchmark corpus, that is represented by a stable request and a
-stable translated result.
+The hosted governed MemQ fabric can translate embeddings across model spaces without regenerating them from text. In the benchmark corpus, that is represented by a stable request and a stable translated result.
 
 ## Canonical request
 

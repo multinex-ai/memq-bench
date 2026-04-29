@@ -43,7 +43,7 @@ This is the current artifact-backed retrieval result from [`artifacts/snapshot.j
 
 ## What MemQ is in this benchmark
 
-MemQ is not presented here as a local vector-store helper or an embedded memory library. In this repo, MemQ is the hosted, governed global intelligence fabric exposed through the MemQ MCP surface and Billing Manager access controls.
+MemQ is not presented here as a self-managed retrieval helper. In this repo, MemQ is the hosted, governed global intelligence fabric exposed through the MemQ MCP surface and Billing Manager access controls.
 
 That makes the comparison intentionally explicit:
 
@@ -147,6 +147,9 @@ Files:
 
 ## Quickstart
 
+Hosted MemQ access is provisioned through the Billing Manager:
+[start MemQ signup](https://billing.multinex.ai/signup?product=memq&next=%2Fcheckout%3Fproduct%3Dmemq-contributor).
+
 Start the local comparator/support services. MemQ itself is hosted; the local services are for the Mem0 OSS adapter and legacy support paths.
 
 ```bash
@@ -190,6 +193,8 @@ npm run bench:llm
 This repo also distributes reusable agent skills and IDE hook templates for integrating MemQ persistent memory into AI coding tools.
 
 ### One-line MCP install
+
+Need hosted access first? [Start MemQ signup through the Billing Manager](https://billing.multinex.ai/signup?product=memq&next=%2Fcheckout%3Fproduct%3Dmemq-contributor).
 
 ```bash
 curl -fsSL https://memq.multinex.ai/install-mcp | bash

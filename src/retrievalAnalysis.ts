@@ -25,6 +25,12 @@ interface Comparison {
   latencyDeltaMs: number;
 }
 
+const providerDisplayName: Record<RetrievalProviderId, string> = {
+  keyword_baseline: "Keyword baseline",
+  mem0_oss: "Mem0 OSS",
+  memq_mcp: "Hosted MemQ MCP",
+};
+
 function percentile(values: number[], percentileValue: number): number {
   if (values.length === 0) {
     return 0;
@@ -149,8 +155,13 @@ export async function publishRetrieval(resultsDir: string, outFile: string): Pro
     "## Providers",
   ];
 
-  for (const [provider, aggregate] of Object.entries(summary)) {
-    lines.push(`### ${provider}`);
+  for (const provider of Object.keys(summary) as RetrievalProviderId[]) {
+    const aggregate = summary[provider];
+    if (!aggregate) {
+      continue;
+    }
+    lines.push(`### ${providerDisplayName[provider]}`);
+    lines.push(`- provider id: \`${provider}\``);
     lines.push(`- runs: ${aggregate.runs}`);
     lines.push(`- completed: ${aggregate.completed}`);
     lines.push(`- failed: ${aggregate.failed}`);
@@ -169,7 +180,7 @@ export async function publishRetrieval(resultsDir: string, outFile: string): Pro
   if (comparisons.length > 0) {
     lines.push("## Comparisons");
     for (const comparison of comparisons) {
-      lines.push(`- ${comparison.provider} vs ${comparison.comparator}: primary@1 delta ${comparison.primaryAt1DeltaPoints} pts, recall delta ${comparison.recallDeltaPoints} pts, avg latency delta ${comparison.latencyDeltaMs} ms`);
+      lines.push(`- ${providerDisplayName[comparison.provider]} vs ${providerDisplayName[comparison.comparator]}: primary@1 delta ${comparison.primaryAt1DeltaPoints} pts, recall delta ${comparison.recallDeltaPoints} pts, avg latency delta ${comparison.latencyDeltaMs} ms`);
     }
     lines.push("");
   }

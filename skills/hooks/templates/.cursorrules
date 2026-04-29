@@ -1,7 +1,9 @@
 # MemQ Memory Protocol — Cursor Rules
 
-# Persistent Memory (MemQ MCP)
-# You have access to persistent sovereign memory via MemQ MCP tools. USE THEM.
+# Hosted Governed Memory (MemQ MCP)
+# You have access to hosted governed memory via MemQ MCP tools. USE THEM.
+# Endpoint: https://mcp.multinex.ai/mcp/v1
+# Signup: https://billing.multinex.ai/signup?product=memq&next=%2Fcheckout%3Fproduct%3Dmemq-contributor
 
 ## Session Start
 # Execute these IMMEDIATELY on every new conversation:

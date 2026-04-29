@@ -5,6 +5,7 @@ MemQ Bench is the documentation surface for the public MemQ benchmark repo. It f
 ## Start here
 
 - [Repo overview](../README.md)
+- [Hosted MemQ signup](https://billing.multinex.ai/signup?product=memq&next=%2Fcheckout%3Fproduct%3Dmemq-contributor)
 - [Methodology](./methodology.md)
 - [Reproducibility Protocol](./reproducibility-protocol.md)
 - [Artifact Map](./artifact-map.md)

@@ -1,6 +1,9 @@
 # MemQ Memory Protocol — Claude Instructions
 
-You have access to persistent sovereign memory via MemQ MCP tools. These tools give you durable recall, cross-session continuity, and learnable memory patterns.
+You have access to hosted governed memory via MemQ MCP tools. These tools give you durable recall, cross-session continuity, and learnable memory patterns.
+
+Endpoint: `https://mcp.multinex.ai/mcp/v1`
+Signup: [Billing Manager](https://billing.multinex.ai/signup?product=memq&next=%2Fcheckout%3Fproduct%3Dmemq-contributor)
 
 ## Session Start (Execute Immediately)
 

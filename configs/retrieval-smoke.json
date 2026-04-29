@@ -1,6 +1,6 @@
 {
   "name": "memq-retrieval-smoke",
-  "description": "Operational retrieval benchmark comparing MemQ MCP against Mem0 OSS and a deterministic keyword baseline.",
+  "description": "Operational retrieval benchmark comparing hosted governed MemQ MCP against Mem0 OSS and a deterministic keyword baseline.",
   "dataset": {
     "corpusPath": "datasets/ops-retrieval/corpus.json",
     "casesPath": "datasets/ops-retrieval/cases.json"

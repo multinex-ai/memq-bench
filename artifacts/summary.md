@@ -3,7 +3,8 @@
 Generated: 2026-04-28T18:02:44.970Z
 
 ## Providers
-### keyword_baseline
+### Keyword baseline
+- provider id: `keyword_baseline`
 - runs: 36
 - completed: 36
 - failed: 0
@@ -17,7 +18,8 @@ Generated: 2026-04-28T18:02:44.970Z
 - avg latency ms: 0
 - p95 latency ms: 0
 
-### mem0_oss
+### Mem0 OSS
+- provider id: `mem0_oss`
 - runs: 36
 - completed: 36
 - failed: 0
@@ -31,7 +33,8 @@ Generated: 2026-04-28T18:02:44.970Z
 - avg latency ms: 2511
 - p95 latency ms: 2814
 
-### memq_mcp
+### Hosted MemQ MCP
+- provider id: `memq_mcp`
 - runs: 36
 - completed: 36
 - failed: 0
@@ -46,5 +49,5 @@ Generated: 2026-04-28T18:02:44.970Z
 - p95 latency ms: 25
 
 ## Comparisons
-- memq_mcp vs mem0_oss: primary@1 delta 42 pts, recall delta 0 pts, avg latency delta -2498 ms
-- memq_mcp vs keyword_baseline: primary@1 delta 42 pts, recall delta 8 pts, avg latency delta 13 ms
+- Hosted MemQ MCP vs Mem0 OSS: primary@1 delta 42 pts, recall delta 0 pts, avg latency delta -2498 ms
+- Hosted MemQ MCP vs Keyword baseline: primary@1 delta 42 pts, recall delta 8 pts, avg latency delta 13 ms

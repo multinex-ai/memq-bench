@@ -1,6 +1,6 @@
 # Coordination Benchmarks Tutorial
 
-This repo includes two classic distributed-systems problems adapted to MemQ.
+This repo includes two classic distributed-systems problems adapted to hosted governed MemQ.
 
 ## Byzantine Generals
 
@@ -11,8 +11,7 @@ The benchmark checks whether the agent remembers that:
 - a `2 of 3` quorum is required
 - only the quorum-approved command is promoted into `_commons`
 
-This demonstrates that MemQ can preserve coordination state across agents while
-also carrying translation facts across embedding spaces.
+This demonstrates that the hosted MemQ fabric can preserve governed coordination state across agents while also carrying translation facts across embedding spaces.
 
 ## Dining Philosophers
 
@@ -22,5 +21,4 @@ The benchmark checks whether the agent remembers that:
 - odd and even workers acquire resources in different orders to break deadlock
 - the resolved coordination pattern is written into `_commons` as a `resolved_issue`
 
-This demonstrates that MemQ can turn solved coordination problems into reusable
-commons memory.
+This demonstrates that hosted MemQ can turn solved coordination problems into reusable governed commons memory.

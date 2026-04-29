@@ -19,6 +19,8 @@ benchmark surface.
 - [`../configs/retrieval-smoke.json`](../configs/retrieval-smoke.json) — retrieval benchmark manifest
 - [`../configs/llm-answer-smoke.json`](../configs/llm-answer-smoke.json) — same-model answer benchmark manifest
 
+`memq_mcp` artifacts in the primary snapshot represent hosted governed MemQ MCP. Manifests ending in `.local.json` are retained as historical local harness records and should not be presented as the current hosted benchmark path.
+
 ## Benchmark corpus
 
 - [`../datasets/ops-retrieval/corpus.json`](../datasets/ops-retrieval/corpus.json) — stored operational memories
