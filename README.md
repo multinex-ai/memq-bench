@@ -21,7 +21,7 @@
 
 <p align="center">
   <strong>Try hosted MemQ:</strong>
-  <a href="https://billing.multinex.ai/signup">sign up through the Billing Manager</a>.
+  <a href="https://billing.multinex.ai/signup?product=memq&next=%2Fcheckout%3Fproduct%3Dmemq-contributor">start a MemQ signup through the Billing Manager</a>.
 </p>
 
 ## Latest benchmark headline
