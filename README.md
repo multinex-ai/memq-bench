@@ -61,6 +61,7 @@ That makes the comparison intentionally explicit:
 - [Retrieval summary](./artifacts/summary.md)
 - [LLM snapshot](./artifacts/llm-snapshot.json)
 - [LLM summary](./artifacts/llm-summary.md)
+- [LLM full context](./llms-full.txt)
 
 ## What this repo measures
 

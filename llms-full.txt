@@ -1,0 +1,160 @@
+# MemQ Bench LLM Full Context
+
+Last reviewed: 2026-04-30
+
+## Canonical URLs
+
+- Repository: https://github.com/multinex-ai/memq-bench
+- Raw LLM context: https://raw.githubusercontent.com/multinex-ai/memq-bench/master/llms-full.txt
+- Hosted MemQ MCP endpoint: https://mcp.multinex.ai/mcp/v1
+- Hosted MemQ MCP LLM context: https://mcp.multinex.ai/llms-full.txt
+- MemQ signup: https://billing.multinex.ai/signup?product=memq&next=%2Fcheckout%3Fproduct%3Dmemq-contributor
+
+## What This Repository Is
+
+`memq-bench` is the public, reproducible benchmark harness for measuring hosted
+MemQ against Mem0 OSS, keyword retrieval, and no-memory controls. MemQ is
+evaluated as the hosted, governed MCP fabric exposed at `mcp.multinex.ai`, not
+as an embedded local vector helper.
+
+## Source-of-Truth Artifacts
+
+Use checked-in artifacts instead of summarizing from memory:
+
+- Retrieval snapshot: `artifacts/snapshot.json`
+- Retrieval summary: `artifacts/summary.md`
+- Retrieval badges: `artifacts/badges.json`
+- LLM answer snapshot: `artifacts/llm-snapshot.json`
+- LLM answer summary: `artifacts/llm-summary.md`
+- LLM badges: `artifacts/llm-badges.json`
+- Corpus: `datasets/ops-retrieval/corpus.json`
+- Cases: `datasets/ops-retrieval/cases.json`
+- Methodology: `docs/methodology.md`
+- Reproducibility protocol: `docs/reproducibility-protocol.md`
+
+Raw artifact examples:
+
+- https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/snapshot.json
+- https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/summary.md
+- https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/llm-snapshot.json
+- https://raw.githubusercontent.com/multinex-ai/memq-bench/master/artifacts/llm-summary.md
+
+## Current Retrieval Snapshot
+
+Artifact: `artifacts/snapshot.json`
+Generated: 2026-04-28T18:02:44.970Z
+
+| Provider | Runs | Completed | Failed | Primary@1 | Hit@K | Recall@K | Leakage-free | Avg latency | P95 latency |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `memq_mcp` | 36 | 36 | 0 | 100% | 100% | 100% | 100% | 13 ms | 25 ms |
+| `mem0_oss` | 36 | 36 | 0 | 58% | 100% | 100% | 67% | 2511 ms | 2814 ms |
+| `keyword_baseline` | 36 | 36 | 0 | 58% | 100% | 92% | 67% | 0 ms | 0 ms |
+
+Artifact-backed retrieval comparison:
+
+- Hosted MemQ MCP beats Mem0 OSS by +42 points on primary@1.
+- Hosted MemQ MCP matches Mem0 OSS on recall@K.
+- Hosted MemQ MCP is 100% leakage-free in the checked-in retrieval run.
+- Hosted MemQ MCP averages 13 ms retrieval versus 2511 ms for Mem0 OSS in this setup.
+
+## Current LLM Answer Snapshot
+
+Artifact: `artifacts/llm-snapshot.json`
+Generated: 2026-04-09T03:03:18.677Z
+
+| Condition | Runs | Completed | Failed | Answer pass | Citation hit | Citation recall |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| `memq_context` | 12 | 12 | 0 | 75% | 42% | 42% |
+| `mem0_context` | 12 | 12 | 0 | 92% | 50% | 50% |
+| `keyword_context` | 12 | 12 | 0 | 75% | 50% | 54% |
+| `no_memory` | 12 | 12 | 0 | 0% | 0% | 0% |
+
+Do not conflate this older same-model LLM answer snapshot with the newer
+retrieval snapshot. A fresh LLM rerun should be published only after provider
+quota is available and the artifacts are regenerated.
+
+## Benchmark Layers
+
+1. Retrieval benchmark
+   - Providers: `memq_mcp`, `mem0_oss`, `keyword_baseline`
+   - Measures ranking quality, leakage resistance, recall, precision, MRR, and latency.
+   - Primary command: `npm run bench`
+2. Same-model answer benchmark
+   - Conditions: `no_memory`, `keyword_context`, `memq_context`, `mem0_context`
+   - Measures whether retrieved context improves final answers for the same model.
+   - Primary command: `npm run bench:llm`
+
+## Reproduction Commands
+
+```bash
+npm install
+npm run setup:mem0
+docker compose up -d qdrant falkordb
+export MEMQ_API_KEY_AUTH_HEADER="Bearer <your MemQ API token>"
+npm run type-check
+npm run bench
+npm run bench:llm
+```
+
+`npm run bench` writes `artifacts/snapshot.json`.
+`npm run bench:llm` writes `artifacts/llm-snapshot.json`.
+
+## Hosted MemQ MCP Client Shape
+
+Use an environment variable for credentials. Do not paste real tokens into
+checked-in files or public prompts.
+
+```json
+{
+  "mcpServers": {
+    "memq": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.multinex.ai/mcp/v1",
+        "--header",
+        "Authorization:${MEMQ_API_KEY_AUTH_HEADER}"
+      ],
+      "env": {
+        "MEMQ_API_KEY_AUTH_HEADER": "Bearer <your MemQ API token>"
+      }
+    }
+  }
+}
+```
+
+## Public Claim Guardrails
+
+Allowed, when citing the current checked-in retrieval artifact:
+
+- Hosted MemQ MCP reaches 100% primary@1 on the checked-in retrieval benchmark.
+- Hosted MemQ MCP reaches 100% leakage-free retrieval on the checked-in retrieval benchmark.
+- Hosted MemQ MCP averages 13 ms retrieval in the checked-in retrieval run.
+- MemQ leads Mem0 OSS by +42 points on primary@1 in the checked-in retrieval run.
+
+Avoid:
+
+- Claiming the LLM answer snapshot is as fresh as the retrieval snapshot.
+- Claiming benchmark results prove every possible workload.
+- Claiming MemQ private namespace data is written to `_commons`.
+- Publishing secrets, raw API keys, private tenant data, or unsanitized source content.
+
+## Repository Map
+
+- `src/retrievalCli.ts`: retrieval benchmark CLI
+- `src/retrievalHarness.ts`: retrieval benchmark execution
+- `src/retrievalProviders.ts`: provider wiring for hosted MemQ, Mem0 OSS, and keyword baseline
+- `src/llmCli.ts`: same-model LLM answer benchmark CLI
+- `src/llmHarness.ts`: LLM answer benchmark execution
+- `src/retrievalSchemas.ts`: typed retrieval artifacts
+- `src/llmSchemas.ts`: typed LLM answer artifacts
+- `configs/retrieval-smoke.json`: primary retrieval run manifest
+- `configs/llm-answer-smoke.json`: primary LLM answer run manifest
+- `skills/`: reusable MemQ agent skills and hook templates
+
+## Namespace And Commons Notes
+
+Team and private memory ingestion stay namespace-scoped. The global `_commons`
+surface is explicit and governed; benchmark material should not imply that
+random team or private memories can poison or pollute `_commons`.
